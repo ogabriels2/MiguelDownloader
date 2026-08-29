@@ -9,6 +9,9 @@
     <WarningsAsErrors Condition="'$(CI)' == 'true'">$(WarningsAsErrors);NU1900</WarningsAsErrors>
     <NuGetAuditMode>all</NuGetAuditMode>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- Every shipped binary targets the only supported platform. Declaring the RID for every
+         project also makes solution-level locked restores identical on clean CI machines. -->
+    <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
     <InvariantGlobalization>false</InvariantGlobalization>
     <!--
       Authorship. These end up in the file properties Windows shows on the binary, in the
