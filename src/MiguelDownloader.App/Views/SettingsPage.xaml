@@ -1,0 +1,306 @@
+<UserControl x:Class="MiguelDownloader.App.Views.SettingsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:loc="clr-namespace:MiguelDownloader.App.Localization"
+             xmlns:vm="clr-namespace:MiguelDownloader.App.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance vm:SettingsViewModel}">
+
+    <UserControl.Resources>
+        <Style x:Key="SettingsGroup" TargetType="GroupBox">
+            <Setter Property="Margin" Value="0,0,0,14" />
+            <Setter Property="Padding" Value="14,10,14,14" />
+        </Style>
+        <Style x:Key="SettingsCheck" TargetType="CheckBox">
+            <Setter Property="Margin" Value="0,0,0,9" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TabControl Margin="20,14,20,0" BorderThickness="0" Background="Transparent">
+            <!-- Application behaviour only; output for one job is chosen in the workspace. -->
+            <TabItem Header="{loc:Str Settings_General}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,16,12,18">
+                    <StackPanel MaxWidth="760" HorizontalAlignment="Left">
+                        <GroupBox Header="{loc:Str Settings_General}" Style="{StaticResource SettingsGroup}">
+                            <StackPanel>
+                                <TextBlock Text="{loc:Str Settings_DownloadFolder}" Style="{StaticResource FieldLabel}" />
+                                <Grid Margin="0,0,0,14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <ui:TextBox Text="{Binding DownloadFolder}" />
+                                    <ui:Button Grid.Column="1" Margin="8,0,0,0" Content="{loc:Str Action_Browse}"
+                                               Command="{Binding BrowseDownloadFolderCommand}" />
+                                    <ui:Button Grid.Column="2" Margin="6,0,0,0" Icon="{ui:SymbolIcon FolderOpen24}"
+                                               ToolTip="{loc:Str Action_OpenFolder}"
+                                               Command="{Binding OpenDownloadFolderCommand}" />
+                                </Grid>
+
+                                <Grid Margin="0,0,0,14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="14" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="{loc:Str Settings_Language}" Style="{StaticResource FieldLabel}" />
+                                        <ComboBox ItemsSource="{Binding LanguageChoices}" SelectedValue="{Binding Language}"
+                                                  SelectedValuePath="Code" DisplayMemberPath="DisplayName" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="{loc:Str Settings_Theme}" Style="{StaticResource FieldLabel}" />
+                                        <ComboBox ItemsSource="{Binding ThemeChoices}" SelectedItem="{Binding Theme_}">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Converter={StaticResource LocalizedEnum}, ConverterParameter=Settings_Theme}" />
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+                                </Grid>
+
+                                <CheckBox Content="{loc:Str Settings_Notifications}" IsChecked="{Binding ShowNotifications}"
+                                          Style="{StaticResource SettingsCheck}" />
+                                <CheckBox Content="{loc:Str Settings_ConfirmExit}" IsChecked="{Binding ConfirmOnExit}"
+                                          Style="{StaticResource SettingsCheck}" />
+                                <CheckBox Content="{loc:Str Settings_WatchClipboard}" IsChecked="{Binding WatchClipboard}"
+                                          Style="{StaticResource SettingsCheck}" />
+                                <TextBlock Text="{loc:Str Settings_WatchClipboard_Description}"
+                                           FontSize="11" Opacity="0.68" TextWrapping="Wrap" Margin="24,-4,0,0" />
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- These values seed new downloads; every one can still be changed per job. -->
+            <TabItem Header="{loc:Str Settings_Defaults}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,16,12,18">
+                    <StackPanel MaxWidth="760" HorizontalAlignment="Left">
+                        <TextBlock Text="{loc:Str Settings_Defaults_Description}" FontSize="12" Opacity="0.7"
+                                   TextWrapping="Wrap" Margin="2,0,0,14" />
+
+                        <GroupBox Header="{loc:Str Settings_Video}" Style="{StaticResource SettingsGroup}">
+                            <StackPanel>
+                                <Grid Margin="0,0,0,14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="{loc:Str Settings_DefaultQuality}" Style="{StaticResource FieldLabel}" />
+                                        <ComboBox ItemsSource="{Binding TierChoices}" SelectedItem="{Binding DefaultTier}">
+                                            <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource LocalizedEnum}, ConverterParameter=Quality}" /></DataTemplate></ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="{loc:Str Settings_DefaultContainer}" Style="{StaticResource FieldLabel}" />
+                                        <ComboBox ItemsSource="{Binding ContainerChoices}" SelectedItem="{Binding DefaultContainer}">
+                                            <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource LocalizedEnum}, ConverterParameter=Container}" /></DataTemplate></ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="4">
+                                        <TextBlock Text="{loc:Str Settings_CodecPreference}" Style="{StaticResource FieldLabel}" />
+                                        <ComboBox ItemsSource="{Binding CodecChoices}" SelectedItem="{Binding CodecPreference}">
+                                            <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource LocalizedEnum}, ConverterParameter=Codec}" /></DataTemplate></ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                    </StackPanel>
+                                </Grid>
+
+                                <TextBlock Text="{loc:Str Label_Hdr}" Style="{StaticResource FieldLabel}" />
+                                <ComboBox ItemsSource="{Binding HdrChoices}" SelectedItem="{Binding Hdr}"
+                                          Width="260" HorizontalAlignment="Left" Margin="0,0,0,14">
+                                    <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource LocalizedEnum}, ConverterParameter=HdrPolicy}" /></DataTemplate></ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <WrapPanel>
+                                    <CheckBox Content="{loc:Str Settings_EmbedMetadata}" IsChecked="{Binding EmbedMetadata}" Margin="0,0,24,9" />
+                                    <CheckBox Content="{loc:Str Settings_EmbedChapters}" IsChecked="{Binding EmbedChapters}" Margin="0,0,24,9" />
+                                    <CheckBox Content="{loc:Str Settings_EmbedThumbnail}" IsChecked="{Binding EmbedThumbnail}" Margin="0,0,24,9" />
+                                </WrapPanel>
+                                <CheckBox Content="{loc:Str Settings_DownloadSubtitles}" IsChecked="{Binding DownloadSubtitles}"
+                                          Style="{StaticResource SettingsCheck}" />
+                                <WrapPanel Margin="24,0,0,8" Visibility="{Binding DownloadSubtitles, Converter={StaticResource BoolToVisibility}}">
+                                    <CheckBox Content="{loc:Str Settings_AutoSubtitles}" IsChecked="{Binding IncludeAutomaticSubtitles}" Margin="0,0,22,8" />
+                                    <CheckBox Content="{loc:Str Settings_EmbedSubtitles}" IsChecked="{Binding EmbedSubtitles}" Margin="0,0,22,8" />
+                                    <CheckBox Content="{loc:Str Settings_KeepSubtitleFiles}" IsChecked="{Binding KeepSubtitleFiles}" Margin="0,0,22,8" />
+                                </WrapPanel>
+
+                                <TextBlock Text="{loc:Str Settings_FileNameTemplate}" Style="{StaticResource FieldLabel}" />
+                                <ui:TextBox Text="{Binding VideoTemplate}" FontFamily="Cascadia Mono" Margin="0,0,0,7" />
+                                <ui:TextBox Text="{Binding PlaylistItemTemplate}" FontFamily="Cascadia Mono" Margin="0,0,0,8" />
+                                <CheckBox Content="{loc:Str Settings_MusicFolders}" IsChecked="{Binding CreatePlaylistFolder}" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="{loc:Str Settings_Music}" Style="{StaticResource SettingsGroup}">
+                            <StackPanel>
+                                <TextBlock Text="{loc:Str Settings_MusicFormat}" Style="{StaticResource FieldLabel}" />
+                                <ComboBox ItemsSource="{Binding AudioFormatChoices}" SelectedItem="{Binding MusicFormat}"
+                                          Width="260" HorizontalAlignment="Left" Margin="0,0,0,12">
+                                    <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource LocalizedEnum}, ConverterParameter=Audio}" /></DataTemplate></ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <WrapPanel>
+                                    <CheckBox Content="{loc:Str Settings_MusicCoverArt}" IsChecked="{Binding EmbedCoverArt}" Margin="0,0,24,9" />
+                                    <CheckBox Content="{loc:Str Settings_MusicMetadata}" IsChecked="{Binding WriteMusicMetadata}" Margin="0,0,24,9" />
+                                    <CheckBox Content="{loc:Str Settings_MusicFolders}" IsChecked="{Binding UseAlbumFolders}" Margin="0,0,24,9" />
+                                </WrapPanel>
+                                <TextBlock Text="{loc:Str Settings_FileNameTemplate}" Style="{StaticResource FieldLabel}" />
+                                <ui:TextBox Text="{Binding TrackTemplate}" FontFamily="Cascadia Mono" />
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="{loc:Str Settings_Downloads}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,16,12,18">
+                    <StackPanel MaxWidth="760" HorizontalAlignment="Left">
+                        <GroupBox Header="{loc:Str Settings_Downloads}" Style="{StaticResource SettingsGroup}">
+                            <StackPanel>
+                                <Grid Margin="0,0,0,14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="10" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="{loc:Str Settings_Concurrency}" Style="{StaticResource FieldLabel}" />
+                                        <ui:NumberBox Value="{Binding MaxConcurrentDownloads}" Minimum="1" Maximum="8" SpinButtonPlacementMode="Inline" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <TextBlock Text="{loc:Str Settings_ConcurrentFragments}" Style="{StaticResource FieldLabel}" />
+                                        <ui:NumberBox Value="{Binding ConcurrentFragments}" Minimum="1" Maximum="16" SpinButtonPlacementMode="Inline" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="4">
+                                        <TextBlock Text="{loc:Str Settings_Retries}" Style="{StaticResource FieldLabel}" />
+                                        <ui:NumberBox Value="{Binding RetryCount}" Minimum="0" Maximum="10" SpinButtonPlacementMode="Inline" />
+
+                    <TextBlock Text="{loc:Str Settings_MaxCollectionItems}" Style="{StaticResource FieldLabel}" Margin="0,14,0,0" />
+                    <ui:NumberBox Value="{Binding MaxCollectionItems}" Minimum="0" Maximum="100000"
+                                  SpinButtonPlacementMode="Inline" />
+                    <TextBlock Text="{loc:Str Settings_MaxCollectionItems_Hint}"
+                               TextWrapping="Wrap" FontSize="11" Opacity="0.68" Margin="0,4,0,0" />
+                                    </StackPanel>
+                                </Grid>
+
+                                <TextBlock Text="{loc:Str Settings_SpeedLimit}" Style="{StaticResource FieldLabel}" />
+                                <ui:NumberBox Value="{Binding SpeedLimitKbps}" Minimum="0" Maximum="1000000"
+                                              Width="260" HorizontalAlignment="Left" Margin="0,0,0,14" />
+
+                                <TextBlock Text="{loc:Str Settings_ExistingFile}" Style="{StaticResource FieldLabel}" />
+                                <ComboBox ItemsSource="{Binding ExistingFileChoices}" SelectedItem="{Binding ExistingFilePolicy}"
+                                          Width="320" HorizontalAlignment="Left" Margin="0,0,0,14">
+                                    <ComboBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Converter={StaticResource LocalizedEnum}, ConverterParameter=Settings_ExistingFile}" /></DataTemplate></ComboBox.ItemTemplate>
+                                </ComboBox>
+
+                                <CheckBox Content="{loc:Str Settings_ResumeDownloads}" IsChecked="{Binding ResumeDownloads}"
+                                          Style="{StaticResource SettingsCheck}" />
+                                <CheckBox Content="{loc:Str Settings_CheckDiskSpace}" IsChecked="{Binding CheckDiskSpace}"
+                                          Style="{StaticResource SettingsCheck}" />
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <TabItem Header="{loc:Str Settings_Advanced}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,16,12,18">
+                    <StackPanel MaxWidth="760" HorizontalAlignment="Left">
+                        <GroupBox Header="{loc:Str Settings_AppUpdates}" Style="{StaticResource SettingsGroup}">
+                            <StackPanel>
+                                <TextBlock Text="{loc:Str Settings_AppUpdates_Description}"
+                                           FontSize="11" Opacity="0.68" TextWrapping="Wrap" Margin="0,0,0,10" />
+                                <CheckBox Content="{loc:Str Settings_AppAutoUpdate}"
+                                          IsChecked="{Binding AutomaticallyUpdateApplication}" Margin="0,0,0,10" />
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:Button Content="{loc:Str Settings_CheckAppUpdates}"
+                                               Icon="{ui:SymbolIcon ArrowSync24}"
+                                               Command="{Binding CheckApplicationUpdatesCommand}" />
+                                    <TextBlock Text="{Binding ApplicationUpdateStatusText}" Margin="10,0,0,0"
+                                               VerticalAlignment="Center" FontSize="11" Opacity="0.68" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="{loc:Str Settings_ToolStatus}" Style="{StaticResource SettingsGroup}">
+                            <TextBlock Text="{Binding ToolStatusText}" FontFamily="Cascadia Mono" FontSize="11" TextWrapping="Wrap" />
+                        </GroupBox>
+
+                        <GroupBox Header="{loc:Str Settings_Tools}" Style="{StaticResource SettingsGroup}">
+                            <StackPanel>
+                                <TextBlock Text="{loc:Str Settings_YtDlpPath}" Style="{StaticResource FieldLabel}" />
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <ui:TextBox Text="{Binding YtDlpPath}" />
+                                    <ui:Button Grid.Column="1" Margin="8,0,0,0" Content="{loc:Str Action_Browse}" Command="{Binding BrowseYtDlpCommand}" />
+                                </Grid>
+                                <TextBlock Text="{loc:Str Settings_FfmpegPath}" Style="{StaticResource FieldLabel}" />
+                                <Grid Margin="0,0,0,10">
+                                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+                                    <ui:TextBox Text="{Binding FfmpegPath}" />
+                                    <ui:Button Grid.Column="1" Margin="8,0,0,0" Content="{loc:Str Action_Browse}" Command="{Binding BrowseFfmpegCommand}" />
+                                </Grid>
+                                <TextBlock Text="{loc:Str Settings_JsRuntimePath}" Style="{StaticResource FieldLabel}" />
+                                <ui:TextBox Text="{Binding JsRuntimePath}" Margin="0,0,0,12" />
+                                <CheckBox Content="{loc:Str Settings_AutoUpdate}" IsChecked="{Binding AutoUpdate}" Margin="0,0,0,9" />
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:Button Content="{loc:Str Settings_CheckUpdates}" Icon="{ui:SymbolIcon ArrowSync24}"
+                                               Command="{Binding CheckForUpdatesCommand}" />
+                                    <TextBlock Text="{Binding UpdateStatusText}" Margin="10,0,0,0" VerticalAlignment="Center" FontSize="11" Opacity="0.68" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox Header="{loc:Str Settings_Advanced}" Style="{StaticResource SettingsGroup}">
+                            <StackPanel>
+                                <TextBlock Text="{loc:Str Settings_Cookies}" Style="{StaticResource FieldLabel}" />
+                                <ComboBox ItemsSource="{Binding CookieBrowserChoices}" SelectedItem="{Binding CookiesFromBrowser}"
+                                          Width="260" HorizontalAlignment="Left" Margin="0,0,0,4" />
+                                <TextBlock Text="{loc:Str Settings_Cookies_Description}" FontSize="11" Opacity="0.68"
+                                           TextWrapping="Wrap" Margin="0,0,0,12" />
+                                <TextBlock Text="{loc:Str Settings_ExtraArguments}" Style="{StaticResource FieldLabel}" />
+                                <ui:TextBox Text="{Binding ExtraArguments}" FontFamily="Cascadia Mono" Margin="0,0,0,12" />
+                                <CheckBox Content="{loc:Str Settings_VerboseLogging}" IsChecked="{Binding VerboseLogging}" Margin="0,0,0,12" />
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:Button Content="{loc:Str Settings_OpenLogs}" Icon="{ui:SymbolIcon DocumentText24}"
+                                               Margin="0,0,8,0" Command="{Binding OpenLogsCommand}" />
+                                    <ui:Button Content="{loc:Str Settings_ExportDiagnostics}" Icon="{ui:SymbolIcon Save24}"
+                                               Command="{Binding ExportDiagnosticsCommand}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+
+        <Border Grid.Row="1" Padding="20,11" BorderThickness="0,1,0,0"
+                BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                Background="{DynamicResource LayerFillColorDefaultBrush}">
+            <Grid>
+                <TextBlock Text="{Binding SavedMessage}" VerticalAlignment="Center" FontSize="12" Opacity="0.68"
+                           Visibility="{Binding SavedMessage, Converter={StaticResource StringToVisibility}}" />
+                <ui:Button HorizontalAlignment="Right" Appearance="Primary" Padding="20,8"
+                           Content="{loc:Str Action_Save}" Icon="{ui:SymbolIcon Save24}"
+                           Command="{Binding SaveCommand}" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

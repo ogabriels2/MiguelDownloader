@@ -1,0 +1,35 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors>CS4014;CS1998;NU1901;NU1902;NU1903;NU1904</WarningsAsErrors>
+    <!-- A release runner must not silently pass when NuGet's advisory service is unreachable. -->
+    <WarningsAsErrors Condition="'$(CI)' == 'true'">$(WarningsAsErrors);NU1900</WarningsAsErrors>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <!--
+      Authorship. These end up in the file properties Windows shows on the binary, in the
+      installer, and in the About dialog, so the full legal name is used where it identifies the
+      rights holder and the short form where a person reads it.
+    -->
+    <Product>Miguel Downloader</Product>
+    <Company>Gabriel Moreira</Company>
+    <Authors>Gabriel Moreira</Authors>
+    <Copyright>Copyright © 2026 Gabriel Silva Dias Moreira</Copyright>
+    <PackageProjectUrl>https://ogabriels.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ogabriels2/MiguelDownloader</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!-- 1.0.0 is the first public release. Earlier local tags were development snapshots. -->
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    <NeutralLanguage>pt-BR</NeutralLanguage>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "tools": {
+    "ytDlp": {
+      "version": "2026.08.19",
+      "releaseApi": "https://api.github.com/repos/yt-dlp/yt-dlp/releases/tags/2026.08.19",
+      "asset": "yt-dlp.exe",
+      "checksumsAsset": "SHA2-256SUMS",
+      "assetSha256": "66674953fe251b89f4d08c5f0e35e0728679bd67ab3d7d05c0562af101dd3e7a",
+      "license": "Unlicense"
+    },
+    "ffmpeg": {
+      "version": "N-126312-gdf48dc624e-20260828",
+      "releaseApi": "https://api.github.com/repos/yt-dlp/FFmpeg-Builds/releases/tags/latest",
+      "asset": "ffmpeg-master-latest-win64-gpl-shared.zip",
+      "checksumsAsset": "checksums.sha256",
+      "assetSha256": "6382d5c5d23f8a5700892ba8d7335c9dfb2051e9b7677eeb8b3f33ee65cd975f",
+      "license": "GPL-3.0"
+    },
+    "deno": {
+      "version": "v2.9.6",
+      "releaseApi": "https://api.github.com/repos/denoland/deno/releases/tags/v2.9.6",
+      "asset": "deno-x86_64-pc-windows-msvc.zip",
+      "checksumsAsset": "deno-x86_64-pc-windows-msvc.zip.sha256sum",
+      "assetSha256": "15e5300b0ba3c3695a7621d90160a746ec9e710228cee639afa9d580f6e3cd11",
+      "license": "MIT"
+    }
+  },
+  "files": {
+    "avcodec-63.dll": "92cfbc33320572e357478f1867bc6b1c80ca9e524da642ab770ba85b2ecce50a",
+    "avdevice-63.dll": "9e116d1cfce26cfa52e285d82da9eed601383ac29e7ae1971851514f211cef2f",
+    "avfilter-12.dll": "9357f83b6280ae9c307352f3374d8b0864862dcdd5964ef2d493a1b980c6f30a",
+    "avformat-63.dll": "36bdc3255d1dd0f70ed249540609ef35e23dc162610605d93b4ec7a76464e9f2",
+    "avutil-61.dll": "cb5765f69147f684435dd563c4c6efe7d4d87b90f64e4c70c1ce3a9e5f5822bd",
+    "deno.exe": "2ff9493dfa356be2975f477025ea770088e9e9cb2c83d983236d13561b96b7a6",
+    "ffmpeg.exe": "a74fa0685fc0be3e0d0f6f61b4e5577c1508a51382c47870ad0e3e735b980ce7",
+    "ffprobe.exe": "0616e4a62ade83c1195c015add50c67b40e5ada286a1c6dd9f6a36c5afee7806",
+    "swresample-7.dll": "ed65941ed99469caf70126c9d835d676d70d4c86f2daf2374e04e6d4e58e55ef",
+    "swscale-10.dll": "c37ab9f776f97374cc36da879b00eff43fee820f53eb6a565b4b6a6a7c71a5b4",
+    "yt-dlp.exe": "66674953fe251b89f4d08c5f0e35e0728679bd67ab3d7d05c0562af101dd3e7a"
+  }
+}

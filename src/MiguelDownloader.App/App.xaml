@@ -1,0 +1,68 @@
+﻿<Application x:Class="MiguelDownloader.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:converters="clr-namespace:MiguelDownloader.App.Converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Theme is replaced at runtime by ThemeService, which also follows Windows. -->
+                <ui:ThemesDictionary Theme="Light" />
+                <ui:ControlsDictionary />
+            </ResourceDictionary.MergedDictionaries>
+
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibility" />
+            <converters:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibility" />
+            <converters:NullToVisibilityConverter x:Key="NullToVisibility" />
+            <converters:StringToVisibilityConverter x:Key="StringToVisibility" />
+            <converters:CountToVisibilityConverter x:Key="CountToVisibility" />
+            <converters:ZeroCountToVisibilityConverter x:Key="ZeroCountToVisibility" />
+            <converters:InverseBooleanConverter x:Key="InverseBoolean" />
+            <converters:ByteSizeConverter x:Key="ByteSize" />
+            <converters:TimeSpanDisplayConverter x:Key="Duration" />
+            <converters:SpeedConverter x:Key="Speed" />
+            <converters:EtaConverter x:Key="Eta" />
+            <converters:LocalizedEnumConverter x:Key="LocalizedEnum" />
+            <converters:LocalizedEnumHintConverter x:Key="LocalizedEnumHint" />
+            <converters:StatusBrushConverter x:Key="StatusBrush" />
+            <converters:ThumbnailConverter x:Key="Thumbnail" />
+            <converters:PageVisibilityConverter x:Key="PageVisibility" />
+
+            <!-- Shared spacing so pages stay visually consistent without repeating numbers. -->
+            <Thickness x:Key="PagePadding">24,20,24,24</Thickness>
+            <Thickness x:Key="CardPadding">16</Thickness>
+            <Thickness x:Key="RowSpacing">0,0,0,12</Thickness>
+
+            <Style x:Key="PageTitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Margin" Value="0,0,0,4" />
+            </Style>
+
+            <Style x:Key="PageSubtitle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Opacity" Value="0.75" />
+                <Setter Property="Margin" Value="0,0,0,18" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+
+            <Style x:Key="SectionHeader" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Margin" Value="0,18,0,8" />
+            </Style>
+
+            <Style x:Key="FieldLabel" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Opacity" Value="0.75" />
+                <Setter Property="Margin" Value="0,0,0,4" />
+            </Style>
+
+            <Style x:Key="Caption" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Opacity" Value="0.7" />
+                <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

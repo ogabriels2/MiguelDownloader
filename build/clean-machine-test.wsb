@@ -1,0 +1,38 @@
+<!--
+  Windows Sandbox configuration for testing Miguel Downloader on a clean Windows.
+
+  The sandbox starts from a pristine Windows image every time: no .NET, no FFmpeg, no yt-dlp,
+  no Node, no altered PATH, no caches. That is exactly the machine the installer has to work on.
+
+  Prerequisite, once, as administrator (needs a restart):
+      Enable-WindowsOptionalFeature -Online -FeatureName 'Containers-DisposableClientVM' -All
+
+  Then double-click this file. It maps the artifacts folder read-only and runs the checks
+  automatically; the transcript is written inside the sandbox at C:\Users\WDAGUtilityAccount\Desktop.
+
+  Networking stays on because the whole point is to prove a real download works.
+-->
+<Configuration>
+  <VGpu>Disable</VGpu>
+  <Networking>Enable</Networking>
+
+  <MappedFolders>
+    <MappedFolder>
+      <!-- Adjust if the repository lives elsewhere. -->
+      <HostFolder>C:\Users\gabal\Downloads\Baixador de vídeos\artifacts</HostFolder>
+      <SandboxFolder>C:\artifacts</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>C:\Users\gabal\Downloads\Baixador de vídeos\build</HostFolder>
+      <SandboxFolder>C:\build</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+
+  <LogonCommand>
+    <Command>powershell.exe -ExecutionPolicy Bypass -NoExit -File C:\build\clean-machine-test.ps1</Command>
+  </LogonCommand>
+
+  <MemoryInMB>4096</MemoryInMB>
+</Configuration>

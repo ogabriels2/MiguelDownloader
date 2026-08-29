@@ -1,0 +1,110 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build, attest and publish
+    runs-on: windows-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          fetch-depth: 0
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
+        with:
+          dotnet-version: 8.0.424
+
+      - name: Validate tag and project version
+        id: version
+        shell: pwsh
+        run: |
+          $tagVersion = '${{ github.ref_name }}'.TrimStart('v')
+          $props = [xml](Get-Content -Raw Directory.Build.props)
+          $projectVersion = [string]($props.Project.PropertyGroup.Version | Where-Object { $_ } | Select-Object -First 1)
+          if ($tagVersion -notmatch '^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$') {
+            throw "Tag ${{ github.ref_name }} is not a supported semantic version."
+          }
+          if ($tagVersion -ne $projectVersion) {
+            throw "Tag version $tagVersion does not match Directory.Build.props version $projectVersion."
+          }
+          "version=$tagVersion" >> $env:GITHUB_OUTPUT
+
+      - name: Restore locked dependencies
+        run: dotnet restore MiguelDownloader.sln --locked-mode
+
+      - name: Restore previous release for delta generation
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          dotnet tool restore
+          $latest = gh release list --repo '${{ github.repository }}' --exclude-drafts --exclude-pre-releases --limit 1 --json tagName --jq '.[0].tagName'
+          if ($latest) {
+            dotnet vpk download github --repoUrl 'https://github.com/${{ github.repository }}' --token $env:GH_TOKEN --outputDir artifacts/releases --channel win
+          }
+
+      - name: Build release packages
+        shell: pwsh
+        run: >-
+          pwsh build/publish.ps1
+          -Version '${{ steps.version.outputs.version }}'
+          -Runtime win-x64
+
+      - name: Collect current release subjects
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force artifacts/current | Out-Null
+          Get-Content artifacts/checksums.txt | ForEach-Object {
+            $name = ($_ -split '\s{2,}', 2)[1]
+            Copy-Item -LiteralPath (Join-Path artifacts/releases $name) -Destination artifacts/current
+          }
+          Copy-Item -LiteralPath artifacts/checksums.txt -Destination artifacts/current
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3
+        with:
+          subject-path: artifacts/current/*
+
+      - name: Keep a workflow copy of the release
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: MiguelDownloader-${{ steps.version.outputs.version }}
+          path: artifacts/current/*
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Create draft release and upload Velopack feed
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          dotnet vpk upload github `
+            --repoUrl 'https://github.com/${{ github.repository }}' `
+            --token $env:GH_TOKEN `
+            --outputDir artifacts/releases `
+            --channel win `
+            --tag '${{ github.ref_name }}' `
+            --releaseName 'Miguel Downloader ${{ steps.version.outputs.version }}' `
+            --targetCommitish '${{ github.sha }}'
+          gh release upload '${{ github.ref_name }}' artifacts/checksums.txt --clobber
+          gh release edit '${{ github.ref_name }}' `
+            --notes-file docs/release-notes.md `
+            --draft=false `
+            --latest

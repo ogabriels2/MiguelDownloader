@@ -1,0 +1,35 @@
+# Build output
+bin/
+obj/
+artifacts/
+
+# Downloaded external tools.
+#
+# These are yt-dlp, FFmpeg and Deno: roughly 270 MB of third-party binaries that are fully
+# reproducible with build/fetch-tools.ps1, which re-downloads them from their official releases
+# and verifies every file against the published SHA-256. Committing them would bloat the history
+# permanently for no benefit, and would mean redistributing binaries through the repository.
+build/tools-cache/
+tools/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# Test output
+TestResults/
+*.trx
+coverage*.xml
+coverage*.json
+
+# Logs and local scratch files
+*.log
+
+# Windows Sandbox writes a report next to the test script when it runs
+miguel-clean-test.txt
+
+# WPF writes a throwaway project beside the real one while building.
+*_wpftmp.csproj

@@ -1,0 +1,241 @@
+﻿MIGUEL DOWNLOADER
+Avisos de terceiros
+
+Documento revisado em 28 de agosto de 2026
+Referente à versão 1.0.0
+
+
+O Miguel Downloader instala, junto com o programa do autor, componentes escritos
+por outras pessoas. Cada um deles continua sob a licença do seu próprio autor.
+Este arquivo identifica esses componentes, diz sob que licença cada um está e
+onde encontrar o código-fonte correspondente.
+
+Os textos completos das licenças longas ficam na pasta licencas, ao lado deste
+arquivo. As licenças curtas estão transcritas no fim deste documento.
+
+Duas delas dão a você direitos que valem a pena conhecer: a GPL versão 3, do
+FFmpeg, que lhe garante acesso ao código-fonte; e a LGPL versão 2.1, do TagLib#,
+que lhe garante o direito de substituir a biblioteca por uma versão sua. As
+seções 1 e 2 explicam como exercer cada um.
+
+
+===============================================================================
+1. FFmpeg  (ffmpeg.exe, ffprobe.exe e bibliotecas av*, sw*)
+===============================================================================
+
+Versão distribuída: N-126312-gdf48dc624e-20260828
+Licença: GNU General Public License, versão 3 ou posterior
+Texto da licença: licencas\GPL-3.0.txt
+Autores: FFmpeg developers, https://ffmpeg.org
+Copyright (c) 2000-2026 the FFmpeg developers
+
+Os binários distribuídos com o Miguel Downloader são compilações não modificadas
+publicadas pelo projeto yt-dlp/FFmpeg-Builds, geradas com as opções
+--enable-gpl e --enable-version3, o que coloca esta compilação sob a GPL versão 3.
+
+  Binários e código:  https://github.com/yt-dlp/FFmpeg-Builds/releases
+  Receita da compilação: https://github.com/yt-dlp/FFmpeg-Builds
+  Código-fonte do FFmpeg: https://git.ffmpeg.org/ffmpeg.git
+  Site do projeto: https://ffmpeg.org
+
+COMO OBTER O CÓDIGO-FONTE
+
+A GPL versão 3 lhe dá direito ao código-fonte completo correspondente a estes
+binários. Você tem duas formas de obtê-lo.
+
+A primeira é baixá-lo diretamente dos endereços acima, onde o projeto
+yt-dlp/FFmpeg-Builds publica, na mesma página de cada versão, os binários e tudo
+que é necessário para reproduzi-los.
+
+A segunda é pedir a Gabriel Silva Dias Moreira, pelo endereço
+contato@ogabriels.com. Esta é uma oferta escrita, válida por três anos contados
+da data em que você recebeu esta cópia do programa, de fornecer o código-fonte
+completo correspondente aos binários de FFmpeg aqui distribuídos, em meio
+legível por máquina, cobrando no máximo o custo de entrega.
+
+RELAÇÃO COM O MIGUEL DOWNLOADER
+
+O Miguel Downloader executa ffmpeg.exe e ffprobe.exe como processos separados,
+passando argumentos pela linha de comando e lendo a saída. Não há vinculação
+estática nem dinâmica ao código do FFmpeg. São programas independentes reunidos
+num mesmo instalador, e a GPL alcança o FFmpeg, não o Miguel Downloader.
+
+
+===============================================================================
+2. TagLib#  (TagLib.dll)
+===============================================================================
+
+Versão distribuída: 2.3.0
+Licença: GNU Lesser General Public License, versão 2.1
+Texto da licença: licencas\LGPL-2.1.txt
+Autores: Brian Nickel, Gabriel Burt e colaboradores do projeto TagLib#
+Código-fonte: https://github.com/mono/taglib-sharp
+
+Usada para ler e gravar metadados nos arquivos de áudio (título, artista, álbum,
+ISRC, capa e demais marcações).
+
+SEU DIREITO DE SUBSTITUIR ESTA BIBLIOTECA
+
+A LGPL 2.1 lhe assegura o direito de modificar o TagLib# e usar a sua versão no
+lugar da que foi distribuída. Para que isso seja possível na prática, o Miguel
+Downloader é publicado sem empacotamento em arquivo único: TagLib.dll fica na
+pasta do programa como arquivo separado, e pode ser trocado por outra compilação
+compatível da mesma biblioteca.
+
+O código-fonte da versão distribuída está no endereço acima. Ele também pode ser
+pedido a contato@ogabriels.com, nos mesmos termos da oferta da seção 1.
+
+
+===============================================================================
+3. yt-dlp  (yt-dlp.exe)
+===============================================================================
+
+Versão distribuída: 2026.08.19
+Licença: The Unlicense (domínio público)
+Autores: pukkandan, dirkf, coletdjnz e colaboradores do projeto yt-dlp
+Código-fonte: https://github.com/yt-dlp/yt-dlp
+
+Responsável por identificar e transferir a mídia dos sites. É o componente que dá
+ao Miguel Downloader a compatibilidade com mais de mil e setecentos sites.
+
+O texto da Unlicense está transcrito na seção 10.
+
+
+===============================================================================
+4. Deno  (deno.exe)
+===============================================================================
+
+Versão distribuída: 2.9.6
+Licença: MIT
+Autores: the Deno authors
+Copyright (c) 2018-2026 the Deno authors
+Código-fonte: https://github.com/denoland/deno
+
+Executa o JavaScript que alguns sites exigem para liberar a lista de formatos.
+Sem ele, o YouTube publica menos opções de qualidade.
+
+
+===============================================================================
+5. WPF-UI
+===============================================================================
+
+Versão distribuída: 4.3.0
+Licença: MIT
+Copyright (c) 2021-2025 Leszek Pomianowski and WPF UI Contributors
+Código-fonte: https://github.com/lepoco/wpfui
+
+Fornece os controles e o visual Fluent da interface.
+
+
+===============================================================================
+6. .NET 8, CommunityToolkit.Mvvm, Microsoft.Data.Sqlite e
+   Microsoft.Extensions.*
+===============================================================================
+
+Licença: MIT
+Copyright (c) .NET Foundation and Contributors
+Código-fonte: https://github.com/dotnet/runtime
+                https://github.com/CommunityToolkit/dotnet
+                https://github.com/dotnet/efcore
+
+O Miguel Downloader é publicado como aplicativo autocontido, o que significa que
+os arquivos do runtime do .NET 8 são distribuídos dentro da pasta do programa.
+É por isso que ele funciona sem que você precise instalar o .NET.
+
+
+===============================================================================
+7. SQLite
+===============================================================================
+
+Licença: domínio público
+Autores: D. Richard Hipp e colaboradores
+Site: https://sqlite.org
+
+Guarda o histórico e a fila de downloads. O código do SQLite foi colocado em
+domínio público pelos seus autores, que dispensam qualquer exigência de crédito.
+Ele aparece aqui porque merece.
+
+
+===============================================================================
+8. Serilog  (Serilog, Serilog.Extensions.Logging, Serilog.Sinks.File,
+   Serilog.Sinks.Debug)
+===============================================================================
+
+Licença: Apache License 2.0
+Texto da licença: licencas\Apache-2.0.txt
+Copyright (c) Serilog Contributors
+Código-fonte: https://github.com/serilog/serilog
+
+Grava os registros de execução em %LOCALAPPDATA%\MiguelDownloader\logs.
+
+
+===============================================================================
+9. Velopack
+===============================================================================
+
+Versão distribuída: 1.2.0
+Licença: MIT
+Copyright (c) Velopack Ltd. e colaboradores
+Código-fonte: https://github.com/velopack/velopack
+
+Cria o instalador, mantém o feed de releases e aplica atualizações verificadas de
+forma transacional depois que o aplicativo sai.
+
+
+===============================================================================
+10. TEXTOS DAS LICENÇAS CURTAS
+===============================================================================
+
+LICENÇA MIT
+
+Aplica-se ao WPF-UI, ao Deno, ao Velopack, ao .NET 8, ao CommunityToolkit.Mvvm,
+ao Microsoft.Data.Sqlite e aos pacotes Microsoft.Extensions.*, cada um com o aviso
+de copyright do seu autor, indicado nas seções acima.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+
+THE UNLICENSE
+
+Aplica-se ao yt-dlp.
+
+  This is free and unencumbered software released into the public domain.
+
+  Anyone is free to copy, modify, publish, use, compile, sell, or distribute this
+  software, either in source code form or as a compiled binary, for any purpose,
+  commercial or non-commercial, and by any means.
+
+  In jurisdictions that recognize copyright laws, the author or authors of this
+  software dedicate any and all copyright interest in the software to the public
+  domain. We make this dedication for the benefit of the public at large and to
+  the detriment of our heirs and successors. We intend this dedication to be an
+  overt act of relinquishment in perpetuity of all present and future rights to
+  this software under copyright law.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+  ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+===============================================================================
+
+Erro ou omissão neste documento: contato@ogabriels.com

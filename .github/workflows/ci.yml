@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build and test
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
+        with:
+          dotnet-version: 8.0.424
+
+      - name: Restore locked dependencies
+        run: dotnet restore MiguelDownloader.sln --locked-mode
+
+      - name: Build
+        run: dotnet build MiguelDownloader.sln --configuration Release --no-restore --nologo -v minimal
+
+      - name: Test
+        run: >-
+          dotnet test tests/MiguelDownloader.Tests
+          --configuration Release
+          --no-build
+          --filter "Category!=Integration&Category!=ToolInstall"
+          --logger "trx;LogFileName=tests.trx"
+          --results-directory TestResults
+          --nologo -v minimal
+
+      - name: Audit NuGet dependencies
+        run: dotnet list MiguelDownloader.sln package --vulnerable --include-transitive

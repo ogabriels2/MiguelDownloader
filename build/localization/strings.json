@@ -1,0 +1,1762 @@
+{
+  "App_Title": [
+    "Miguel Downloader",
+    "Miguel Downloader"
+  ],
+  "App_Subtitle": [
+    "Baixador de vídeos e músicas",
+    "Video and music downloader"
+  ],
+  "Nav_Label": [
+    "Navegação principal",
+    "Main navigation"
+  ],
+  "Nav_Home": [
+    "Início",
+    "Home"
+  ],
+  "Nav_Downloads": [
+    "Downloads",
+    "Downloads"
+  ],
+  "Nav_History": [
+    "Histórico",
+    "History"
+  ],
+  "Nav_Settings": [
+    "Configurações",
+    "Settings"
+  ],
+  "Home_Source": [
+    "Origem",
+    "Source"
+  ],
+  "Home_SignInHint": [
+    "O {0} costuma exigir uma sessão iniciada. Se a análise falhar, aponte os cookies do seu navegador em Configurações.",
+    "{0} usually wants a signed-in session. If the analysis fails, point the app at your browser's cookies in Settings."
+  ],
+  "Catalogue_Lossless": [
+    "Sem perdas",
+    "Lossless"
+  ],
+  "Catalogue_Lossy": [
+    "Com perdas",
+    "Lossy"
+  ],
+  "Catalogue_Progress": [
+    "{0} de {1} localizadas · {2} sem perdas",
+    "{0} of {1} located · {2} lossless"
+  ],
+  "Catalogue_Matching": [
+    "Localizando gravações…",
+    "Locating recordings…"
+  ],
+  "Error_TrackNotFound": [
+    "Nenhuma fonte confiável foi encontrada para esta faixa.",
+    "No reliable source was found for this track."
+  ],
+  "Catalogue_SomeNotFound": [
+    "{0} faixa(s) sem fonte confiável",
+    "{0} track(s) with no reliable source"
+  ],
+  "Error_CatalogueUnavailable": [
+    "Não foi possível ler o catálogo deste link.",
+    "The catalogue for this link could not be read."
+  ],
+  "Warning_CatalogueBridged": [
+    "Esta plataforma publica apenas o nome do lançamento. A lista de faixas foi obtida em outro catálogo aberto — confira se é o álbum certo.",
+    "This platform publishes only the release name. The track list came from another open catalogue — check that it is the right album."
+  ],
+  "Warning_CatalogueOnly": [
+    "O áudio desta plataforma é protegido por DRM e não é baixado dela. O que foi lido é o catálogo: cada gravação será procurada em fontes que servem áudio abertamente, e as tags virão daqui.",
+    "This platform's audio is DRM-protected and is not downloaded from it. What was read is the catalogue: each recording will be looked for on sources that serve audio openly, and the tags come from here."
+  ],
+  "Settings_MaxCollectionItems_Hint": [
+    "Zero significa todos — é o padrão. A lista aparece em partes para o primeiro item surgir logo, mas continua até a coleção inteira carregar.",
+    "Zero means all of them, which is the default. The listing arrives in pages so the first items appear at once, but it keeps going until the collection is complete."
+  ],
+  "Settings_MaxCollectionItems": [
+    "Máximo de itens por playlist ou canal",
+    "Most items per playlist or channel"
+  ],
+  "Home_UrlPlaceholder": [
+    "Cole o link de um vídeo, música ou post",
+    "Paste a link to a video, track or post"
+  ],
+  "Home_Analyze": [
+    "Analisar",
+    "Analyze"
+  ],
+  "Home_Paste": [
+    "Colar URL",
+    "Paste URL"
+  ],
+  "Home_Analyzing": [
+    "Analisando…",
+    "Analyzing…"
+  ],
+  "Home_QuickDownload": [
+    "Baixar com o padrão",
+    "Download with default"
+  ],
+  "Home_EmptyState": [
+    "Cole uma URL acima para começar.",
+    "Paste a URL above to get started."
+  ],
+  "Kind_Video": [
+    "Vídeo",
+    "Video"
+  ],
+  "Kind_Short": [
+    "Short",
+    "Short"
+  ],
+  "Kind_Music": [
+    "Música",
+    "Music"
+  ],
+  "Kind_MusicVideo": [
+    "Videoclipe",
+    "Music video"
+  ],
+  "Kind_LiveStream": [
+    "Transmissão ao vivo",
+    "Live stream"
+  ],
+  "Kind_Playlist": [
+    "Playlist",
+    "Playlist"
+  ],
+  "Kind_Album": [
+    "Álbum",
+    "Album"
+  ],
+  "Kind_Channel": [
+    "Canal",
+    "Channel"
+  ],
+  "Kind_Unknown": [
+    "Conteúdo",
+    "Content"
+  ],
+  "Label_Duration": [
+    "Duração",
+    "Duration"
+  ],
+  "Label_Channel": [
+    "Canal",
+    "Channel"
+  ],
+  "Label_Artist": [
+    "Artista",
+    "Artist"
+  ],
+  "Label_Album": [
+    "Álbum",
+    "Album"
+  ],
+  "Label_Items": [
+    "itens",
+    "items"
+  ],
+  "Label_QualityPerItem": [
+    "Definida por item, respeitando o teto da predefinição. Uma coleção é listada sem abrir cada item, então as resoluções ainda não são conhecidas.",
+    "Decided per item, within the preset ceiling. A collection is listed without opening every item, so the renditions are not known yet."
+  ],
+  "Label_Quality": [
+    "Qualidade",
+    "Quality"
+  ],
+  "Label_Format": [
+    "Formato",
+    "Format"
+  ],
+  "Label_Container": [
+    "Contêiner",
+    "Container"
+  ],
+  "Label_Codec": [
+    "Codec",
+    "Codec"
+  ],
+  "Label_AudioTrack": [
+    "Faixa de áudio",
+    "Audio track"
+  ],
+  "Label_Subtitles": [
+    "Legendas",
+    "Subtitles"
+  ],
+  "Label_Size": [
+    "Tamanho",
+    "Size"
+  ],
+  "Label_Bitrate": [
+    "Bitrate",
+    "Bitrate"
+  ],
+  "Label_Resolution": [
+    "Resolução",
+    "Resolution"
+  ],
+  "Label_Fps": [
+    "FPS",
+    "FPS"
+  ],
+  "Label_Estimated": [
+    "estimado",
+    "estimated"
+  ],
+  "Label_Unknown": [
+    "desconhecido",
+    "unknown"
+  ],
+  "Label_Mode": [
+    "O que baixar",
+    "What to download"
+  ],
+  "Label_Destination": [
+    "Pasta de destino",
+    "Destination folder"
+  ],
+  "Label_Preset": [
+    "Predefinição",
+    "Preset"
+  ],
+  "Label_Warnings": [
+    "Observações",
+    "Notes"
+  ],
+  "Mode_Video": [
+    "Vídeo",
+    "Video"
+  ],
+  "Mode_Audio": [
+    "Somente áudio",
+    "Audio only"
+  ],
+  "Quality_Best": [
+    "Melhor disponível",
+    "Best available"
+  ],
+  "Quality_High": [
+    "Alta (até 1080p)",
+    "High (up to 1080p)"
+  ],
+  "Quality_Balanced": [
+    "Equilibrada (até 720p)",
+    "Balanced (up to 720p)"
+  ],
+  "Quality_Smallest": [
+    "Menor tamanho",
+    "Smallest size"
+  ],
+  "Quality_Custom": [
+    "Personalizada",
+    "Custom"
+  ],
+  "View_Simple": [
+    "Simples",
+    "Simple"
+  ],
+  "View_Advanced": [
+    "Avançado",
+    "Advanced"
+  ],
+  "Preset_VideoBest": [
+    "Vídeo — Melhor qualidade",
+    "Video — Best quality"
+  ],
+  "Preset_VideoBest_Description": [
+    "Melhor vídeo e áudio disponíveis, sem reconversão.",
+    "Best available video and audio, with no re-encoding."
+  ],
+  "Preset_VideoCompatible": [
+    "Vídeo — Compatibilidade",
+    "Video — Compatibility"
+  ],
+  "Preset_VideoCompatible_Description": [
+    "MP4 com H.264 e AAC, quando a fonte oferecer.",
+    "MP4 with H.264 and AAC, when the source offers it."
+  ],
+  "Preset_VideoSmall": [
+    "Vídeo — Menor tamanho",
+    "Video — Smaller size"
+  ],
+  "Preset_VideoSmall_Description": [
+    "Até 720p, para economizar espaço.",
+    "Up to 720p, to save space."
+  ],
+  "Preset_MusicBest": [
+    "Música — Melhor disponível",
+    "Music — Best available"
+  ],
+  "Preset_MusicBest_Description": [
+    "Mantém o áudio original, sem reconversão.",
+    "Keeps the original audio, with no re-encoding."
+  ],
+  "Preset_MusicMp3": [
+    "Música — MP3 alta qualidade",
+    "Music — High quality MP3"
+  ],
+  "Preset_MusicMp3_Description": [
+    "Converte para MP3 VBR de alta qualidade.",
+    "Converts to high quality VBR MP3."
+  ],
+  "Status_Queued": [
+    "Aguardando",
+    "Queued"
+  ],
+  "Status_Running": [
+    "Em andamento",
+    "Running"
+  ],
+  "Status_Paused": [
+    "Pausado",
+    "Paused"
+  ],
+  "Status_Completed": [
+    "Concluído",
+    "Completed"
+  ],
+  "Status_Failed": [
+    "Erro",
+    "Failed"
+  ],
+  "Status_Cancelled": [
+    "Cancelado",
+    "Cancelled"
+  ],
+  "Status_Skipped": [
+    "Ignorado",
+    "Skipped"
+  ],
+  "Stage_Analyzing": [
+    "Analisando",
+    "Analyzing"
+  ],
+  "Stage_DownloadingVideo": [
+    "Baixando vídeo",
+    "Downloading video"
+  ],
+  "Stage_DownloadingAudio": [
+    "Baixando áudio",
+    "Downloading audio"
+  ],
+  "Stage_DownloadingSubtitles": [
+    "Baixando legendas",
+    "Downloading subtitles"
+  ],
+  "Stage_DownloadingThumbnail": [
+    "Baixando capa",
+    "Downloading cover"
+  ],
+  "Stage_Muxing": [
+    "Combinando faixas",
+    "Combining tracks"
+  ],
+  "Stage_Remuxing": [
+    "Trocando contêiner",
+    "Changing container"
+  ],
+  "Stage_Converting": [
+    "Convertendo",
+    "Converting"
+  ],
+  "Stage_WritingMetadata": [
+    "Aplicando metadados",
+    "Writing metadata"
+  ],
+  "Stage_EmbeddingCoverArt": [
+    "Incorporando capa",
+    "Embedding cover art"
+  ],
+  "Stage_Validating": [
+    "Verificando arquivo",
+    "Validating file"
+  ],
+  "Stage_Finalizing": [
+    "Finalizando",
+    "Finalizing"
+  ],
+  "Stage_None": [
+    "",
+    ""
+  ],
+  "Action_Download": [
+    "Baixar",
+    "Download"
+  ],
+  "Action_Pause": [
+    "Pausar",
+    "Pause"
+  ],
+  "Action_Resume": [
+    "Continuar",
+    "Resume"
+  ],
+  "Action_Cancel": [
+    "Cancelar",
+    "Cancel"
+  ],
+  "Action_Retry": [
+    "Tentar novamente",
+    "Retry"
+  ],
+  "Action_Remove": [
+    "Remover",
+    "Remove"
+  ],
+  "Action_OpenFile": [
+    "Abrir arquivo",
+    "Open file"
+  ],
+  "Action_OpenFolder": [
+    "Abrir pasta",
+    "Open folder"
+  ],
+  "Action_CopyUrl": [
+    "Copiar URL",
+    "Copy URL"
+  ],
+  "Action_SelectAll": [
+    "Selecionar tudo",
+    "Select all"
+  ],
+  "Action_SelectNone": [
+    "Limpar seleção",
+    "Clear selection"
+  ],
+  "Action_ClearFinished": [
+    "Limpar concluídos",
+    "Clear finished"
+  ],
+  "Action_Save": [
+    "Salvar",
+    "Save"
+  ],
+  "Action_Close": [
+    "Fechar",
+    "Close"
+  ],
+  "Action_Ok": [
+    "OK",
+    "OK"
+  ],
+  "Action_Yes": [
+    "Sim",
+    "Yes"
+  ],
+  "Action_No": [
+    "Não",
+    "No"
+  ],
+  "Action_Browse": [
+    "Procurar…",
+    "Browse…"
+  ],
+  "Action_DownloadAgain": [
+    "Baixar novamente",
+    "Download again"
+  ],
+  "Downloads_Empty": [
+    "Nenhum download na fila.",
+    "No downloads in the queue."
+  ],
+  "Downloads_Title": [
+    "Fila de downloads",
+    "Download queue"
+  ],
+  "History_Title": [
+    "Histórico",
+    "History"
+  ],
+  "History_Empty": [
+    "Nenhum download registrado ainda.",
+    "No downloads recorded yet."
+  ],
+  "History_Search": [
+    "Pesquisar no histórico",
+    "Search history"
+  ],
+  "History_FileMissing": [
+    "Arquivo não encontrado no local original",
+    "File not found at its original location"
+  ],
+  "History_Clear": [
+    "Limpar histórico",
+    "Clear history"
+  ],
+  "History_ClearConfirm": [
+    "Remover todo o histórico? Os arquivos baixados não serão apagados.",
+    "Remove the entire history? Downloaded files will not be deleted."
+  ],
+  "History_Filter_All": [
+    "Todos",
+    "All"
+  ],
+  "History_Filter_Video": [
+    "Vídeos",
+    "Videos"
+  ],
+  "History_Filter_Audio": [
+    "Músicas",
+    "Music"
+  ],
+  "History_Sort_Newest": [
+    "Mais recentes",
+    "Newest first"
+  ],
+  "History_Sort_Oldest": [
+    "Mais antigos",
+    "Oldest first"
+  ],
+  "History_Sort_Title": [
+    "Título",
+    "Title"
+  ],
+  "History_Sort_Largest": [
+    "Maiores",
+    "Largest"
+  ],
+  "HistorySort_NewestFirst": [
+    "Mais recentes",
+    "Newest first"
+  ],
+  "HistorySort_OldestFirst": [
+    "Mais antigos",
+    "Oldest first"
+  ],
+  "HistorySort_TitleAscending": [
+    "Título (A-Z)",
+    "Title (A-Z)"
+  ],
+  "HistorySort_LargestFirst": [
+    "Maiores primeiro",
+    "Largest first"
+  ],
+  "Settings_Title": [
+    "Configurações",
+    "Settings"
+  ],
+  "Settings_General": [
+    "Geral",
+    "General"
+  ],
+  "Settings_Video": [
+    "Vídeo",
+    "Video"
+  ],
+  "Settings_Music": [
+    "Música",
+    "Music"
+  ],
+  "Settings_Downloads": [
+    "Downloads",
+    "Downloads"
+  ],
+  "Settings_Advanced": [
+    "Avançado",
+    "Advanced"
+  ],
+  "Settings_DownloadFolder": [
+    "Pasta padrão de downloads",
+    "Default download folder"
+  ],
+  "Settings_Language": [
+    "Idioma",
+    "Language"
+  ],
+  "Settings_Language_System": [
+    "Seguir o sistema",
+    "Follow the system"
+  ],
+  "Settings_Theme": [
+    "Tema",
+    "Theme"
+  ],
+  "Settings_Theme_System": [
+    "Seguir o Windows",
+    "Follow Windows"
+  ],
+  "Settings_Theme_Light": [
+    "Claro",
+    "Light"
+  ],
+  "Settings_Theme_Dark": [
+    "Escuro",
+    "Dark"
+  ],
+  "Settings_Notifications": [
+    "Mostrar notificação ao concluir",
+    "Show a notification when finished"
+  ],
+  "Settings_ConfirmExit": [
+    "Confirmar ao fechar com downloads ativos",
+    "Confirm before closing with active downloads"
+  ],
+  "Settings_WatchClipboard": [
+    "Detectar URLs copiadas",
+    "Detect copied URLs"
+  ],
+  "Settings_WatchClipboard_Description": [
+    "Oferece analisar quando você copiar um link do YouTube. Nada é baixado automaticamente.",
+    "Offers to analyze when you copy a YouTube link. Nothing is downloaded automatically."
+  ],
+  "Settings_DefaultQuality": [
+    "Qualidade padrão",
+    "Default quality"
+  ],
+  "Settings_DefaultContainer": [
+    "Contêiner padrão",
+    "Default container"
+  ],
+  "Settings_CodecPreference": [
+    "Codec de vídeo preferido",
+    "Preferred video codec"
+  ],
+  "Settings_PreferHdr": [
+    "Preferir HDR quando disponível",
+    "Prefer HDR when available"
+  ],
+  "Settings_EmbedThumbnail": [
+    "Incorporar capa no vídeo",
+    "Embed cover art in video"
+  ],
+  "Settings_EmbedMetadata": [
+    "Incorporar metadados",
+    "Embed metadata"
+  ],
+  "Settings_EmbedChapters": [
+    "Incorporar capítulos",
+    "Embed chapters"
+  ],
+  "Settings_DownloadSubtitles": [
+    "Baixar legendas por padrão",
+    "Download subtitles by default"
+  ],
+  "Settings_EmbedSubtitles": [
+    "Incorporar legendas no arquivo",
+    "Embed subtitles in the file"
+  ],
+  "Settings_KeepSubtitleFiles": [
+    "Manter arquivos de legenda separados",
+    "Keep separate subtitle files"
+  ],
+  "Settings_AutoSubtitles": [
+    "Incluir legendas automáticas",
+    "Include automatic captions"
+  ],
+  "Settings_MusicFormat": [
+    "Formato de áudio",
+    "Audio format"
+  ],
+  "Settings_MusicFolders": [
+    "Organizar em pastas Artista/Álbum",
+    "Organize into Artist/Album folders"
+  ],
+  "Settings_MusicCoverArt": [
+    "Incorporar capa nas músicas",
+    "Embed cover art in music"
+  ],
+  "Settings_MusicMetadata": [
+    "Escrever metadados nas músicas",
+    "Write metadata to music files"
+  ],
+  "Settings_Concurrency": [
+    "Downloads simultâneos",
+    "Simultaneous downloads"
+  ],
+  "Settings_Retries": [
+    "Tentativas automáticas",
+    "Automatic retries"
+  ],
+  "Settings_SpeedLimit": [
+    "Limite de velocidade (KB/s, 0 = sem limite)",
+    "Speed limit (KB/s, 0 = unlimited)"
+  ],
+  "Settings_ResumeDownloads": [
+    "Retomar downloads interrompidos",
+    "Resume interrupted downloads"
+  ],
+  "Settings_CheckDiskSpace": [
+    "Avisar quando faltar espaço em disco",
+    "Warn when disk space is low"
+  ],
+  "Settings_ExistingFile": [
+    "Quando o arquivo já existir",
+    "When the file already exists"
+  ],
+  "Settings_ExistingFile_Ask": [
+    "Perguntar",
+    "Ask"
+  ],
+  "Settings_ExistingFile_Rename": [
+    "Renomear automaticamente",
+    "Rename automatically"
+  ],
+  "Settings_ExistingFile_RenameAutomatically": [
+    "Renomear automaticamente",
+    "Rename automatically"
+  ],
+  "Settings_ExistingFile_Skip": [
+    "Pular",
+    "Skip"
+  ],
+  "Settings_ExistingFile_Overwrite": [
+    "Substituir",
+    "Overwrite"
+  ],
+  "Settings_Tools": [
+    "Ferramentas externas",
+    "External tools"
+  ],
+  "Settings_YtDlpPath": [
+    "Caminho do yt-dlp",
+    "yt-dlp path"
+  ],
+  "Settings_FfmpegPath": [
+    "Caminho do FFmpeg",
+    "FFmpeg path"
+  ],
+  "Settings_JsRuntimePath": [
+    "Runtime JavaScript",
+    "JavaScript runtime"
+  ],
+  "Settings_AutoUpdate": [
+    "Atualizar o mecanismo de download automaticamente",
+    "Update the download engine automatically"
+  ],
+  "Settings_CheckUpdates": [
+    "Verificar atualizações agora",
+    "Check for updates now"
+  ],
+  "Settings_UpdateAvailable": [
+    "Atualização disponível: {0}",
+    "Update available: {0}"
+  ],
+  "Settings_UpToDate": [
+    "Está atualizado.",
+    "Up to date."
+  ],
+  "Settings_Updating": [
+    "Atualizando…",
+    "Updating…"
+  ],
+  "Settings_VerboseLogging": [
+    "Registro detalhado (debug)",
+    "Verbose logging (debug)"
+  ],
+  "Settings_OpenLogs": [
+    "Abrir pasta de logs",
+    "Open logs folder"
+  ],
+  "Settings_ExportDiagnostics": [
+    "Exportar diagnóstico",
+    "Export diagnostics"
+  ],
+  "Settings_Cookies": [
+    "Cookies do navegador",
+    "Browser cookies"
+  ],
+  "Settings_Cookies_None": [
+    "Não usar cookies",
+    "Do not use cookies"
+  ],
+  "Settings_Cookies_Description": [
+    "Usado apenas para conteúdo ao qual você já tem acesso, como seus próprios vídeos privados. Cookies nunca aparecem nos logs.",
+    "Used only for content you already have access to, such as your own private videos. Cookies never appear in logs."
+  ],
+  "Settings_ExtraArguments": [
+    "Argumentos adicionais do yt-dlp",
+    "Additional yt-dlp arguments"
+  ],
+  "Settings_Saved": [
+    "Configurações salvas.",
+    "Settings saved."
+  ],
+  "Settings_ToolStatus": [
+    "Estado das ferramentas",
+    "Tool status"
+  ],
+  "Tools_Missing_Title": [
+    "Ferramentas necessárias",
+    "Required tools"
+  ],
+  "Tools_Missing_Message": [
+    "O Miguel Downloader precisa do yt-dlp e do FFmpeg. Eles serão baixados dos repositórios oficiais e verificados por checksum.",
+    "Miguel Downloader needs yt-dlp and FFmpeg. They will be downloaded from their official repositories and verified by checksum."
+  ],
+  "Tools_Install": [
+    "Baixar e instalar",
+    "Download and install"
+  ],
+  "Tools_Installing": [
+    "Instalando…",
+    "Installing…"
+  ],
+  "Tools_Ready": [
+    "Ferramentas prontas.",
+    "Tools ready."
+  ],
+  "Tools_InstallFailed": [
+    "Não foi possível instalar as ferramentas.",
+    "The tools could not be installed."
+  ],
+  "Dialog_FileExists_Title": [
+    "O arquivo já existe",
+    "The file already exists"
+  ],
+  "Dialog_BulkConfirm_Title": [
+    "Muitos itens",
+    "Many items"
+  ],
+  "Dialog_BulkConfirm_Message": [
+    "Esta URL contém {0} itens. Deseja realmente continuar?",
+    "This URL contains {0} items. Do you really want to continue?"
+  ],
+  "Dialog_ExitConfirm_Title": [
+    "Downloads em andamento",
+    "Downloads in progress"
+  ],
+  "Dialog_ExitConfirm_Message": [
+    "Há {0} download(s) em andamento. Fechar agora vai interrompê-los.",
+    "There are {0} download(s) in progress. Closing now will interrupt them."
+  ],
+  "Dialog_ClipboardDetected": [
+    "URL do YouTube detectada. Analisar?",
+    "YouTube URL detected. Analyze?"
+  ],
+  "Warning_NoJsRuntime": [
+    "Nenhum runtime JavaScript encontrado. Alguns formatos podem não aparecer.",
+    "No JavaScript runtime found. Some formats may not appear."
+  ],
+  "Warning_FormatsMayBeMissing": [
+    "Alguns formatos podem estar indisponíveis nesta análise.",
+    "Some formats may be unavailable in this analysis."
+  ],
+  "Warning_CollectionTruncated": [
+    "A lista foi limitada. Nem todos os itens foram carregados.",
+    "The listing was limited. Not every item was loaded."
+  ],
+  "Warning_MixIsUnbounded": [
+    "Mixes são gerados automaticamente e não têm fim definido.",
+    "Mixes are generated automatically and have no defined end."
+  ],
+  "Warning_UpcomingBroadcast": [
+    "Esta transmissão ainda não começou.",
+    "This broadcast has not started yet."
+  ],
+  "Warning_LiveStream": [
+    "Esta é uma transmissão ao vivo.",
+    "This is a live stream."
+  ],
+  "Warning_LossyToLossless": [
+    "A fonte já é comprimida com perdas. Converter para {0} evita perdas adicionais, mas não recupera qualidade que não existe no original.",
+    "The source is already lossy. Converting to {0} avoids further loss but cannot recover quality the original does not have."
+  ],
+  "MuxNote_NoReencodeNeeded": [
+    "Sem reconversão: as faixas são copiadas como estão.",
+    "No re-encoding: the streams are copied as they are."
+  ],
+  "MuxNote_ContainerChosenForCompatibility": [
+    "Contêiner escolhido para evitar reconversão.",
+    "Container chosen to avoid re-encoding."
+  ],
+  "MuxNote_VideoTranscodeRequiredByContainer": [
+    "O contêiner escolhido não aceita este codec de vídeo, então o vídeo será reconvertido (há perda de qualidade).",
+    "The chosen container cannot hold this video codec, so the video will be re-encoded (this loses quality)."
+  ],
+  "MuxNote_AudioTranscodeRequiredByContainer": [
+    "O contêiner escolhido não aceita este codec de áudio, então o áudio será reconvertido.",
+    "The chosen container cannot hold this audio codec, so the audio will be re-encoded."
+  ],
+  "MuxNote_MultipleAudioTracksForceMkv": [
+    "Várias faixas de áudio exigem MKV, então o contêiner foi ajustado.",
+    "Several audio tracks require MKV, so the container was adjusted."
+  ],
+  "MuxNote_SubtitlesConvertedForContainer": [
+    "As legendas serão convertidas para o formato aceito pelo contêiner.",
+    "Subtitles will be converted to the format the container accepts."
+  ],
+  "MuxNote_SubtitlesWrittenAsSidecar": [
+    "Este contêiner não incorpora legendas; elas serão salvas em arquivos separados.",
+    "This container cannot embed subtitles; they will be saved as separate files."
+  ],
+  "MuxNote_CoverArtWrittenAsSidecar": [
+    "Este contêiner não incorpora capa; ela será salva em arquivo separado.",
+    "This container cannot embed cover art; it will be saved as a separate file."
+  ],
+  "MuxNote_HdrAtRiskFromTranscode": [
+    "A reconversão pode perder as informações de HDR.",
+    "Re-encoding may lose the HDR information."
+  ],
+  "Error_Unknown": [
+    "Ocorreu um erro inesperado.",
+    "An unexpected error occurred."
+  ],
+  "Error_InvalidUrl": [
+    "Isto não parece um link.",
+    "That does not look like a link."
+  ],
+  "Error_UnsupportedUrl": [
+    "Este endereço não é suportado.",
+    "This address is not supported."
+  ],
+  "Error_SearchUrlNotSupported": [
+    "Páginas de busca não podem ser baixadas. Abra um vídeo ou playlist específico.",
+    "Search pages cannot be downloaded. Open a specific video or playlist."
+  ],
+  "Error_VideoUnavailable": [
+    "Este vídeo não está disponível.",
+    "This video is not available."
+  ],
+  "Error_VideoRemoved": [
+    "Este vídeo foi removido.",
+    "This video has been removed."
+  ],
+  "Error_PrivateVideo": [
+    "Este vídeo é privado.",
+    "This video is private."
+  ],
+  "Error_MembersOnly": [
+    "Este conteúdo é exclusivo para membros do canal.",
+    "This content is for channel members only."
+  ],
+  "Error_IpBlocked": [
+    "O site bloqueou o acesso a partir do seu endereço de rede. Não é uma restrição do vídeo em si: tente novamente mais tarde ou por outra conexão.",
+    "The site blocked access from your network address. This is not a restriction on the item itself: try again later or from another connection."
+  ],
+  "Error_GeoRestricted": [
+    "Este vídeo não está disponível na sua região.",
+    "This video is not available in your region."
+  ],
+  "Error_AgeRestricted": [
+    "Este vídeo tem restrição de idade e exige uma sessão autenticada.",
+    "This video is age-restricted and requires an authenticated session."
+  ],
+  "Error_LoginRequired": [
+    "É necessário estar autenticado para acessar este conteúdo.",
+    "You must be signed in to access this content."
+  ],
+  "Error_BotCheck": [
+    "O YouTube pediu uma verificação. Configure os cookies do navegador em Configurações, Avançado.",
+    "YouTube asked for a verification. Configure browser cookies in Settings, Advanced."
+  ],
+  "Error_DrmProtected": [
+    "Este conteúdo é protegido por DRM e não pode ser baixado.",
+    "This content is DRM-protected and cannot be downloaded."
+  ],
+  "Error_LiveNotStarted": [
+    "Esta transmissão ainda não começou.",
+    "This broadcast has not started yet."
+  ],
+  "Error_FormatUnavailable": [
+    "O formato escolhido não está mais disponível. Analise novamente.",
+    "The chosen format is no longer available. Analyze again."
+  ],
+  "Error_NoFormatsFound": [
+    "Nenhum formato disponível foi encontrado. Talvez o mecanismo precise ser atualizado.",
+    "No available formats were found. The engine may need updating."
+  ],
+  "Error_NetworkFailure": [
+    "Falha de conexão. Verifique sua internet.",
+    "Connection failure. Check your internet."
+  ],
+  "Error_Timeout": [
+    "A operação demorou demais.",
+    "The operation took too long."
+  ],
+  "Error_RateLimited": [
+    "O YouTube limitou temporariamente as requisições. Tente mais tarde.",
+    "YouTube temporarily rate-limited requests. Try again later."
+  ],
+  "Error_ExpiredStreamUrl": [
+    "O endereço do stream expirou. Tentar novamente costuma resolver.",
+    "The stream address expired. Retrying usually resolves it."
+  ],
+  "Error_DiskFull": [
+    "Não há espaço suficiente em disco.",
+    "There is not enough disk space."
+  ],
+  "Error_DiskFullPredicted": [
+    "O espaço em disco pode não ser suficiente para este download.",
+    "There may not be enough disk space for this download."
+  ],
+  "Error_PermissionDenied": [
+    "Sem permissão para escrever nessa pasta.",
+    "No permission to write to that folder."
+  ],
+  "Error_FileInUse": [
+    "O arquivo está aberto em outro programa.",
+    "The file is open in another program."
+  ],
+  "Error_PathTooLong": [
+    "O caminho do arquivo é longo demais.",
+    "The file path is too long."
+  ],
+  "Error_FfmpegMissing": [
+    "O FFmpeg não foi encontrado.",
+    "FFmpeg was not found."
+  ],
+  "Error_YtDlpMissing": [
+    "O mecanismo de download não foi encontrado.",
+    "The download engine was not found."
+  ],
+  "Error_JsRuntimeMissing": [
+    "Nenhum runtime JavaScript foi encontrado.",
+    "No JavaScript runtime was found."
+  ],
+  "Error_MuxFailed": [
+    "Falha ao combinar as faixas.",
+    "Failed to combine the tracks."
+  ],
+  "Error_ConversionFailed": [
+    "A conversão falhou.",
+    "The conversion failed."
+  ],
+  "Error_MetadataFailed": [
+    "Não foi possível aplicar os metadados.",
+    "The metadata could not be applied."
+  ],
+  "Error_ValidationFailed": [
+    "O arquivo final não passou na verificação.",
+    "The final file failed validation."
+  ],
+  "Error_ValidationNoVideo": [
+    "O arquivo final não contém vídeo.",
+    "The final file contains no video."
+  ],
+  "Error_ValidationNoAudio": [
+    "O arquivo final não contém áudio.",
+    "The final file contains no audio."
+  ],
+  "Error_ValidationMissingTracks": [
+    "Algumas faixas de áudio não chegaram ao arquivo final.",
+    "Some audio tracks did not reach the final file."
+  ],
+  "Error_ValidationTruncated": [
+    "O arquivo parece incompleto: a duração não confere.",
+    "The file appears incomplete: the duration does not match."
+  ],
+  "Error_ValidationEmpty": [
+    "O arquivo final está vazio.",
+    "The final file is empty."
+  ],
+  "Error_ValidationUnreadable": [
+    "O arquivo final não pôde ser lido.",
+    "The final file could not be read."
+  ],
+  "Error_NoOutputProduced": [
+    "O download terminou, mas nenhum arquivo foi produzido.",
+    "The download finished but produced no file."
+  ],
+  "Error_UnexpectedToolOutput": [
+    "O mecanismo retornou uma resposta inesperada.",
+    "The engine returned an unexpected response."
+  ],
+  "Error_PlaylistEmpty": [
+    "Esta playlist está vazia ou não existe.",
+    "This playlist is empty or does not exist."
+  ],
+  "Error_FileExists": [
+    "Já existe um arquivo com esse nome.",
+    "A file with that name already exists."
+  ],
+  "Error_Cancelled": [
+    "Cancelado.",
+    "Cancelled."
+  ],
+  "Error_Details": [
+    "Detalhes técnicos",
+    "Technical details"
+  ],
+  "Recommend_Retry": [
+    "Tentar novamente",
+    "Retry"
+  ],
+  "Recommend_RetryLater": [
+    "Tente novamente mais tarde",
+    "Try again later"
+  ],
+  "Recommend_CheckUrl": [
+    "Confira o endereço",
+    "Check the address"
+  ],
+  "Recommend_CheckConnection": [
+    "Verifique sua conexão",
+    "Check your connection"
+  ],
+  "Recommend_FreeDiskSpace": [
+    "Libere espaço em disco",
+    "Free up disk space"
+  ],
+  "Recommend_ChooseAnotherFolder": [
+    "Escolha outra pasta",
+    "Choose another folder"
+  ],
+  "Recommend_CloseFileAndRetry": [
+    "Feche o arquivo e tente de novo",
+    "Close the file and try again"
+  ],
+  "Recommend_ChooseAnotherFormat": [
+    "Escolha outro formato",
+    "Choose another format"
+  ],
+  "Recommend_SignIn": [
+    "Configure os cookies do navegador",
+    "Configure browser cookies"
+  ],
+  "Recommend_UpdateTools": [
+    "Atualize o mecanismo de download",
+    "Update the download engine"
+  ],
+  "Recommend_InstallTools": [
+    "Instale as ferramentas necessárias",
+    "Install the required tools"
+  ],
+  "Recommend_ContactSupportWithLogs": [
+    "Exporte o diagnóstico para investigar",
+    "Export diagnostics to investigate"
+  ],
+  "Recommend_None": [
+    "",
+    ""
+  ],
+  "Audio_KeepOriginal": [
+    "Manter original (sem reconversão)",
+    "Keep original (no re-encoding)"
+  ],
+  "Audio_Mp3": [
+    "MP3",
+    "MP3"
+  ],
+  "Audio_M4a": [
+    "M4A (AAC)",
+    "M4A (AAC)"
+  ],
+  "Audio_Opus": [
+    "Opus",
+    "Opus"
+  ],
+  "Audio_Flac": [
+    "FLAC",
+    "FLAC"
+  ],
+  "Audio_Wav": [
+    "WAV",
+    "WAV"
+  ],
+  "Audio_Alac": [
+    "ALAC",
+    "ALAC"
+  ],
+  "Container_Auto": [
+    "Automático (sem reconversão)",
+    "Automatic (no re-encoding)"
+  ],
+  "Container_Mp4": [
+    "MP4",
+    "MP4"
+  ],
+  "Container_Mkv": [
+    "MKV",
+    "MKV"
+  ],
+  "Container_WebM": [
+    "WebM",
+    "WebM"
+  ],
+  "Codec_Auto": [
+    "Automático (equilibrado)",
+    "Automatic (balanced)"
+  ],
+  "Codec_H264": [
+    "H.264 (mais compatível)",
+    "H.264 (most compatible)"
+  ],
+  "Codec_Vp9": [
+    "VP9 (eficiente)",
+    "VP9 (efficient)"
+  ],
+  "Codec_Av1": [
+    "AV1 (menor tamanho)",
+    "AV1 (smallest size)"
+  ],
+  "SubtitleFormatPreference_Original": [
+    "Original (sem conversão)",
+    "Original (no conversion)"
+  ],
+  "SubtitleFormatPreference_Srt": [
+    "SRT",
+    "SRT"
+  ],
+  "SubtitleFormatPreference_Vtt": [
+    "VTT",
+    "VTT"
+  ],
+  "SubtitleFormatPreference_Ass": [
+    "ASS",
+    "ASS"
+  ],
+  "Subtitle_None": [
+    "Não baixar",
+    "Do not download"
+  ],
+  "Subtitle_All": [
+    "Todos os idiomas",
+    "All languages"
+  ],
+  "Subtitle_Automatic": [
+    "automática",
+    "automatic"
+  ],
+  "Subtitle_Manual": [
+    "oficial",
+    "official"
+  ],
+  "Subtitle_Translated": [
+    "traduzida",
+    "translated"
+  ],
+  "Collection_SelectItems": [
+    "Selecione os itens",
+    "Select items"
+  ],
+  "Collection_AllSelected": [
+    "{0} de {1} selecionados",
+    "{0} of {1} selected"
+  ],
+  "Common_None": [
+    "Nenhum",
+    "None"
+  ],
+  "Common_Loading": [
+    "Carregando…",
+    "Loading…"
+  ],
+  "Label_Priority": [
+    "Priorizar",
+    "Prioritise"
+  ],
+  "Label_Hdr": [
+    "Faixa dinâmica (HDR)",
+    "Dynamic range (HDR)"
+  ],
+  "FormatPriority_Quality": [
+    "Qualidade máxima",
+    "Maximum quality"
+  ],
+  "FormatPriority_Compatibility": [
+    "Compatibilidade",
+    "Compatibility"
+  ],
+  "FormatPriority_Size": [
+    "Menor tamanho",
+    "Smallest size"
+  ],
+  "FormatPriority_Quality_Hint": [
+    "Melhor imagem que a fonte tem: resolução, HDR, FPS e bitrate.",
+    "The best picture the source has: resolution, HDR, frame rate and bitrate."
+  ],
+  "FormatPriority_Compatibility_Hint": [
+    "Prioriza tocar em qualquer lugar: H.264, AAC, SDR e MP4.",
+    "Prioritises playing anywhere: H.264, AAC, SDR and MP4."
+  ],
+  "FormatPriority_Size_Hint": [
+    "Codecs eficientes e o menor arquivo aceitável.",
+    "Efficient codecs and the smallest acceptable file."
+  ],
+  "HdrPolicy_Auto": [
+    "Preservar o que existir",
+    "Preserve whatever exists"
+  ],
+  "HdrPolicy_PreferHdr": [
+    "Preferir HDR",
+    "Prefer HDR"
+  ],
+  "HdrPolicy_PreferSdr": [
+    "Preferir SDR",
+    "Prefer SDR"
+  ],
+  "Hdr_Available": [
+    "Este vídeo tem versão HDR.",
+    "This video has an HDR version."
+  ],
+  "Warning_HdrToneMap": [
+    "A escolha atual exige converter HDR para SDR, o que reprocessa a imagem e altera as cores.",
+    "The current choice requires converting HDR to SDR, which reprocesses the picture and changes its colours."
+  ],
+  "Size_Exact": [
+    "Tamanho",
+    "Size"
+  ],
+  "Size_Estimated": [
+    "Tamanho estimado",
+    "Estimated size"
+  ],
+  "Size_AtLeast": [
+    "Tamanho: pelo menos",
+    "Size: at least"
+  ],
+  "Size_Unknown": [
+    "Tamanho desconhecido",
+    "Size unknown"
+  ],
+  "Processing_StreamCopy": [
+    "Cópia direta, sem reconversão",
+    "Direct copy, no re-encoding"
+  ],
+  "Processing_Remux": [
+    "Troca de contêiner, sem reconversão",
+    "Container change, no re-encoding"
+  ],
+  "Processing_Transcode": [
+    "Reconversão (há perda de qualidade)",
+    "Re-encode (this loses quality)"
+  ],
+  "Tools_Repair": [
+    "Reparar ferramentas",
+    "Repair tools"
+  ],
+  "Tools_Bundled": [
+    "incluída na instalação",
+    "bundled with the installation"
+  ],
+  "Collection_Summary": [
+    "{0} concluídos, {1} indisponíveis, {2} com erro",
+    "{0} completed, {1} unavailable, {2} failed"
+  ],
+  "Collection_Truncated": [
+    "Mostrando {0} de {1} itens.",
+    "Showing {0} of {1} items."
+  ],
+  "Collection_LoadAll": [
+    "Carregar todos os {0} itens",
+    "Load all {0} items"
+  ],
+  "Collection_Loading": [
+    "Carregando a lista completa… isso pode levar alguns minutos.",
+    "Loading the full listing… this can take a few minutes."
+  ],
+  "Size_BeforeConversion": [
+    "Tamanho a baixar",
+    "Download size"
+  ],
+  "Size_ConversionNote": [
+    "O arquivo convertido terá outro tamanho.",
+    "The converted file will be a different size."
+  ],
+  "Settings_Defaults": [
+    "Padrões de saída",
+    "Output defaults"
+  ],
+  "Settings_Defaults_Description": [
+    "Estes valores preenchem novos downloads. Qualidade, formato, legendas e pasta também podem ser alterados no próprio download.",
+    "These values prefill new downloads. Quality, format, subtitles, and folder can also be changed on each download."
+  ],
+  "Settings_ConcurrentFragments": [
+    "Partes simultâneas por download",
+    "Parallel fragments per download"
+  ],
+  "Settings_FileNameTemplate": [
+    "Modelo do nome do arquivo",
+    "File name template"
+  ],
+  "Menu_File": [
+    "_Arquivo",
+    "_File"
+  ],
+  "Menu_File_PasteAnalyze": [
+    "Colar link e _analisar",
+    "Paste link and _analyse"
+  ],
+  "Menu_File_OpenDownloads": [
+    "Abrir _pasta de downloads",
+    "Open _downloads folder"
+  ],
+  "Menu_File_Exit": [
+    "Sai_r",
+    "E_xit"
+  ],
+  "Menu_Edit": [
+    "_Editar",
+    "_Edit"
+  ],
+  "Menu_Edit_Paste": [
+    "Co_lar",
+    "_Paste"
+  ],
+  "Menu_Edit_SelectAll": [
+    "Selecionar _todos os itens",
+    "Select _all items"
+  ],
+  "Menu_Edit_SelectNone": [
+    "Limpar _seleção",
+    "Clear _selection"
+  ],
+  "Menu_Edit_Preferences": [
+    "_Preferências",
+    "P_references"
+  ],
+  "Menu_View": [
+    "E_xibir",
+    "_View"
+  ],
+  "Menu_View_Queue": [
+    "_Fila de downloads",
+    "Download _queue"
+  ],
+  "Menu_View_History": [
+    "_Histórico",
+    "_History"
+  ],
+  "Menu_View_Theme": [
+    "_Tema",
+    "_Theme"
+  ],
+  "Menu_View_Theme_System": [
+    "Seguir o _Windows",
+    "Follow _Windows"
+  ],
+  "Menu_View_Theme_Light": [
+    "_Claro",
+    "_Light"
+  ],
+  "Menu_View_Theme_Dark": [
+    "E_scuro",
+    "_Dark"
+  ],
+  "Menu_Tools": [
+    "_Ferramentas",
+    "_Tools"
+  ],
+  "Menu_Tools_Install": [
+    "Verificar e _instalar ferramentas",
+    "Check and _install tools"
+  ],
+  "Menu_Tools_Update": [
+    "Procurar _atualizações",
+    "Check for _updates"
+  ],
+  "Menu_Tools_Logs": [
+    "Abrir pasta de _logs",
+    "Open _log folder"
+  ],
+  "Menu_Tools_Diagnostics": [
+    "Exportar _diagnóstico",
+    "Export _diagnostics"
+  ],
+  "Menu_Help": [
+    "A_juda",
+    "_Help"
+  ],
+  "Menu_Help_Shortcuts": [
+    "_Atalhos de teclado",
+    "Keyboard _shortcuts"
+  ],
+  "Menu_Help_About": [
+    "_Sobre o Miguel Downloader",
+    "_About Miguel Downloader"
+  ],
+  "Status_Ready": [
+    "Pronto",
+    "Ready"
+  ],
+  "Status_Active": [
+    "ativos",
+    "active"
+  ],
+  "Status_Waiting": [
+    "na fila",
+    "queued"
+  ],
+  "Status_FreeSpace": [
+    "livres em {0}",
+    "free on {0}"
+  ],
+  "About_Title": [
+    "Sobre o Miguel Downloader",
+    "About Miguel Downloader"
+  ],
+  "About_Version": [
+    "Versão {0}",
+    "Version {0}"
+  ],
+  "About_Tagline": [
+    "Baixador de vídeo e música para Windows.",
+    "Video and music downloader for Windows."
+  ],
+  "About_Engine": [
+    "Mecanismo de download",
+    "Download engine"
+  ],
+  "About_Media": [
+    "Processamento de mídia",
+    "Media processing"
+  ],
+  "About_Copy": [
+    "Copiar informações",
+    "Copy details"
+  ],
+  "About_Copied": [
+    "Informações copiadas.",
+    "Details copied."
+  ],
+  "About_Close": [
+    "Fechar",
+    "Close"
+  ],
+  "About_Licence": [
+    "Uso gratuito para fins pessoais e profissionais. Baixe apenas conteúdo que você tem direito ou autorização para baixar.",
+    "Free for personal and professional use. Only download content you have the right or permission to download."
+  ],
+  "Shortcuts_Title": [
+    "Atalhos de teclado",
+    "Keyboard shortcuts"
+  ],
+  "Shortcuts_Intro": [
+    "Tudo aqui também está disponível pelos menus e botões.",
+    "Everything here is also available from the menus and buttons."
+  ],
+  "Shortcuts_Group_General": [
+    "Geral",
+    "General"
+  ],
+  "Shortcuts_Group_Queue": [
+    "Fila e histórico",
+    "Queue and history"
+  ],
+  "Shortcuts_FocusUrl": [
+    "Focar o campo do link",
+    "Focus the link field"
+  ],
+  "Shortcuts_PasteAnalyze": [
+    "Colar link e analisar",
+    "Paste link and analyse"
+  ],
+  "Shortcuts_Analyze": [
+    "Analisar o link do campo",
+    "Analyse the link in the field"
+  ],
+  "Shortcuts_Settings": [
+    "Abrir preferências",
+    "Open preferences"
+  ],
+  "Shortcuts_Queue": [
+    "Ver a fila de downloads",
+    "Show the download queue"
+  ],
+  "Shortcuts_History": [
+    "Ver o histórico",
+    "Show the history"
+  ],
+  "Shortcuts_SelectAll": [
+    "Selecionar todos os itens da coleção",
+    "Select every item in the collection"
+  ],
+  "Shortcuts_Help": [
+    "Abrir esta lista",
+    "Open this list"
+  ],
+  "Shortcuts_OpenFolder": [
+    "Abrir a pasta de downloads",
+    "Open the downloads folder"
+  ],
+  "Home_PasteAnalyze": [
+    "Colar e analisar",
+    "Paste and analyse"
+  ],
+  "Status_Active_One": [
+    "ativo",
+    "active"
+  ],
+  "About_By": [
+    "por",
+    "by"
+  ],
+  "About_OpenLicence": [
+    "Ler a licença de uso",
+    "Read the licence"
+  ],
+  "About_OpenNotices": [
+    "Componentes de terceiros",
+    "Third-party components"
+  ],
+  "About_DocumentMissing": [
+    "O arquivo {0} não está na pasta do programa. Ele acompanha a instalação; se você move o programa de lugar, leve os documentos junto.",
+    "{0} is not in the program folder. It ships with the installation; if you move the program, take the documents with it."
+  ],
+  "Menu_Help_Licence": [
+    "_Licença de uso",
+    "_Licence"
+  ],
+  "Menu_Help_Notices": [
+    "Componentes de _terceiros",
+    "Third-party _components"
+  ],
+  "Menu_Help_Site": [
+    "_Site do autor",
+    "Author's _website"
+  ],
+  "Welcome_Title": [
+    "Guia rápido",
+    "Quick guide"
+  ],
+  "Welcome_Hello": [
+    "Bem-vindo ao Miguel Downloader",
+    "Welcome to Miguel Downloader"
+  ],
+  "Welcome_HelloBody": [
+    "Menos de um minuto. Dá para pular agora e voltar depois pelo menu Ajuda.",
+    "Under a minute. You can skip it now and come back from the Help menu."
+  ],
+  "Welcome_Step1_Title": [
+    "Comece colando um link",
+    "Start by pasting a link"
+  ],
+  "Welcome_Step1_Body": [
+    "Copie o endereço de um vídeo ou de uma música no navegador e pressione Ctrl+V aqui dentro. O programa cola e analisa numa ação só, sem precisar clicar em mais nada.",
+    "Copy the address of a video or a track in your browser and press Ctrl+V in here. The program pastes and analyses in one action, with nothing else to click."
+  ],
+  "Welcome_Step1_Note": [
+    "Funciona com YouTube, Instagram, TikTok, X, Facebook, Reddit, SoundCloud, Spotify, Deezer e outras centenas de sites.",
+    "Works with YouTube, Instagram, TikTok, X, Facebook, Reddit, SoundCloud, Spotify, Deezer and hundreds of other sites."
+  ],
+  "Welcome_Step2_Title": [
+    "Escolha entre o que existe de verdade",
+    "Choose from what actually exists"
+  ],
+  "Welcome_Step2_Body": [
+    "Analisado o link, aparecem a qualidade, o formato e as legendas que aquele site publica. A lista vem da fonte, então não há opção que aceita o clique e falha depois.",
+    "Once the link is analysed, you get the quality, format and subtitles that site publishes. The list comes from the source, so no option accepts a click and fails afterwards."
+  ],
+  "Welcome_Step2_Note": [
+    "Coleções e playlists são listadas item a item, e você marca o que quer antes de baixar.",
+    "Collections and playlists are listed item by item, and you tick what you want before downloading."
+  ],
+  "Welcome_Step3_Title": [
+    "Acompanhe pela fila",
+    "Follow it in the queue"
+  ],
+  "Welcome_Step3_Body": [
+    "Os downloads ficam no painel à direita, com progresso, velocidade e tempo restante. Cada um pode ser pausado, retomado ou cancelado sem afetar os outros.",
+    "Downloads sit in the panel on the right, with progress, speed and time left. Each one can be paused, resumed or cancelled without disturbing the others."
+  ],
+  "Welcome_Step3_Note": [
+    "A barra embaixo mostra quantos estão ativos, a velocidade somada e o espaço livre no disco de destino.",
+    "The bar at the bottom shows how many are running, the combined speed and the free space on the target drive."
+  ],
+  "Welcome_Step4_Title": [
+    "Onde os arquivos ficam",
+    "Where the files land"
+  ],
+  "Welcome_Step4_Body": [
+    "Esta é a pasta de destino atual. Dá para trocá-la a qualquer momento no campo \"Pasta de destino\", ou por download.",
+    "This is the current destination folder. You can change it whenever you like in the \"Destination folder\" field, or per download."
+  ],
+  "Welcome_Step4_Note": [
+    "Um download só é marcado como concluído depois que o arquivo final é aberto e verificado. Se aparecer como pronto, ele toca.",
+    "A download is only marked finished after the resulting file has been opened and checked. If it says done, it plays."
+  ],
+  "Welcome_Shortcuts": [
+    "lista todos os atalhos de teclado.",
+    "lists every keyboard shortcut."
+  ],
+  "Welcome_Skip": [
+    "Pular",
+    "Skip"
+  ],
+  "Welcome_Back": [
+    "Voltar",
+    "Back"
+  ],
+  "Welcome_Next": [
+    "Próximo",
+    "Next"
+  ],
+  "Welcome_Done": [
+    "Começar",
+    "Get started"
+  ],
+  "Welcome_StepOf": [
+    "{0} de {1}",
+    "{0} of {1}"
+  ],
+  "Menu_Help_Guide": [
+    "_Guia rápido",
+    "_Quick guide"
+  ],
+  "Home_EmptySites": [
+    "Vídeo, música, playlist ou perfil. Mais de mil e setecentos sites.",
+    "A video, a track, a playlist or a profile. Over seventeen hundred sites."
+  ],
+  "Settings_AppUpdates": [
+    "Atualizações do aplicativo",
+    "Application updates"
+  ],
+  "Settings_AppUpdates_Description": [
+    "O canal estável usa GitHub Releases. O pacote é baixado em segundo plano, verificado e instalado apenas após o aplicativo sair.",
+    "The stable channel uses GitHub Releases. Packages are downloaded in the background, verified, and installed only after the app exits."
+  ],
+  "Settings_AppAutoUpdate": [
+    "Baixar e instalar atualizações estáveis automaticamente",
+    "Download and install stable updates automatically"
+  ],
+  "Settings_CheckAppUpdates": [
+    "Verificar o aplicativo agora",
+    "Check the application now"
+  ],
+  "Settings_AppUpToDate": [
+    "Você já está na versão mais recente.",
+    "You already have the latest version."
+  ],
+  "Settings_AppUpdateReady": [
+    "Versão {0} pronta para instalar ao reiniciar.",
+    "Version {0} is ready to install on restart."
+  ],
+  "Settings_AppUpdateNotInstalled": [
+    "Disponível apenas no aplicativo instalado ou no pacote portátil oficial.",
+    "Available only in the installed app or official portable package."
+  ],
+  "Settings_AppUpdateBusy": [
+    "Já existe uma atualização em andamento.",
+    "An update is already in progress."
+  ],
+  "Settings_AppUpdateFailed": [
+    "Não foi possível verificar agora. O aplicativo continuará funcionando normalmente.",
+    "Could not check right now. The application will continue to work normally."
+  ],
+  "Update_Ready_Title": [
+    "Atualização pronta",
+    "Update ready"
+  ],
+  "Update_Ready_Message": [
+    "A versão {0} foi baixada e verificada. Ela será instalada na próxima vez que o aplicativo iniciar.",
+    "Version {0} was downloaded and verified. It will be installed the next time the application starts."
+  ],
+  "Update_WaitsForDownloads": [
+    "A atualização aguardará os downloads terminarem e será instalada na próxima inicialização.",
+    "The update will wait for downloads to finish and will be installed on the next launch."
+  ],
+  "Update_RestartPrompt": [
+    "A versão {0} está pronta. Reiniciar agora para concluir a atualização?",
+    "Version {0} is ready. Restart now to finish updating?"
+  ],
+  "Update_Failed_Title": [
+    "Atualização não concluída",
+    "Update not completed"
+  ],
+  "Update_VerificationFailed": [
+    "O pacote baixado não passou na verificação de integridade e foi recusado.",
+    "The downloaded package failed integrity verification and was rejected."
+  ],
+  "Update_Failed_Message": [
+    "Não foi possível verificar ou baixar a atualização agora.",
+    "The update could not be checked or downloaded right now."
+  ],
+  "Menu_Help_CheckUpdates": [
+    "Verificar atualizações do aplicativo",
+    "Check for application updates"
+  ]
+}

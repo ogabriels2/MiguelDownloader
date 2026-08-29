@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" /></xsd:sequence>
+            <xsd:attribute name="name" use="required" type="xsd:string" /><xsd:attribute name="type" type="xsd:string" />
+            <xsd:attribute name="mimetype" type="xsd:string" /><xsd:attribute ref="xml:space" /></xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType><xsd:attribute name="alias" type="xsd:string" /><xsd:attribute name="name" type="xsd:string" /></xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType><xsd:sequence>
+              <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+            </xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            <xsd:attribute ref="xml:space" /></xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType><xsd:sequence><xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" /></xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string" use="required" /></xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="App_Title" xml:space="preserve">
+    <value>Miguel Downloader</value>
+  </data>
+  <data name="App_Subtitle" xml:space="preserve">
+    <value>Video and music downloader</value>
+  </data>
+  <data name="Nav_Label" xml:space="preserve">
+    <value>Main navigation</value>
+  </data>
+  <data name="Nav_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Nav_Downloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="Nav_History" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Nav_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Home_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Home_SignInHint" xml:space="preserve">
+    <value>{0} usually wants a signed-in session. If the analysis fails, point the app at your browser's cookies in Settings.</value>
+  </data>
+  <data name="Catalogue_Lossless" xml:space="preserve">
+    <value>Lossless</value>
+  </data>
+  <data name="Catalogue_Lossy" xml:space="preserve">
+    <value>Lossy</value>
+  </data>
+  <data name="Catalogue_Progress" xml:space="preserve">
+    <value>{0} of {1} located · {2} lossless</value>
+  </data>
+  <data name="Catalogue_Matching" xml:space="preserve">
+    <value>Locating recordings…</value>
+  </data>
+  <data name="Error_TrackNotFound" xml:space="preserve">
+    <value>No reliable source was found for this track.</value>
+  </data>
+  <data name="Catalogue_SomeNotFound" xml:space="preserve">
+    <value>{0} track(s) with no reliable source</value>
+  </data>
+  <data name="Error_CatalogueUnavailable" xml:space="preserve">
+    <value>The catalogue for this link could not be read.</value>
+  </data>
+  <data name="Warning_CatalogueBridged" xml:space="preserve">
+    <value>This platform publishes only the release name. The track list came from another open catalogue — check that it is the right album.</value>
+  </data>
+  <data name="Warning_CatalogueOnly" xml:space="preserve">
+    <value>This platform's audio is DRM-protected and is not downloaded from it. What was read is the catalogue: each recording will be looked for on sources that serve audio openly, and the tags come from here.</value>
+  </data>
+  <data name="Settings_MaxCollectionItems_Hint" xml:space="preserve">
+    <value>Zero means all of them, which is the default. The listing arrives in pages so the first items appear at once, but it keeps going until the collection is complete.</value>
+  </data>
+  <data name="Settings_MaxCollectionItems" xml:space="preserve">
+    <value>Most items per playlist or channel</value>
+  </data>
+  <data name="Home_UrlPlaceholder" xml:space="preserve">
+    <value>Paste a link to a video, track or post</value>
+  </data>
+  <data name="Home_Analyze" xml:space="preserve">
+    <value>Analyze</value>
+  </data>
+  <data name="Home_Paste" xml:space="preserve">
+    <value>Paste URL</value>
+  </data>
+  <data name="Home_Analyzing" xml:space="preserve">
+    <value>Analyzing…</value>
+  </data>
+  <data name="Home_QuickDownload" xml:space="preserve">
+    <value>Download with default</value>
+  </data>
+  <data name="Home_EmptyState" xml:space="preserve">
+    <value>Paste a URL above to get started.</value>
+  </data>
+  <data name="Kind_Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="Kind_Short" xml:space="preserve">
+    <value>Short</value>
+  </data>
+  <data name="Kind_Music" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="Kind_MusicVideo" xml:space="preserve">
+    <value>Music video</value>
+  </data>
+  <data name="Kind_LiveStream" xml:space="preserve">
+    <value>Live stream</value>
+  </data>
+  <data name="Kind_Playlist" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="Kind_Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Kind_Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="Kind_Unknown" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="Label_Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="Label_Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="Label_Artist" xml:space="preserve">
+    <value>Artist</value>
+  </data>
+  <data name="Label_Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Label_Items" xml:space="preserve">
+    <value>items</value>
+  </data>
+  <data name="Label_QualityPerItem" xml:space="preserve">
+    <value>Decided per item, within the preset ceiling. A collection is listed without opening every item, so the renditions are not known yet.</value>
+  </data>
+  <data name="Label_Quality" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="Label_Format" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="Label_Container" xml:space="preserve">
+    <value>Container</value>
+  </data>
+  <data name="Label_Codec" xml:space="preserve">
+    <value>Codec</value>
+  </data>
+  <data name="Label_AudioTrack" xml:space="preserve">
+    <value>Audio track</value>
+  </data>
+  <data name="Label_Subtitles" xml:space="preserve">
+    <value>Subtitles</value>
+  </data>
+  <data name="Label_Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Label_Bitrate" xml:space="preserve">
+    <value>Bitrate</value>
+  </data>
+  <data name="Label_Resolution" xml:space="preserve">
+    <value>Resolution</value>
+  </data>
+  <data name="Label_Fps" xml:space="preserve">
+    <value>FPS</value>
+  </data>
+  <data name="Label_Estimated" xml:space="preserve">
+    <value>estimated</value>
+  </data>
+  <data name="Label_Unknown" xml:space="preserve">
+    <value>unknown</value>
+  </data>
+  <data name="Label_Mode" xml:space="preserve">
+    <value>What to download</value>
+  </data>
+  <data name="Label_Destination" xml:space="preserve">
+    <value>Destination folder</value>
+  </data>
+  <data name="Label_Preset" xml:space="preserve">
+    <value>Preset</value>
+  </data>
+  <data name="Label_Warnings" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Mode_Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="Mode_Audio" xml:space="preserve">
+    <value>Audio only</value>
+  </data>
+  <data name="Quality_Best" xml:space="preserve">
+    <value>Best available</value>
+  </data>
+  <data name="Quality_High" xml:space="preserve">
+    <value>High (up to 1080p)</value>
+  </data>
+  <data name="Quality_Balanced" xml:space="preserve">
+    <value>Balanced (up to 720p)</value>
+  </data>
+  <data name="Quality_Smallest" xml:space="preserve">
+    <value>Smallest size</value>
+  </data>
+  <data name="Quality_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="View_Simple" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="View_Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="Preset_VideoBest" xml:space="preserve">
+    <value>Video — Best quality</value>
+  </data>
+  <data name="Preset_VideoBest_Description" xml:space="preserve">
+    <value>Best available video and audio, with no re-encoding.</value>
+  </data>
+  <data name="Preset_VideoCompatible" xml:space="preserve">
+    <value>Video — Compatibility</value>
+  </data>
+  <data name="Preset_VideoCompatible_Description" xml:space="preserve">
+    <value>MP4 with H.264 and AAC, when the source offers it.</value>
+  </data>
+  <data name="Preset_VideoSmall" xml:space="preserve">
+    <value>Video — Smaller size</value>
+  </data>
+  <data name="Preset_VideoSmall_Description" xml:space="preserve">
+    <value>Up to 720p, to save space.</value>
+  </data>
+  <data name="Preset_MusicBest" xml:space="preserve">
+    <value>Music — Best available</value>
+  </data>
+  <data name="Preset_MusicBest_Description" xml:space="preserve">
+    <value>Keeps the original audio, with no re-encoding.</value>
+  </data>
+  <data name="Preset_MusicMp3" xml:space="preserve">
+    <value>Music — High quality MP3</value>
+  </data>
+  <data name="Preset_MusicMp3_Description" xml:space="preserve">
+    <value>Converts to high quality VBR MP3.</value>
+  </data>
+  <data name="Status_Queued" xml:space="preserve">
+    <value>Queued</value>
+  </data>
+  <data name="Status_Running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Status_Paused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="Status_Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="Status_Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Status_Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="Status_Skipped" xml:space="preserve">
+    <value>Skipped</value>
+  </data>
+  <data name="Stage_Analyzing" xml:space="preserve">
+    <value>Analyzing</value>
+  </data>
+  <data name="Stage_DownloadingVideo" xml:space="preserve">
+    <value>Downloading video</value>
+  </data>
+  <data name="Stage_DownloadingAudio" xml:space="preserve">
+    <value>Downloading audio</value>
+  </data>
+  <data name="Stage_DownloadingSubtitles" xml:space="preserve">
+    <value>Downloading subtitles</value>
+  </data>
+  <data name="Stage_DownloadingThumbnail" xml:space="preserve">
+    <value>Downloading cover</value>
+  </data>
+  <data name="Stage_Muxing" xml:space="preserve">
+    <value>Combining tracks</value>
+  </data>
+  <data name="Stage_Remuxing" xml:space="preserve">
+    <value>Changing container</value>
+  </data>
+  <data name="Stage_Converting" xml:space="preserve">
+    <value>Converting</value>
+  </data>
+  <data name="Stage_WritingMetadata" xml:space="preserve">
+    <value>Writing metadata</value>
+  </data>
+  <data name="Stage_EmbeddingCoverArt" xml:space="preserve">
+    <value>Embedding cover art</value>
+  </data>
+  <data name="Stage_Validating" xml:space="preserve">
+    <value>Validating file</value>
+  </data>
+  <data name="Stage_Finalizing" xml:space="preserve">
+    <value>Finalizing</value>
+  </data>
+  <data name="Stage_None" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Action_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Action_Pause" xml:space="preserve">
+    <value>Pause</value>
+  </data>
+  <data name="Action_Resume" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="Action_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Action_Retry" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="Action_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Action_OpenFile" xml:space="preserve">
+    <value>Open file</value>
+  </data>
+  <data name="Action_OpenFolder" xml:space="preserve">
+    <value>Open folder</value>
+  </data>
+  <data name="Action_CopyUrl" xml:space="preserve">
+    <value>Copy URL</value>
+  </data>
+  <data name="Action_SelectAll" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="Action_SelectNone" xml:space="preserve">
+    <value>Clear selection</value>
+  </data>
+  <data name="Action_ClearFinished" xml:space="preserve">
+    <value>Clear finished</value>
+  </data>
+  <data name="Action_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Action_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Action_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Action_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Action_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Action_Browse" xml:space="preserve">
+    <value>Browse…</value>
+  </data>
+  <data name="Action_DownloadAgain" xml:space="preserve">
+    <value>Download again</value>
+  </data>
+  <data name="Downloads_Empty" xml:space="preserve">
+    <value>No downloads in the queue.</value>
+  </data>
+  <data name="Downloads_Title" xml:space="preserve">
+    <value>Download queue</value>
+  </data>
+  <data name="History_Title" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="History_Empty" xml:space="preserve">
+    <value>No downloads recorded yet.</value>
+  </data>
+  <data name="History_Search" xml:space="preserve">
+    <value>Search history</value>
+  </data>
+  <data name="History_FileMissing" xml:space="preserve">
+    <value>File not found at its original location</value>
+  </data>
+  <data name="History_Clear" xml:space="preserve">
+    <value>Clear history</value>
+  </data>
+  <data name="History_ClearConfirm" xml:space="preserve">
+    <value>Remove the entire history? Downloaded files will not be deleted.</value>
+  </data>
+  <data name="History_Filter_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="History_Filter_Video" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="History_Filter_Audio" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="History_Sort_Newest" xml:space="preserve">
+    <value>Newest first</value>
+  </data>
+  <data name="History_Sort_Oldest" xml:space="preserve">
+    <value>Oldest first</value>
+  </data>
+  <data name="History_Sort_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="History_Sort_Largest" xml:space="preserve">
+    <value>Largest</value>
+  </data>
+  <data name="HistorySort_NewestFirst" xml:space="preserve">
+    <value>Newest first</value>
+  </data>
+  <data name="HistorySort_OldestFirst" xml:space="preserve">
+    <value>Oldest first</value>
+  </data>
+  <data name="HistorySort_TitleAscending" xml:space="preserve">
+    <value>Title (A-Z)</value>
+  </data>
+  <data name="HistorySort_LargestFirst" xml:space="preserve">
+    <value>Largest first</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Settings_Video" xml:space="preserve">
+    <value>Video</value>
+  </data>
+  <data name="Settings_Music" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="Settings_Downloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="Settings_Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="Settings_DownloadFolder" xml:space="preserve">
+    <value>Default download folder</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Settings_Language_System" xml:space="preserve">
+    <value>Follow the system</value>
+  </data>
+  <data name="Settings_Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Settings_Theme_System" xml:space="preserve">
+    <value>Follow Windows</value>
+  </data>
+  <data name="Settings_Theme_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Settings_Theme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Settings_Notifications" xml:space="preserve">
+    <value>Show a notification when finished</value>
+  </data>
+  <data name="Settings_ConfirmExit" xml:space="preserve">
+    <value>Confirm before closing with active downloads</value>
+  </data>
+  <data name="Settings_WatchClipboard" xml:space="preserve">
+    <value>Detect copied URLs</value>
+  </data>
+  <data name="Settings_WatchClipboard_Description" xml:space="preserve">
+    <value>Offers to analyze when you copy a YouTube link. Nothing is downloaded automatically.</value>
+  </data>
+  <data name="Settings_DefaultQuality" xml:space="preserve">
+    <value>Default quality</value>
+  </data>
+  <data name="Settings_DefaultContainer" xml:space="preserve">
+    <value>Default container</value>
+  </data>
+  <data name="Settings_CodecPreference" xml:space="preserve">
+    <value>Preferred video codec</value>
+  </data>
+  <data name="Settings_PreferHdr" xml:space="preserve">
+    <value>Prefer HDR when available</value>
+  </data>
+  <data name="Settings_EmbedThumbnail" xml:space="preserve">
+    <value>Embed cover art in video</value>
+  </data>
+  <data name="Settings_EmbedMetadata" xml:space="preserve">
+    <value>Embed metadata</value>
+  </data>
+  <data name="Settings_EmbedChapters" xml:space="preserve">
+    <value>Embed chapters</value>
+  </data>
+  <data name="Settings_DownloadSubtitles" xml:space="preserve">
+    <value>Download subtitles by default</value>
+  </data>
+  <data name="Settings_EmbedSubtitles" xml:space="preserve">
+    <value>Embed subtitles in the file</value>
+  </data>
+  <data name="Settings_KeepSubtitleFiles" xml:space="preserve">
+    <value>Keep separate subtitle files</value>
+  </data>
+  <data name="Settings_AutoSubtitles" xml:space="preserve">
+    <value>Include automatic captions</value>
+  </data>
+  <data name="Settings_MusicFormat" xml:space="preserve">
+    <value>Audio format</value>
+  </data>
+  <data name="Settings_MusicFolders" xml:space="preserve">
+    <value>Organize into Artist/Album folders</value>
+  </data>
+  <data name="Settings_MusicCoverArt" xml:space="preserve">
+    <value>Embed cover art in music</value>
+  </data>
+  <data name="Settings_MusicMetadata" xml:space="preserve">
+    <value>Write metadata to music files</value>
+  </data>
+  <data name="Settings_Concurrency" xml:space="preserve">
+    <value>Simultaneous downloads</value>
+  </data>
+  <data name="Settings_Retries" xml:space="preserve">
+    <value>Automatic retries</value>
+  </data>
+  <data name="Settings_SpeedLimit" xml:space="preserve">
+    <value>Speed limit (KB/s, 0 = unlimited)</value>
+  </data>
+  <data name="Settings_ResumeDownloads" xml:space="preserve">
+    <value>Resume interrupted downloads</value>
+  </data>
+  <data name="Settings_CheckDiskSpace" xml:space="preserve">
+    <value>Warn when disk space is low</value>
+  </data>
+  <data name="Settings_ExistingFile" xml:space="preserve">
+    <value>When the file already exists</value>
+  </data>
+  <data name="Settings_ExistingFile_Ask" xml:space="preserve">
+    <value>Ask</value>
+  </data>
+  <data name="Settings_ExistingFile_Rename" xml:space="preserve">
+    <value>Rename automatically</value>
+  </data>
+  <data name="Settings_ExistingFile_RenameAutomatically" xml:space="preserve">
+    <value>Rename automatically</value>
+  </data>
+  <data name="Settings_ExistingFile_Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="Settings_ExistingFile_Overwrite" xml:space="preserve">
+    <value>Overwrite</value>
+  </data>
+  <data name="Settings_Tools" xml:space="preserve">
+    <value>External tools</value>
+  </data>
+  <data name="Settings_YtDlpPath" xml:space="preserve">
+    <value>yt-dlp path</value>
+  </data>
+  <data name="Settings_FfmpegPath" xml:space="preserve">
+    <value>FFmpeg path</value>
+  </data>
+  <data name="Settings_JsRuntimePath" xml:space="preserve">
+    <value>JavaScript runtime</value>
+  </data>
+  <data name="Settings_AutoUpdate" xml:space="preserve">
+    <value>Update the download engine automatically</value>
+  </data>
+  <data name="Settings_CheckUpdates" xml:space="preserve">
+    <value>Check for updates now</value>
+  </data>
+  <data name="Settings_UpdateAvailable" xml:space="preserve">
+    <value>Update available: {0}</value>
+  </data>
+  <data name="Settings_UpToDate" xml:space="preserve">
+    <value>Up to date.</value>
+  </data>
+  <data name="Settings_Updating" xml:space="preserve">
+    <value>Updating…</value>
+  </data>
+  <data name="Settings_VerboseLogging" xml:space="preserve">
+    <value>Verbose logging (debug)</value>
+  </data>
+  <data name="Settings_OpenLogs" xml:space="preserve">
+    <value>Open logs folder</value>
+  </data>
+  <data name="Settings_ExportDiagnostics" xml:space="preserve">
+    <value>Export diagnostics</value>
+  </data>
+  <data name="Settings_Cookies" xml:space="preserve">
+    <value>Browser cookies</value>
+  </data>
+  <data name="Settings_Cookies_None" xml:space="preserve">
+    <value>Do not use cookies</value>
+  </data>
+  <data name="Settings_Cookies_Description" xml:space="preserve">
+    <value>Used only for content you already have access to, such as your own private videos. Cookies never appear in logs.</value>
+  </data>
+  <data name="Settings_ExtraArguments" xml:space="preserve">
+    <value>Additional yt-dlp arguments</value>
+  </data>
+  <data name="Settings_Saved" xml:space="preserve">
+    <value>Settings saved.</value>
+  </data>
+  <data name="Settings_ToolStatus" xml:space="preserve">
+    <value>Tool status</value>
+  </data>
+  <data name="Tools_Missing_Title" xml:space="preserve">
+    <value>Required tools</value>
+  </data>
+  <data name="Tools_Missing_Message" xml:space="preserve">
+    <value>Miguel Downloader needs yt-dlp and FFmpeg. They will be downloaded from their official repositories and verified by checksum.</value>
+  </data>
+  <data name="Tools_Install" xml:space="preserve">
+    <value>Download and install</value>
+  </data>
+  <data name="Tools_Installing" xml:space="preserve">
+    <value>Installing…</value>
+  </data>
+  <data name="Tools_Ready" xml:space="preserve">
+    <value>Tools ready.</value>
+  </data>
+  <data name="Tools_InstallFailed" xml:space="preserve">
+    <value>The tools could not be installed.</value>
+  </data>
+  <data name="Dialog_FileExists_Title" xml:space="preserve">
+    <value>The file already exists</value>
+  </data>
+  <data name="Dialog_BulkConfirm_Title" xml:space="preserve">
+    <value>Many items</value>
+  </data>
+  <data name="Dialog_BulkConfirm_Message" xml:space="preserve">
+    <value>This URL contains {0} items. Do you really want to continue?</value>
+  </data>
+  <data name="Dialog_ExitConfirm_Title" xml:space="preserve">
+    <value>Downloads in progress</value>
+  </data>
+  <data name="Dialog_ExitConfirm_Message" xml:space="preserve">
+    <value>There are {0} download(s) in progress. Closing now will interrupt them.</value>
+  </data>
+  <data name="Dialog_ClipboardDetected" xml:space="preserve">
+    <value>YouTube URL detected. Analyze?</value>
+  </data>
+  <data name="Warning_NoJsRuntime" xml:space="preserve">
+    <value>No JavaScript runtime found. Some formats may not appear.</value>
+  </data>
+  <data name="Warning_FormatsMayBeMissing" xml:space="preserve">
+    <value>Some formats may be unavailable in this analysis.</value>
+  </data>
+  <data name="Warning_CollectionTruncated" xml:space="preserve">
+    <value>The listing was limited. Not every item was loaded.</value>
+  </data>
+  <data name="Warning_MixIsUnbounded" xml:space="preserve">
+    <value>Mixes are generated automatically and have no defined end.</value>
+  </data>
+  <data name="Warning_UpcomingBroadcast" xml:space="preserve">
+    <value>This broadcast has not started yet.</value>
+  </data>
+  <data name="Warning_LiveStream" xml:space="preserve">
+    <value>This is a live stream.</value>
+  </data>
+  <data name="Warning_LossyToLossless" xml:space="preserve">
+    <value>The source is already lossy. Converting to {0} avoids further loss but cannot recover quality the original does not have.</value>
+  </data>
+  <data name="MuxNote_NoReencodeNeeded" xml:space="preserve">
+    <value>No re-encoding: the streams are copied as they are.</value>
+  </data>
+  <data name="MuxNote_ContainerChosenForCompatibility" xml:space="preserve">
+    <value>Container chosen to avoid re-encoding.</value>
+  </data>
+  <data name="MuxNote_VideoTranscodeRequiredByContainer" xml:space="preserve">
+    <value>The chosen container cannot hold this video codec, so the video will be re-encoded (this loses quality).</value>
+  </data>
+  <data name="MuxNote_AudioTranscodeRequiredByContainer" xml:space="preserve">
+    <value>The chosen container cannot hold this audio codec, so the audio will be re-encoded.</value>
+  </data>
+  <data name="MuxNote_MultipleAudioTracksForceMkv" xml:space="preserve">
+    <value>Several audio tracks require MKV, so the container was adjusted.</value>
+  </data>
+  <data name="MuxNote_SubtitlesConvertedForContainer" xml:space="preserve">
+    <value>Subtitles will be converted to the format the container accepts.</value>
+  </data>
+  <data name="MuxNote_SubtitlesWrittenAsSidecar" xml:space="preserve">
+    <value>This container cannot embed subtitles; they will be saved as separate files.</value>
+  </data>
+  <data name="MuxNote_CoverArtWrittenAsSidecar" xml:space="preserve">
+    <value>This container cannot embed cover art; it will be saved as a separate file.</value>
+  </data>
+  <data name="MuxNote_HdrAtRiskFromTranscode" xml:space="preserve">
+    <value>Re-encoding may lose the HDR information.</value>
+  </data>
+  <data name="Error_Unknown" xml:space="preserve">
+    <value>An unexpected error occurred.</value>
+  </data>
+  <data name="Error_InvalidUrl" xml:space="preserve">
+    <value>That does not look like a link.</value>
+  </data>
+  <data name="Error_UnsupportedUrl" xml:space="preserve">
+    <value>This address is not supported.</value>
+  </data>
+  <data name="Error_SearchUrlNotSupported" xml:space="preserve">
+    <value>Search pages cannot be downloaded. Open a specific video or playlist.</value>
+  </data>
+  <data name="Error_VideoUnavailable" xml:space="preserve">
+    <value>This video is not available.</value>
+  </data>
+  <data name="Error_VideoRemoved" xml:space="preserve">
+    <value>This video has been removed.</value>
+  </data>
+  <data name="Error_PrivateVideo" xml:space="preserve">
+    <value>This video is private.</value>
+  </data>
+  <data name="Error_MembersOnly" xml:space="preserve">
+    <value>This content is for channel members only.</value>
+  </data>
+  <data name="Error_IpBlocked" xml:space="preserve">
+    <value>The site blocked access from your network address. This is not a restriction on the item itself: try again later or from another connection.</value>
+  </data>
+  <data name="Error_GeoRestricted" xml:space="preserve">
+    <value>This video is not available in your region.</value>
+  </data>
+  <data name="Error_AgeRestricted" xml:space="preserve">
+    <value>This video is age-restricted and requires an authenticated session.</value>
+  </data>
+  <data name="Error_LoginRequired" xml:space="preserve">
+    <value>You must be signed in to access this content.</value>
+  </data>
+  <data name="Error_BotCheck" xml:space="preserve">
+    <value>YouTube asked for a verification. Configure browser cookies in Settings, Advanced.</value>
+  </data>
+  <data name="Error_DrmProtected" xml:space="preserve">
+    <value>This content is DRM-protected and cannot be downloaded.</value>
+  </data>
+  <data name="Error_LiveNotStarted" xml:space="preserve">
+    <value>This broadcast has not started yet.</value>
+  </data>
+  <data name="Error_FormatUnavailable" xml:space="preserve">
+    <value>The chosen format is no longer available. Analyze again.</value>
+  </data>
+  <data name="Error_NoFormatsFound" xml:space="preserve">
+    <value>No available formats were found. The engine may need updating.</value>
+  </data>
+  <data name="Error_NetworkFailure" xml:space="preserve">
+    <value>Connection failure. Check your internet.</value>
+  </data>
+  <data name="Error_Timeout" xml:space="preserve">
+    <value>The operation took too long.</value>
+  </data>
+  <data name="Error_RateLimited" xml:space="preserve">
+    <value>YouTube temporarily rate-limited requests. Try again later.</value>
+  </data>
+  <data name="Error_ExpiredStreamUrl" xml:space="preserve">
+    <value>The stream address expired. Retrying usually resolves it.</value>
+  </data>
+  <data name="Error_DiskFull" xml:space="preserve">
+    <value>There is not enough disk space.</value>
+  </data>
+  <data name="Error_DiskFullPredicted" xml:space="preserve">
+    <value>There may not be enough disk space for this download.</value>
+  </data>
+  <data name="Error_PermissionDenied" xml:space="preserve">
+    <value>No permission to write to that folder.</value>
+  </data>
+  <data name="Error_FileInUse" xml:space="preserve">
+    <value>The file is open in another program.</value>
+  </data>
+  <data name="Error_PathTooLong" xml:space="preserve">
+    <value>The file path is too long.</value>
+  </data>
+  <data name="Error_FfmpegMissing" xml:space="preserve">
+    <value>FFmpeg was not found.</value>
+  </data>
+  <data name="Error_YtDlpMissing" xml:space="preserve">
+    <value>The download engine was not found.</value>
+  </data>
+  <data name="Error_JsRuntimeMissing" xml:space="preserve">
+    <value>No JavaScript runtime was found.</value>
+  </data>
+  <data name="Error_MuxFailed" xml:space="preserve">
+    <value>Failed to combine the tracks.</value>
+  </data>
+  <data name="Error_ConversionFailed" xml:space="preserve">
+    <value>The conversion failed.</value>
+  </data>
+  <data name="Error_MetadataFailed" xml:space="preserve">
+    <value>The metadata could not be applied.</value>
+  </data>
+  <data name="Error_ValidationFailed" xml:space="preserve">
+    <value>The final file failed validation.</value>
+  </data>
+  <data name="Error_ValidationNoVideo" xml:space="preserve">
+    <value>The final file contains no video.</value>
+  </data>
+  <data name="Error_ValidationNoAudio" xml:space="preserve">
+    <value>The final file contains no audio.</value>
+  </data>
+  <data name="Error_ValidationMissingTracks" xml:space="preserve">
+    <value>Some audio tracks did not reach the final file.</value>
+  </data>
+  <data name="Error_ValidationTruncated" xml:space="preserve">
+    <value>The file appears incomplete: the duration does not match.</value>
+  </data>
+  <data name="Error_ValidationEmpty" xml:space="preserve">
+    <value>The final file is empty.</value>
+  </data>
+  <data name="Error_ValidationUnreadable" xml:space="preserve">
+    <value>The final file could not be read.</value>
+  </data>
+  <data name="Error_NoOutputProduced" xml:space="preserve">
+    <value>The download finished but produced no file.</value>
+  </data>
+  <data name="Error_UnexpectedToolOutput" xml:space="preserve">
+    <value>The engine returned an unexpected response.</value>
+  </data>
+  <data name="Error_PlaylistEmpty" xml:space="preserve">
+    <value>This playlist is empty or does not exist.</value>
+  </data>
+  <data name="Error_FileExists" xml:space="preserve">
+    <value>A file with that name already exists.</value>
+  </data>
+  <data name="Error_Cancelled" xml:space="preserve">
+    <value>Cancelled.</value>
+  </data>
+  <data name="Error_Details" xml:space="preserve">
+    <value>Technical details</value>
+  </data>
+  <data name="Recommend_Retry" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="Recommend_RetryLater" xml:space="preserve">
+    <value>Try again later</value>
+  </data>
+  <data name="Recommend_CheckUrl" xml:space="preserve">
+    <value>Check the address</value>
+  </data>
+  <data name="Recommend_CheckConnection" xml:space="preserve">
+    <value>Check your connection</value>
+  </data>
+  <data name="Recommend_FreeDiskSpace" xml:space="preserve">
+    <value>Free up disk space</value>
+  </data>
+  <data name="Recommend_ChooseAnotherFolder" xml:space="preserve">
+    <value>Choose another folder</value>
+  </data>
+  <data name="Recommend_CloseFileAndRetry" xml:space="preserve">
+    <value>Close the file and try again</value>
+  </data>
+  <data name="Recommend_ChooseAnotherFormat" xml:space="preserve">
+    <value>Choose another format</value>
+  </data>
+  <data name="Recommend_SignIn" xml:space="preserve">
+    <value>Configure browser cookies</value>
+  </data>
+  <data name="Recommend_UpdateTools" xml:space="preserve">
+    <value>Update the download engine</value>
+  </data>
+  <data name="Recommend_InstallTools" xml:space="preserve">
+    <value>Install the required tools</value>
+  </data>
+  <data name="Recommend_ContactSupportWithLogs" xml:space="preserve">
+    <value>Export diagnostics to investigate</value>
+  </data>
+  <data name="Recommend_None" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="Audio_KeepOriginal" xml:space="preserve">
+    <value>Keep original (no re-encoding)</value>
+  </data>
+  <data name="Audio_Mp3" xml:space="preserve">
+    <value>MP3</value>
+  </data>
+  <data name="Audio_M4a" xml:space="preserve">
+    <value>M4A (AAC)</value>
+  </data>
+  <data name="Audio_Opus" xml:space="preserve">
+    <value>Opus</value>
+  </data>
+  <data name="Audio_Flac" xml:space="preserve">
+    <value>FLAC</value>
+  </data>
+  <data name="Audio_Wav" xml:space="preserve">
+    <value>WAV</value>
+  </data>
+  <data name="Audio_Alac" xml:space="preserve">
+    <value>ALAC</value>
+  </data>
+  <data name="Container_Auto" xml:space="preserve">
+    <value>Automatic (no re-encoding)</value>
+  </data>
+  <data name="Container_Mp4" xml:space="preserve">
+    <value>MP4</value>
+  </data>
+  <data name="Container_Mkv" xml:space="preserve">
+    <value>MKV</value>
+  </data>
+  <data name="Container_WebM" xml:space="preserve">
+    <value>WebM</value>
+  </data>
+  <data name="Codec_Auto" xml:space="preserve">
+    <value>Automatic (balanced)</value>
+  </data>
+  <data name="Codec_H264" xml:space="preserve">
+    <value>H.264 (most compatible)</value>
+  </data>
+  <data name="Codec_Vp9" xml:space="preserve">
+    <value>VP9 (efficient)</value>
+  </data>
+  <data name="Codec_Av1" xml:space="preserve">
+    <value>AV1 (smallest size)</value>
+  </data>
+  <data name="SubtitleFormatPreference_Original" xml:space="preserve">
+    <value>Original (no conversion)</value>
+  </data>
+  <data name="SubtitleFormatPreference_Srt" xml:space="preserve">
+    <value>SRT</value>
+  </data>
+  <data name="SubtitleFormatPreference_Vtt" xml:space="preserve">
+    <value>VTT</value>
+  </data>
+  <data name="SubtitleFormatPreference_Ass" xml:space="preserve">
+    <value>ASS</value>
+  </data>
+  <data name="Subtitle_None" xml:space="preserve">
+    <value>Do not download</value>
+  </data>
+  <data name="Subtitle_All" xml:space="preserve">
+    <value>All languages</value>
+  </data>
+  <data name="Subtitle_Automatic" xml:space="preserve">
+    <value>automatic</value>
+  </data>
+  <data name="Subtitle_Manual" xml:space="preserve">
+    <value>official</value>
+  </data>
+  <data name="Subtitle_Translated" xml:space="preserve">
+    <value>translated</value>
+  </data>
+  <data name="Collection_SelectItems" xml:space="preserve">
+    <value>Select items</value>
+  </data>
+  <data name="Collection_AllSelected" xml:space="preserve">
+    <value>{0} of {1} selected</value>
+  </data>
+  <data name="Common_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Common_Loading" xml:space="preserve">
+    <value>Loading…</value>
+  </data>
+  <data name="Label_Priority" xml:space="preserve">
+    <value>Prioritise</value>
+  </data>
+  <data name="Label_Hdr" xml:space="preserve">
+    <value>Dynamic range (HDR)</value>
+  </data>
+  <data name="FormatPriority_Quality" xml:space="preserve">
+    <value>Maximum quality</value>
+  </data>
+  <data name="FormatPriority_Compatibility" xml:space="preserve">
+    <value>Compatibility</value>
+  </data>
+  <data name="FormatPriority_Size" xml:space="preserve">
+    <value>Smallest size</value>
+  </data>
+  <data name="FormatPriority_Quality_Hint" xml:space="preserve">
+    <value>The best picture the source has: resolution, HDR, frame rate and bitrate.</value>
+  </data>
+  <data name="FormatPriority_Compatibility_Hint" xml:space="preserve">
+    <value>Prioritises playing anywhere: H.264, AAC, SDR and MP4.</value>
+  </data>
+  <data name="FormatPriority_Size_Hint" xml:space="preserve">
+    <value>Efficient codecs and the smallest acceptable file.</value>
+  </data>
+  <data name="HdrPolicy_Auto" xml:space="preserve">
+    <value>Preserve whatever exists</value>
+  </data>
+  <data name="HdrPolicy_PreferHdr" xml:space="preserve">
+    <value>Prefer HDR</value>
+  </data>
+  <data name="HdrPolicy_PreferSdr" xml:space="preserve">
+    <value>Prefer SDR</value>
+  </data>
+  <data name="Hdr_Available" xml:space="preserve">
+    <value>This video has an HDR version.</value>
+  </data>
+  <data name="Warning_HdrToneMap" xml:space="preserve">
+    <value>The current choice requires converting HDR to SDR, which reprocesses the picture and changes its colours.</value>
+  </data>
+  <data name="Size_Exact" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Size_Estimated" xml:space="preserve">
+    <value>Estimated size</value>
+  </data>
+  <data name="Size_AtLeast" xml:space="preserve">
+    <value>Size: at least</value>
+  </data>
+  <data name="Size_Unknown" xml:space="preserve">
+    <value>Size unknown</value>
+  </data>
+  <data name="Processing_StreamCopy" xml:space="preserve">
+    <value>Direct copy, no re-encoding</value>
+  </data>
+  <data name="Processing_Remux" xml:space="preserve">
+    <value>Container change, no re-encoding</value>
+  </data>
+  <data name="Processing_Transcode" xml:space="preserve">
+    <value>Re-encode (this loses quality)</value>
+  </data>
+  <data name="Tools_Repair" xml:space="preserve">
+    <value>Repair tools</value>
+  </data>
+  <data name="Tools_Bundled" xml:space="preserve">
+    <value>bundled with the installation</value>
+  </data>
+  <data name="Collection_Summary" xml:space="preserve">
+    <value>{0} completed, {1} unavailable, {2} failed</value>
+  </data>
+  <data name="Collection_Truncated" xml:space="preserve">
+    <value>Showing {0} of {1} items.</value>
+  </data>
+  <data name="Collection_LoadAll" xml:space="preserve">
+    <value>Load all {0} items</value>
+  </data>
+  <data name="Collection_Loading" xml:space="preserve">
+    <value>Loading the full listing… this can take a few minutes.</value>
+  </data>
+  <data name="Size_BeforeConversion" xml:space="preserve">
+    <value>Download size</value>
+  </data>
+  <data name="Size_ConversionNote" xml:space="preserve">
+    <value>The converted file will be a different size.</value>
+  </data>
+  <data name="Settings_Defaults" xml:space="preserve">
+    <value>Output defaults</value>
+  </data>
+  <data name="Settings_Defaults_Description" xml:space="preserve">
+    <value>These values prefill new downloads. Quality, format, subtitles, and folder can also be changed on each download.</value>
+  </data>
+  <data name="Settings_ConcurrentFragments" xml:space="preserve">
+    <value>Parallel fragments per download</value>
+  </data>
+  <data name="Settings_FileNameTemplate" xml:space="preserve">
+    <value>File name template</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="Menu_File_PasteAnalyze" xml:space="preserve">
+    <value>Paste link and _analyse</value>
+  </data>
+  <data name="Menu_File_OpenDownloads" xml:space="preserve">
+    <value>Open _downloads folder</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>E_xit</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>_Edit</value>
+  </data>
+  <data name="Menu_Edit_Paste" xml:space="preserve">
+    <value>_Paste</value>
+  </data>
+  <data name="Menu_Edit_SelectAll" xml:space="preserve">
+    <value>Select _all items</value>
+  </data>
+  <data name="Menu_Edit_SelectNone" xml:space="preserve">
+    <value>Clear _selection</value>
+  </data>
+  <data name="Menu_Edit_Preferences" xml:space="preserve">
+    <value>P_references</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>_View</value>
+  </data>
+  <data name="Menu_View_Queue" xml:space="preserve">
+    <value>Download _queue</value>
+  </data>
+  <data name="Menu_View_History" xml:space="preserve">
+    <value>_History</value>
+  </data>
+  <data name="Menu_View_Theme" xml:space="preserve">
+    <value>_Theme</value>
+  </data>
+  <data name="Menu_View_Theme_System" xml:space="preserve">
+    <value>Follow _Windows</value>
+  </data>
+  <data name="Menu_View_Theme_Light" xml:space="preserve">
+    <value>_Light</value>
+  </data>
+  <data name="Menu_View_Theme_Dark" xml:space="preserve">
+    <value>_Dark</value>
+  </data>
+  <data name="Menu_Tools" xml:space="preserve">
+    <value>_Tools</value>
+  </data>
+  <data name="Menu_Tools_Install" xml:space="preserve">
+    <value>Check and _install tools</value>
+  </data>
+  <data name="Menu_Tools_Update" xml:space="preserve">
+    <value>Check for _updates</value>
+  </data>
+  <data name="Menu_Tools_Logs" xml:space="preserve">
+    <value>Open _log folder</value>
+  </data>
+  <data name="Menu_Tools_Diagnostics" xml:space="preserve">
+    <value>Export _diagnostics</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>_Help</value>
+  </data>
+  <data name="Menu_Help_Shortcuts" xml:space="preserve">
+    <value>Keyboard _shortcuts</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>_About Miguel Downloader</value>
+  </data>
+  <data name="Status_Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Status_Active" xml:space="preserve">
+    <value>active</value>
+  </data>
+  <data name="Status_Waiting" xml:space="preserve">
+    <value>queued</value>
+  </data>
+  <data name="Status_FreeSpace" xml:space="preserve">
+    <value>free on {0}</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>About Miguel Downloader</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="About_Tagline" xml:space="preserve">
+    <value>Video and music downloader for Windows.</value>
+  </data>
+  <data name="About_Engine" xml:space="preserve">
+    <value>Download engine</value>
+  </data>
+  <data name="About_Media" xml:space="preserve">
+    <value>Media processing</value>
+  </data>
+  <data name="About_Copy" xml:space="preserve">
+    <value>Copy details</value>
+  </data>
+  <data name="About_Copied" xml:space="preserve">
+    <value>Details copied.</value>
+  </data>
+  <data name="About_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="About_Licence" xml:space="preserve">
+    <value>Free for personal and professional use. Only download content you have the right or permission to download.</value>
+  </data>
+  <data name="Shortcuts_Title" xml:space="preserve">
+    <value>Keyboard shortcuts</value>
+  </data>
+  <data name="Shortcuts_Intro" xml:space="preserve">
+    <value>Everything here is also available from the menus and buttons.</value>
+  </data>
+  <data name="Shortcuts_Group_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Shortcuts_Group_Queue" xml:space="preserve">
+    <value>Queue and history</value>
+  </data>
+  <data name="Shortcuts_FocusUrl" xml:space="preserve">
+    <value>Focus the link field</value>
+  </data>
+  <data name="Shortcuts_PasteAnalyze" xml:space="preserve">
+    <value>Paste link and analyse</value>
+  </data>
+  <data name="Shortcuts_Analyze" xml:space="preserve">
+    <value>Analyse the link in the field</value>
+  </data>
+  <data name="Shortcuts_Settings" xml:space="preserve">
+    <value>Open preferences</value>
+  </data>
+  <data name="Shortcuts_Queue" xml:space="preserve">
+    <value>Show the download queue</value>
+  </data>
+  <data name="Shortcuts_History" xml:space="preserve">
+    <value>Show the history</value>
+  </data>
+  <data name="Shortcuts_SelectAll" xml:space="preserve">
+    <value>Select every item in the collection</value>
+  </data>
+  <data name="Shortcuts_Help" xml:space="preserve">
+    <value>Open this list</value>
+  </data>
+  <data name="Shortcuts_OpenFolder" xml:space="preserve">
+    <value>Open the downloads folder</value>
+  </data>
+  <data name="Home_PasteAnalyze" xml:space="preserve">
+    <value>Paste and analyse</value>
+  </data>
+  <data name="Status_Active_One" xml:space="preserve">
+    <value>active</value>
+  </data>
+  <data name="About_By" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="About_OpenLicence" xml:space="preserve">
+    <value>Read the licence</value>
+  </data>
+  <data name="About_OpenNotices" xml:space="preserve">
+    <value>Third-party components</value>
+  </data>
+  <data name="About_DocumentMissing" xml:space="preserve">
+    <value>{0} is not in the program folder. It ships with the installation; if you move the program, take the documents with it.</value>
+  </data>
+  <data name="Menu_Help_Licence" xml:space="preserve">
+    <value>_Licence</value>
+  </data>
+  <data name="Menu_Help_Notices" xml:space="preserve">
+    <value>Third-party _components</value>
+  </data>
+  <data name="Menu_Help_Site" xml:space="preserve">
+    <value>Author's _website</value>
+  </data>
+  <data name="Welcome_Title" xml:space="preserve">
+    <value>Quick guide</value>
+  </data>
+  <data name="Welcome_Hello" xml:space="preserve">
+    <value>Welcome to Miguel Downloader</value>
+  </data>
+  <data name="Welcome_HelloBody" xml:space="preserve">
+    <value>Under a minute. You can skip it now and come back from the Help menu.</value>
+  </data>
+  <data name="Welcome_Step1_Title" xml:space="preserve">
+    <value>Start by pasting a link</value>
+  </data>
+  <data name="Welcome_Step1_Body" xml:space="preserve">
+    <value>Copy the address of a video or a track in your browser and press Ctrl+V in here. The program pastes and analyses in one action, with nothing else to click.</value>
+  </data>
+  <data name="Welcome_Step1_Note" xml:space="preserve">
+    <value>Works with YouTube, Instagram, TikTok, X, Facebook, Reddit, SoundCloud, Spotify, Deezer and hundreds of other sites.</value>
+  </data>
+  <data name="Welcome_Step2_Title" xml:space="preserve">
+    <value>Choose from what actually exists</value>
+  </data>
+  <data name="Welcome_Step2_Body" xml:space="preserve">
+    <value>Once the link is analysed, you get the quality, format and subtitles that site publishes. The list comes from the source, so no option accepts a click and fails afterwards.</value>
+  </data>
+  <data name="Welcome_Step2_Note" xml:space="preserve">
+    <value>Collections and playlists are listed item by item, and you tick what you want before downloading.</value>
+  </data>
+  <data name="Welcome_Step3_Title" xml:space="preserve">
+    <value>Follow it in the queue</value>
+  </data>
+  <data name="Welcome_Step3_Body" xml:space="preserve">
+    <value>Downloads sit in the panel on the right, with progress, speed and time left. Each one can be paused, resumed or cancelled without disturbing the others.</value>
+  </data>
+  <data name="Welcome_Step3_Note" xml:space="preserve">
+    <value>The bar at the bottom shows how many are running, the combined speed and the free space on the target drive.</value>
+  </data>
+  <data name="Welcome_Step4_Title" xml:space="preserve">
+    <value>Where the files land</value>
+  </data>
+  <data name="Welcome_Step4_Body" xml:space="preserve">
+    <value>This is the current destination folder. You can change it whenever you like in the "Destination folder" field, or per download.</value>
+  </data>
+  <data name="Welcome_Step4_Note" xml:space="preserve">
+    <value>A download is only marked finished after the resulting file has been opened and checked. If it says done, it plays.</value>
+  </data>
+  <data name="Welcome_Shortcuts" xml:space="preserve">
+    <value>lists every keyboard shortcut.</value>
+  </data>
+  <data name="Welcome_Skip" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="Welcome_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Welcome_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Welcome_Done" xml:space="preserve">
+    <value>Get started</value>
+  </data>
+  <data name="Welcome_StepOf" xml:space="preserve">
+    <value>{0} of {1}</value>
+  </data>
+  <data name="Menu_Help_Guide" xml:space="preserve">
+    <value>_Quick guide</value>
+  </data>
+  <data name="Home_EmptySites" xml:space="preserve">
+    <value>A video, a track, a playlist or a profile. Over seventeen hundred sites.</value>
+  </data>
+  <data name="Settings_AppUpdates" xml:space="preserve">
+    <value>Application updates</value>
+  </data>
+  <data name="Settings_AppUpdates_Description" xml:space="preserve">
+    <value>The stable channel uses GitHub Releases. Packages are downloaded in the background, verified, and installed only after the app exits.</value>
+  </data>
+  <data name="Settings_AppAutoUpdate" xml:space="preserve">
+    <value>Download and install stable updates automatically</value>
+  </data>
+  <data name="Settings_CheckAppUpdates" xml:space="preserve">
+    <value>Check the application now</value>
+  </data>
+  <data name="Settings_AppUpToDate" xml:space="preserve">
+    <value>You already have the latest version.</value>
+  </data>
+  <data name="Settings_AppUpdateReady" xml:space="preserve">
+    <value>Version {0} is ready to install on restart.</value>
+  </data>
+  <data name="Settings_AppUpdateNotInstalled" xml:space="preserve">
+    <value>Available only in the installed app or official portable package.</value>
+  </data>
+  <data name="Settings_AppUpdateBusy" xml:space="preserve">
+    <value>An update is already in progress.</value>
+  </data>
+  <data name="Settings_AppUpdateFailed" xml:space="preserve">
+    <value>Could not check right now. The application will continue to work normally.</value>
+  </data>
+  <data name="Update_Ready_Title" xml:space="preserve">
+    <value>Update ready</value>
+  </data>
+  <data name="Update_Ready_Message" xml:space="preserve">
+    <value>Version {0} was downloaded and verified. It will be installed the next time the application starts.</value>
+  </data>
+  <data name="Update_WaitsForDownloads" xml:space="preserve">
+    <value>The update will wait for downloads to finish and will be installed on the next launch.</value>
+  </data>
+  <data name="Update_RestartPrompt" xml:space="preserve">
+    <value>Version {0} is ready. Restart now to finish updating?</value>
+  </data>
+  <data name="Update_Failed_Title" xml:space="preserve">
+    <value>Update not completed</value>
+  </data>
+  <data name="Update_VerificationFailed" xml:space="preserve">
+    <value>The downloaded package failed integrity verification and was rejected.</value>
+  </data>
+  <data name="Update_Failed_Message" xml:space="preserve">
+    <value>The update could not be checked or downloaded right now.</value>
+  </data>
+  <data name="Menu_Help_CheckUpdates" xml:space="preserve">
+    <value>Check for application updates</value>
+  </data>
+</root>

@@ -1,0 +1,169 @@
+﻿MIGUEL DOWNLOADER
+Licença de uso
+
+Titular: Gabriel Silva Dias Moreira
+Contato: contato@ogabriels.com
+Site: https://ogabriels.com
+Documento revisado em 28 de agosto de 2026
+
+
+Este documento diz o que você pode fazer com o Miguel Downloader e o que o autor
+garante. Instalar ou usar o programa significa aceitar estes termos. Se não
+concordar com eles, não instale, ou desinstale o programa.
+
+
+1. TITULARIDADE
+
+O Miguel Downloader foi escrito por Gabriel Silva Dias Moreira, que detém os
+direitos autorais sobre o código e sobre a interface do programa.
+
+Copyright © 2026 Gabriel Silva Dias Moreira. Todos os direitos reservados.
+
+O programa é protegido pela Lei 9.609/98 e pela Lei 9.610/98.
+
+Junto com o Miguel Downloader são distribuídos programas escritos por outras
+pessoas, que continuam sob as licenças dos seus próprios autores. A seção 7 trata
+deles.
+
+
+2. O QUE VOCÊ PODE FAZER
+
+Instalar e usar o programa em quantos computadores forem seus, para uso pessoal
+ou no seu trabalho, sem pagar nada e sem prazo.
+
+Guardar cópias de segurança do instalador. O art. 6º, I, da Lei 9.609/98 assegura
+esse direito, e nada aqui o restringe.
+
+Repassar o instalador original a outra pessoa, desde que sem cobrar por ele, sem
+alterá-lo e mantendo este documento junto.
+
+
+3. O QUE VOCÊ NÃO PODE FAZER
+
+Sem autorização escrita do titular:
+
+  a) vender o programa, cobrar pelo acesso a ele ou incluí-lo em produto ou
+     serviço pago;
+
+  b) alterar o programa, seus arquivos, seu nome ou sua identidade visual, nem
+     distribuir versão alterada;
+
+  c) remover, ocultar ou substituir os avisos de autoria, o nome do autor, os
+     ícones de identificação ou este documento;
+
+  d) apresentar o programa, no todo ou em parte, como obra sua;
+
+  e) descompilar ou fazer engenharia reversa do programa, salvo nas hipóteses em
+     que a lei brasileira expressamente autorizar.
+
+As restrições desta seção alcançam apenas o código escrito pelo titular. Os
+componentes de terceiros seguem as licenças indicadas em AVISOS-DE-TERCEIROS.txt,
+e várias delas permitem coisas que esta seção proíbe.
+
+
+4. RESPONSABILIDADE PELO QUE VOCÊ BAIXA
+
+O Miguel Downloader transfere arquivos. Ele não hospeda, não distribui e não
+fornece conteúdo. Quem fornece é o site cujo endereço você cola no programa.
+
+A escolha de baixar cada arquivo é sua, e a responsabilidade por ela também.
+Antes de baixar, veja se você tem direito ou autorização para aquilo: porque o
+conteúdo é seu, porque está em domínio público, porque a licença da obra permite,
+porque o titular autorizou ou porque a lei permite naquele caso. Os termos de uso
+do site de origem também valem, e às vezes proíbem o download mesmo quando a lei
+não proíbe.
+
+O programa não contorna DRM, não quebra proteção técnica de acesso e não busca
+conteúdo restrito a assinantes. Onde a plataforma cifra o arquivo, o download não
+acontece, e nenhuma configuração muda isso.
+
+O autor não responde pelo uso que você faz do programa nem pelo conteúdo que você
+obtém com ele.
+
+
+5. AUSÊNCIA DE GARANTIA
+
+O programa é fornecido gratuitamente e no estado em que se encontra.
+
+O autor não garante que ele funcione sem falhas, que sirva a uma finalidade
+específica sua, que seja compatível com todos os sites, nem que continue
+funcionando com um site depois que esse site mudar.
+
+Sites de vídeo e de música mudam sem aviso e sem combinar com ninguém. Um
+endereço que funciona hoje pode parar de funcionar amanhã por decisão de quem
+opera o site, e isso está fora do alcance do autor.
+
+
+6. LIMITE DE RESPONSABILIDADE
+
+Até onde a lei permitir, o autor não responde por perda de dados, lucros
+cessantes, interrupção de atividade ou qualquer prejuízo decorrente do uso ou da
+impossibilidade de uso do programa.
+
+Este limite não afasta a responsabilidade por dolo, nem aquilo que a legislação
+brasileira tratar como irrenunciável.
+
+
+7. COMPONENTES DE TERCEIROS
+
+O Miguel Downloader distribui programas de outros autores. Cada um segue a
+própria licença, e essas licenças prevalecem sobre este documento no que disser
+respeito a esses componentes.
+
+O FFmpeg está sob a GNU General Public License versão 3. O texto completo dessa
+licença acompanha a instalação, e você tem direito ao código-fonte
+correspondente. O arquivo AVISOS-DE-TERCEIROS.txt diz como obtê-lo.
+
+A biblioteca TagLib# está sob a GNU Lesser General Public License versão 2.1, que
+lhe assegura o direito de substituí-la por uma versão sua. Ela é instalada como
+arquivo separado justamente para que isso seja possível.
+
+A lista completa, com versões, autores e endereços de origem, está em
+AVISOS-DE-TERCEIROS.txt, instalado na mesma pasta do programa.
+
+
+8. DADOS
+
+O Miguel Downloader não coleta dados sobre você e não envia nada ao autor. Não há
+telemetria, cadastro, conta nem identificador de instalação.
+
+O que o programa guarda fica no seu computador:
+
+  configurações     %APPDATA%\MiguelDownloader
+  histórico e fila  %LOCALAPPDATA%\MiguelDownloader
+  registros         %LOCALAPPDATA%\MiguelDownloader\logs
+
+O programa acessa a internet em quatro situações: para falar com o site cujo
+endereço você colou; para consultar catálogos públicos de metadados musicais
+(Deezer, iTunes, MusicBrainz, Bandcamp e Internet Archive) quando você baixa
+música; para verificar no GitHub se saiu versão nova das ferramentas que ele
+usa; e para verificar e baixar versões estáveis do próprio aplicativo no GitHub
+Releases. Nesses acessos o seu endereço IP fica visível para o serviço consultado,
+como acontece em qualquer navegação.
+
+Se você configurar o programa para usar cookies do navegador, eles servem apenas
+para a conexão com o site correspondente. Não são gravados nos registros nem
+enviados a terceiros.
+
+Desinstalar o programa não apaga essas pastas. Quem também quiser remover
+configurações, histórico e registros pode apagá-las manualmente depois.
+
+
+9. VIGÊNCIA
+
+A licença vale enquanto você cumprir estes termos. Descumprindo qualquer um
+deles, ela se encerra e o uso do programa deve parar. A obrigação de respeitar a
+autoria permanece depois disso.
+
+
+10. LEI APLICÁVEL
+
+Aplica-se a lei brasileira. Para as questões decorrentes deste documento fica
+eleito o foro da comarca de domicílio do usuário.
+
+
+11. CONTATO
+
+Gabriel Silva Dias Moreira
+contato@ogabriels.com
+https://ogabriels.com
