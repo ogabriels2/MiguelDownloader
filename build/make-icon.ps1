@@ -21,7 +21,8 @@
 [CmdletBinding()]
 param(
     [string] $OutputDirectory,
-    [string] $PngDirectory
+    [string] $PngDirectory,
+    [string] $StoreDirectory
 )
 
 $ErrorActionPreference = 'Stop'
@@ -29,9 +30,10 @@ $ErrorActionPreference = 'Stop'
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 if (-not $OutputDirectory) { $OutputDirectory = Join-Path $here '..\src\MiguelDownloader.App\Assets' }
 if (-not $PngDirectory) { $PngDirectory = Join-Path $here 'brand' }
+if (-not $StoreDirectory) { $StoreDirectory = Join-Path $here 'store\Assets' }
 
 Add-Type -AssemblyName System.Drawing
-New-Item -ItemType Directory -Force -Path $OutputDirectory, $PngDirectory | Out-Null
+New-Item -ItemType Directory -Force -Path $OutputDirectory, $PngDirectory, $StoreDirectory | Out-Null
 
 # --- palette -----------------------------------------------------------------------------------
 # Warm near-black so the gold sits on something that shares its temperature; a neutral grey ground
@@ -107,7 +109,7 @@ function New-Mark {
     # Arrowhead, the widest part of the glyph and the piece that has to survive at 16 pixels.
     $head = New-Object Drawing.Drawing2D.GraphicsPath
     $half = if ($detailed) { 196 } else { 214 }
-    $head.AddPolygon(@(
+    $head.AddPolygon([Drawing.PointF[]]@(
         (New-Object Drawing.PointF((P (512 - $half)), (P 520))),
         (New-Object Drawing.PointF((P (512 + $half)), (P 520))),
         (New-Object Drawing.PointF((P 512), (P 742)))
@@ -212,6 +214,45 @@ $glyph = New-Mark -Size 512 -GlyphOnly
 $glyph.Save((Join-Path $PngDirectory 'glyph-512.png'), [Drawing.Imaging.ImageFormat]::Png)
 $glyph.Dispose()
 
+# --- Microsoft Store package assets ------------------------------------------------------------
+# These are rendered at their native sizes from the same vector-like drawing as the Win32 icon.
+# The package therefore never depends on a lossy resize performed by a release runner.
+$storeSquares = [ordered]@{
+    'StoreLogo.png'          = 50
+    'Square44x44Logo.png'    = 44
+    'Square71x71Logo.png'    = 71
+    'Square150x150Logo.png'  = 150
+    'Square310x310Logo.png'  = 310
+}
+
+foreach ($asset in $storeSquares.GetEnumerator()) {
+    $bitmap = New-Mark -Size $asset.Value
+    $bitmap.Save((Join-Path $StoreDirectory $asset.Key), [Drawing.Imaging.ImageFormat]::Png)
+    $bitmap.Dispose()
+}
+
+function New-WideStoreAsset {
+    param([int] $Width, [int] $Height, [string] $FileName)
+
+    $canvas = New-Object Drawing.Bitmap $Width, $Height, ([Drawing.Imaging.PixelFormat]::Format32bppArgb)
+    $graphics = [Drawing.Graphics]::FromImage($canvas)
+    $graphics.SmoothingMode = [Drawing.Drawing2D.SmoothingMode]::AntiAlias
+    $graphics.InterpolationMode = [Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+    $graphics.Clear([Drawing.Color]::Transparent)
+
+    $glyphSize = [int]($Height * 0.62)
+    $wideGlyph = New-Mark -Size $glyphSize -GlyphOnly
+    $x = [int](($Width - $glyphSize) / 2)
+    $y = [int](($Height - $glyphSize) / 2)
+    $graphics.DrawImage($wideGlyph, $x, $y, $glyphSize, $glyphSize)
+
+    $canvas.Save((Join-Path $StoreDirectory $FileName), [Drawing.Imaging.ImageFormat]::Png)
+    $wideGlyph.Dispose(); $graphics.Dispose(); $canvas.Dispose()
+}
+
+New-WideStoreAsset -Width 310 -Height 150 -FileName 'Wide310x150Logo.png'
+New-WideStoreAsset -Width 620 -Height 300 -FileName 'SplashScreen.png'
+
 $icoPath = Join-Path $OutputDirectory 'migueldownloader.ico'
 $fs = [IO.File]::Create($icoPath)
 $w = New-Object IO.BinaryWriter $fs
@@ -247,4 +288,7 @@ if ($actual -ne $expected) {
 '{0,-30} {1,7:N0} bytes  ({2} tamanhos)' -f 'migueldownloader.ico', (Get-Item $icoPath).Length, $payloads.Count
 Get-ChildItem $PngDirectory -Filter 'mark-*.png' | ForEach-Object {
     '{0,-30} {1,7:N0} bytes' -f $_.Name, $_.Length
+}
+Get-ChildItem $StoreDirectory -Filter '*.png' | Sort-Object Name | ForEach-Object {
+    '{0,-30} {1,7:N0} bytes' -f ("store/" + $_.Name), $_.Length
 }

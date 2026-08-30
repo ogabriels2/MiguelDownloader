@@ -1727,6 +1727,14 @@
     "Não foi possível verificar agora. O aplicativo continuará funcionando normalmente.",
     "Could not check right now. The application will continue to work normally."
   ],
+  "Settings_StoreUpdatesManaged": [
+    "Esta instalação é atualizada pela Microsoft Store. A Store verifica a assinatura e instala novas versões de forma automática, conforme as configurações do Windows.",
+    "This installation is updated by the Microsoft Store. The Store verifies the signature and installs new versions automatically according to Windows settings."
+  ],
+  "Settings_StoreToolsManaged": [
+    "Nesta instalação, o mecanismo de download é atualizado junto com o aplicativo pela Microsoft Store.",
+    "In this installation, the download engine is updated together with the application by the Microsoft Store."
+  ],
   "Update_Ready_Title": [
     "Atualização pronta",
     "Update ready"

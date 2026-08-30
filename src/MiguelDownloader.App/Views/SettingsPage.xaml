@@ -223,7 +223,8 @@
             <TabItem Header="{loc:Str Settings_Advanced}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="2,16,12,18">
                     <StackPanel MaxWidth="760" HorizontalAlignment="Left">
-                        <GroupBox Header="{loc:Str Settings_AppUpdates}" Style="{StaticResource SettingsGroup}">
+                        <GroupBox Header="{loc:Str Settings_AppUpdates}" Style="{StaticResource SettingsGroup}"
+                                  Visibility="{Binding InAppUpdatesAvailable, Converter={StaticResource BoolToVisibility}}">
                             <StackPanel>
                                 <TextBlock Text="{loc:Str Settings_AppUpdates_Description}"
                                            FontSize="11" Opacity="0.68" TextWrapping="Wrap" Margin="0,0,0,10" />
@@ -239,11 +240,18 @@
                             </StackPanel>
                         </GroupBox>
 
+                        <GroupBox Header="{loc:Str Settings_AppUpdates}" Style="{StaticResource SettingsGroup}"
+                                  Visibility="{Binding PackageManagedUpdates, Converter={StaticResource BoolToVisibility}}">
+                            <TextBlock Text="{loc:Str Settings_StoreUpdatesManaged}"
+                                       FontSize="12" Opacity="0.78" TextWrapping="Wrap" />
+                        </GroupBox>
+
                         <GroupBox Header="{loc:Str Settings_ToolStatus}" Style="{StaticResource SettingsGroup}">
                             <TextBlock Text="{Binding ToolStatusText}" FontFamily="Cascadia Mono" FontSize="11" TextWrapping="Wrap" />
                         </GroupBox>
 
-                        <GroupBox Header="{loc:Str Settings_Tools}" Style="{StaticResource SettingsGroup}">
+                        <GroupBox Header="{loc:Str Settings_Tools}" Style="{StaticResource SettingsGroup}"
+                                  IsEnabled="{Binding InAppUpdatesAvailable}">
                             <StackPanel>
                                 <TextBlock Text="{loc:Str Settings_YtDlpPath}" Style="{StaticResource FieldLabel}" />
                                 <Grid Margin="0,0,0,10">
@@ -259,10 +267,12 @@
                                 </Grid>
                                 <TextBlock Text="{loc:Str Settings_JsRuntimePath}" Style="{StaticResource FieldLabel}" />
                                 <ui:TextBox Text="{Binding JsRuntimePath}" Margin="0,0,0,12" />
-                                <CheckBox Content="{loc:Str Settings_AutoUpdate}" IsChecked="{Binding AutoUpdate}" Margin="0,0,0,9" />
+                                <CheckBox Content="{loc:Str Settings_AutoUpdate}" IsChecked="{Binding AutoUpdate}"
+                                          IsEnabled="{Binding InAppUpdatesAvailable}" Margin="0,0,0,9" />
                                 <StackPanel Orientation="Horizontal">
                                     <ui:Button Content="{loc:Str Settings_CheckUpdates}" Icon="{ui:SymbolIcon ArrowSync24}"
-                                               Command="{Binding CheckForUpdatesCommand}" />
+                                               Command="{Binding CheckForUpdatesCommand}"
+                                               IsEnabled="{Binding InAppUpdatesAvailable}" />
                                     <TextBlock Text="{Binding UpdateStatusText}" Margin="10,0,0,0" VerticalAlignment="Center" FontSize="11" Opacity="0.68" />
                                 </StackPanel>
                             </StackPanel>
@@ -276,7 +286,8 @@
                                 <TextBlock Text="{loc:Str Settings_Cookies_Description}" FontSize="11" Opacity="0.68"
                                            TextWrapping="Wrap" Margin="0,0,0,12" />
                                 <TextBlock Text="{loc:Str Settings_ExtraArguments}" Style="{StaticResource FieldLabel}" />
-                                <ui:TextBox Text="{Binding ExtraArguments}" FontFamily="Cascadia Mono" Margin="0,0,0,12" />
+                                <ui:TextBox Text="{Binding ExtraArguments}" FontFamily="Cascadia Mono" Margin="0,0,0,12"
+                                            IsEnabled="{Binding InAppUpdatesAvailable}" />
                                 <CheckBox Content="{loc:Str Settings_VerboseLogging}" IsChecked="{Binding VerboseLogging}" Margin="0,0,0,12" />
                                 <StackPanel Orientation="Horizontal">
                                     <ui:Button Content="{loc:Str Settings_OpenLogs}" Icon="{ui:SymbolIcon DocumentText24}"

@@ -33,7 +33,7 @@ public partial class MainWindow : FluentWindow
     private readonly ILogger<MainWindow> _logger;
 
     /// <summary>Where "Ajuda > Site do autor" goes.</summary>
-    private const string AuthorSite = "https://ogabriels.com";
+    private const string AuthorSite = "https://migueldownloader.ogabriels.com";
 
     private bool _shuttingDown;
     private SettingsWindow? _settingsWindow;

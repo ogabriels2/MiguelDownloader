@@ -15,7 +15,13 @@
       "asset": "ffmpeg-master-latest-win64-gpl-shared.zip",
       "checksumsAsset": "checksums.sha256",
       "assetSha256": "6382d5c5d23f8a5700892ba8d7335c9dfb2051e9b7677eeb8b3f33ee65cd975f",
-      "license": "GPL-3.0"
+      "license": "GPL-3.0-only",
+      "licenseName": "GNU General Public License version 3",
+      "provider": "yt-dlp/FFmpeg-Builds",
+      "binariesUrl": "https://github.com/yt-dlp/FFmpeg-Builds/releases",
+      "sourceUrl": "https://github.com/yt-dlp/FFmpeg-Builds",
+      "ffmpegSourceUrl": "https://git.ffmpeg.org/ffmpeg.git",
+      "licenseUrl": "https://www.gnu.org/licenses/gpl-3.0.txt"
     },
     "deno": {
       "version": "v2.9.6",

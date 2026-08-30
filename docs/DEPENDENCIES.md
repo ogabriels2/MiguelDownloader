@@ -71,7 +71,8 @@ desafio, o QuickJS falha e o usuário perde formatos sem entender por quê.
 Como o requisito explícito é *confiabilidade acima de tamanho*, o Deno foi empacotado.
 
 Node **não** é instalado globalmente. Se a máquina já tiver Node ou Deno no PATH, o programa
-os detecta e usa, mas isso é apenas um caminho alternativo — a cópia empacotada é o padrão.
+os detecta e usa na edição EXE/portátil, mas isso é apenas um caminho alternativo — a cópia
+empacotada é o padrão. A edição MSIX não consulta o PATH.
 
 ---
 
@@ -113,6 +114,11 @@ A ordem de resolução é:
 2. Cópia gerenciada em `%LOCALAPPDATA%` (é aqui que uma atualização do yt-dlp aterrissa)
 3. **Cópia empacotada** na pasta de instalação
 4. PATH do sistema
+
+Essa flexibilidade vale para a edição EXE/portátil. Em um pacote MSIX, somente os executáveis do
+diretório assinado do aplicativo são aceitos; caminhos personalizados, a cópia gerenciada e o PATH
+são ignorados. Se um arquivo do pacote estiver ausente, o aplicativo falha de forma segura e pede
+reinstalação em vez de executar uma substituição externa.
 
 A cópia empacotada nunca é sobrescrita por uma atualização. Isso é intencional: ela é o
 fallback conhecidamente funcional. Se uma atualização do yt-dlp quebrar, apagar a pasta

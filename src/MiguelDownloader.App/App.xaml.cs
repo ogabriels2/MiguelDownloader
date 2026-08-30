@@ -152,7 +152,12 @@ public partial class App : Application
         });
 
         services.AddSingleton<ProcessRunner>();
-        services.AddSingleton<ToolLocator>();
+        services.AddSingleton(provider => new ToolLocator(
+            provider.GetRequiredService<ProcessRunner>(),
+            provider.GetRequiredService<ILogger<ToolLocator>>(),
+            allowManagedTools: !DistributionInfo.UpdatesManagedExternally,
+            allowExternalTools: !DistributionInfo.UpdatesManagedExternally,
+            useLgplTranscodeEncoders: DistributionInfo.UpdatesManagedExternally));
         services.AddSingleton<ToolInstaller>();
         services.AddSingleton<MediaAnalyzer>();
         services.AddSingleton<MediaProbe>();

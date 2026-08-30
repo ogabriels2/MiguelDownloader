@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <!--
+    MakeAppx comes from Microsoft's official Windows SDK build-tools package. PackageDownload
+    keeps it out of the application dependency graph while still pinning the exact build used by
+    developer machines and GitHub Actions. The release script restores it into artifacts/.
+  -->
+  <ItemGroup>
+    <PackageDownload Include="Microsoft.Windows.SDK.BuildTools" Version="[10.0.26100.9169]" />
+  </ItemGroup>
+</Project>

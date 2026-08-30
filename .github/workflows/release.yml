@@ -34,12 +34,14 @@ jobs:
       - name: Validate tag and project version
         id: version
         shell: pwsh
+        env:
+          REF_NAME: ${{ github.ref_name }}
         run: |
-          $tagVersion = '${{ github.ref_name }}'.TrimStart('v')
+          $tagVersion = $env:REF_NAME.TrimStart('v')
           $props = [xml](Get-Content -Raw Directory.Build.props)
           $projectVersion = [string]($props.Project.PropertyGroup.Version | Where-Object { $_ } | Select-Object -First 1)
-          if ($tagVersion -notmatch '^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$') {
-            throw "Tag ${{ github.ref_name }} is not a supported semantic version."
+          if ($tagVersion -notmatch '^\d+\.\d+\.\d+$') {
+            throw "Tag $env:REF_NAME is not a stable three-part version."
           }
           if ($tagVersion -ne $projectVersion) {
             throw "Tag version $tagVersion does not match Directory.Build.props version $projectVersion."
@@ -53,18 +55,22 @@ jobs:
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           dotnet tool restore
-          $latest = gh release list --repo '${{ github.repository }}' --exclude-drafts --exclude-pre-releases --limit 1 --json tagName --jq '.[0].tagName'
+          $repoUrl = "https://github.com/$env:REPOSITORY"
+          $latest = gh release list --repo $env:REPOSITORY --exclude-drafts --exclude-pre-releases --limit 1 --json tagName --jq '.[0].tagName'
           if ($latest) {
-            dotnet vpk download github --repoUrl 'https://github.com/${{ github.repository }}' --token $env:GH_TOKEN --outputDir artifacts/releases --channel win
+            dotnet vpk download github --repoUrl $repoUrl --token $env:GH_TOKEN --outputDir artifacts/releases --channel win
           }
 
       - name: Build release packages
         shell: pwsh
+        env:
+          PACKAGE_VERSION: ${{ steps.version.outputs.version }}
         run: >-
           pwsh build/publish.ps1
-          -Version '${{ steps.version.outputs.version }}'
+          -Version $env:PACKAGE_VERSION
           -Runtime win-x64
 
       - name: Collect current release subjects
@@ -94,17 +100,22 @@ jobs:
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+          COMMIT_SHA: ${{ github.sha }}
         run: |
+          $repoUrl = "https://github.com/$env:REPOSITORY"
           dotnet vpk upload github `
-            --repoUrl 'https://github.com/${{ github.repository }}' `
+            --repoUrl $repoUrl `
             --token $env:GH_TOKEN `
             --outputDir artifacts/releases `
             --channel win `
-            --tag '${{ github.ref_name }}' `
-            --releaseName 'Miguel Downloader ${{ steps.version.outputs.version }}' `
-            --targetCommitish '${{ github.sha }}'
-          gh release upload '${{ github.ref_name }}' artifacts/checksums.txt --clobber
-          gh release edit '${{ github.ref_name }}' `
+            --tag $env:RELEASE_TAG `
+            --releaseName "Miguel Downloader $env:RELEASE_VERSION" `
+            --targetCommitish $env:COMMIT_SHA
+          gh release upload $env:RELEASE_TAG artifacts/checksums.txt --clobber
+          gh release edit $env:RELEASE_TAG `
             --notes-file docs/release-notes.md `
             --draft=false `
             --latest

@@ -10,6 +10,7 @@ artifacts/
 # and verifies every file against the published SHA-256. Committing them would bloat the history
 # permanently for no benefit, and would mean redistributing binaries through the repository.
 build/tools-cache/
+build/tools-cache-store/
 tools/
 
 # Visual Studio / Rider / VS Code

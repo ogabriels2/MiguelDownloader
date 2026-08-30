@@ -86,6 +86,11 @@ yt-dlp, FFmpeg, ffprobe e Deno vão dentro do instalador, verificados por SHA-25
 A ordem de resolução é: caminho configurado → cópia gerenciada em `%LOCALAPPDATA%` → **cópia
 empacotada** → PATH.
 
+Essa ordem pertence à edição EXE/portátil. Quando o processo tem identidade MSIX, a resolução fica
+deliberadamente restrita à **cópia empacotada no diretório assinado**: caminhos configurados, cópia
+gerenciada, PATH e argumentos extras do yt-dlp não participam da execução. Assim, aplicativo e
+ferramentas recebem manutenção como uma unidade pela origem do pacote.
+
 A cópia empacotada nunca é sobrescrita por uma atualização. Ela é o estado bom conhecido: se
 uma atualização do yt-dlp quebrar, apagar a pasta gerenciada devolve o programa ao que veio no
 instalador.

@@ -84,6 +84,12 @@ public sealed class NotificationService(SettingsService settings, ILogger<Notifi
     /// </summary>
     public void RegisterAppIdentity()
     {
+        // A packaged process already has the authoritative identity from AppxManifest.xml.
+        // Replacing it with the unpackaged shortcut identity would prevent Store notifications
+        // from being attributed to the installed package.
+        if (DistributionInfo.IsPackaged)
+            return;
+
         try
         {
             var result = SetCurrentProcessExplicitAppUserModelID(AppUserModelId);
@@ -118,9 +124,11 @@ public sealed class NotificationService(SettingsService settings, ILogger<Notifi
                 </toast>
                 """);
 
-            Windows.UI.Notifications.ToastNotificationManager
-                .CreateToastNotifier(AppUserModelId)
-                .Show(new Windows.UI.Notifications.ToastNotification(xml));
+            var notifier = DistributionInfo.IsPackaged
+                ? Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier()
+                : Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier(AppUserModelId);
+
+            notifier.Show(new Windows.UI.Notifications.ToastNotification(xml));
 
             if (ToastsAvailable != true)
             {

@@ -431,6 +431,7 @@ Limitações verdadeiras, não pendências disfarçadas.
 | [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Decisões arquiteturais e o porquê |
 | [TESTING.md](docs/TESTING.md) | Suítes, números medidos, o que foi e não foi provado |
 | [RELEASE.md](docs/RELEASE.md) | Processo de release, versionamento, migrações |
+| [MICROSOFT-STORE.md](docs/MICROSOFT-STORE.md) | MSIX, identidade, certificação e atualizações pela Store |
 | [TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Sintomas e o que fazer |
 | [MANUAL-TESTS.md](docs/MANUAL-TESTS.md) | 70 casos de teste manual |
 
@@ -442,7 +443,7 @@ Miguel Downloader é obra de **Gabriel Silva Dias Moreira**.
 
 Copyright © 2026 Gabriel Silva Dias Moreira. Todos os direitos reservados.
 
-Site: [ogabriels.com](https://ogabriels.com)
+Site: [migueldownloader.ogabriels.com](https://migueldownloader.ogabriels.com)
 Contato: contato@ogabriels.com
 
 ---
@@ -478,7 +479,7 @@ e acessível pelo menu **Ajuda > Componentes de terceiros**.
 | Componente | Licença | Papel |
 |---|---|---|
 | yt-dlp | Unlicense | identifica e transfere a mídia |
-| FFmpeg, ffprobe | GPL-3.0 | remuxa, converte e valida o arquivo final |
+| FFmpeg, ffprobe | GPL-3.0; LGPL-3.0+ na Store | remuxa, converte e valida o arquivo final |
 | Deno | MIT | resolve o JavaScript que alguns sites exigem |
 | TagLib# | LGPL-2.1 | grava metadados nos arquivos de áudio |
 | WPF-UI | MIT | controles e visual Fluent |
@@ -489,7 +490,9 @@ e acessível pelo menu **Ajuda > Componentes de terceiros**.
 
 Dois deles dão direitos a quem recebe o programa.
 
-**FFmpeg** está sob GPL-3.0. O texto da licença acompanha a instalação em `licencas\GPL-3.0.txt`,
+**FFmpeg** está sob GPL-3.0 na distribuição pelo site. A edição da Microsoft Store usa um build
+compartilhado LGPL-3.0-or-later para compatibilidade com os termos da loja. Os textos das licenças
+acompanham cada pacote; na distribuição pelo site, a GPL fica em `licencas\GPL-3.0.txt`,
 e você tem direito ao código-fonte correspondente. Ele está publicado em
 [yt-dlp/FFmpeg-Builds](https://github.com/yt-dlp/FFmpeg-Builds/releases), na mesma página de cada
 versão, e também pode ser pedido a contato@ogabriels.com por três anos a contar da data em que

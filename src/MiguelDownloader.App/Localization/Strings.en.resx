@@ -1331,6 +1331,12 @@
   <data name="Settings_AppUpdateFailed" xml:space="preserve">
     <value>Could not check right now. The application will continue to work normally.</value>
   </data>
+  <data name="Settings_StoreUpdatesManaged" xml:space="preserve">
+    <value>This installation is updated by the Microsoft Store. The Store verifies the signature and installs new versions automatically according to Windows settings.</value>
+  </data>
+  <data name="Settings_StoreToolsManaged" xml:space="preserve">
+    <value>In this installation, the download engine is updated together with the application by the Microsoft Store.</value>
+  </data>
   <data name="Update_Ready_Title" xml:space="preserve">
     <value>Update ready</value>
   </data>

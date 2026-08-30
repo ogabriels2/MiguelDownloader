@@ -5,13 +5,16 @@ Scripts e configuração de empacotamento do Miguel Downloader.
 | Arquivo | O que faz |
 |---|---|
 | `publish.ps1` | Testa e gera instalador, portátil, pacote de atualização e feed Velopack |
+| `publish-store.ps1` | Testa e gera o MSIX sem assinatura para o Partner Center |
 | `fetch-tools.ps1` | Baixa e verifica yt-dlp, FFmpeg, ffprobe e Deno |
-| `tools.lock.json` | Fixa versões, artefatos e SHA-256 de toda ferramenta empacotada |
+| `tools.lock.json` | Fixa versões, artefatos e SHA-256 das ferramentas da edição do site |
+| `store/tools.lock.json` | Fixa o perfil LGPL das ferramentas empacotadas na Microsoft Store |
 | `.config/dotnet-tools.json` | Fixa a versão do empacotador Velopack |
 | `clean-machine-test.wsb` | Configuração do Windows Sandbox para teste em máquina limpa |
 | `clean-machine-test.ps1` | Verificação executada dentro do Sandbox |
 | `localization/` | Tabela de strings e gerador dos arquivos `.resx` |
 | `tools-cache/` | Ferramentas baixadas (não versionado) |
+| `tools-cache-store/` | Ferramentas LGPL da Microsoft Store (não versionado) |
 
 ## Uso
 
@@ -19,11 +22,16 @@ Scripts e configuração de empacotamento do Miguel Downloader.
 pwsh build/publish.ps1
 ```
 
+```powershell
+pwsh build/publish-store.ps1 -Version 1.0.0
+```
+
 Documentação completa:
 
 - [../docs/RELEASE.md](../docs/RELEASE.md) — processo de release, versionamento, assinatura
+- [../docs/MICROSOFT-STORE.md](../docs/MICROSOFT-STORE.md) — MSIX, identidade e atualizações pela Store
 - [../docs/DEPENDENCIES.md](../docs/DEPENDENCIES.md) — cada dependência e como é verificada
-- [../docs/INSTALLATION.md](../docs/INSTALLATION.md) — instalador, portátil, MSIX no futuro
+- [../docs/INSTALLATION.md](../docs/INSTALLATION.md) — instalador e pacote portátil
 - [../docs/TESTING.md](../docs/TESTING.md) — suítes e teste em máquina limpa
 
 ## Localização

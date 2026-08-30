@@ -12,6 +12,7 @@ public enum AppUpdateStatus
     UpToDate,
     ReadyToRestart,
     NotInstalled,
+    ManagedExternally,
     Busy,
     Failed,
 }
@@ -50,6 +51,9 @@ public sealed class AppUpdateService(
         bool manual,
         CancellationToken cancellationToken = default)
     {
+        if (DistributionInfo.UpdatesManagedExternally)
+            return new AppUpdateResult(AppUpdateStatus.ManagedExternally);
+
         if (!manual && !ShouldRunAutomaticCheck())
             return new AppUpdateResult(AppUpdateStatus.Skipped);
 

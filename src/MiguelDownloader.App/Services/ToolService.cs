@@ -54,6 +54,12 @@ public sealed class ToolService(
     public async Task<ToolPaths> EnsureInstalledAsync(
         IProgress<ToolInstallProgress>? progress = null, CancellationToken cancellationToken = default)
     {
+        if (DistributionInfo.UpdatesManagedExternally)
+        {
+            _logger.LogInformation("The package source manages installation of bundled tools");
+            return Current ?? await RefreshAsync(cancellationToken).ConfigureAwait(false);
+        }
+
         await _gate.WaitAsync(cancellationToken).ConfigureAwait(false);
         try
         {
@@ -77,6 +83,9 @@ public sealed class ToolService(
     /// <summary>Checks whether a newer yt-dlp exists, without installing it.</summary>
     public async Task<string?> CheckForEngineUpdateAsync(CancellationToken cancellationToken = default)
     {
+        if (DistributionInfo.UpdatesManagedExternally)
+            return null;
+
         var latest = await _installer.GetLatestYtDlpVersionAsync(cancellationToken).ConfigureAwait(false);
         if (latest is null) return null;
 
@@ -94,6 +103,12 @@ public sealed class ToolService(
     public async Task<bool> UpdateEngineAsync(
         IProgress<ToolInstallProgress>? progress = null, CancellationToken cancellationToken = default)
     {
+        if (DistributionInfo.UpdatesManagedExternally)
+        {
+            _logger.LogInformation("The package source manages bundled tool updates");
+            return false;
+        }
+
         await _gate.WaitAsync(cancellationToken).ConfigureAwait(false);
         try
         {
@@ -149,6 +164,9 @@ public sealed class ToolService(
     /// <summary>Runs the periodic update check when the interval has elapsed.</summary>
     public async Task RunScheduledUpdateCheckAsync(CancellationToken cancellationToken = default)
     {
+        if (DistributionInfo.UpdatesManagedExternally)
+            return;
+
         var advanced = _settings.Current.Advanced;
         if (!advanced.AutoUpdateYtDlp) return;
 
