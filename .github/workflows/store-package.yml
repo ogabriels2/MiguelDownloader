@@ -1,0 +1,80 @@
+name: Microsoft Store package
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Stable version to package (for example, 1.0.0)
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
+concurrency:
+  group: store-${{ github.ref }}-${{ inputs.version }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    name: Build and verify unsigned MSIX
+    runs-on: windows-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
+        with:
+          dotnet-version: 8.0.424
+
+      - name: Resolve and validate version
+        id: version
+        shell: pwsh
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          $props = [xml](Get-Content -Raw Directory.Build.props)
+          $projectVersion = [string]($props.Project.PropertyGroup.Version | Where-Object { $_ } | Select-Object -First 1)
+          $requested = $env:REQUESTED_VERSION
+          $version = if ($requested) { $requested } elseif ($env:REF_TYPE -eq 'tag') { $env:REF_NAME.TrimStart('v') } else { $projectVersion }
+          if ($version -notmatch '^\d+\.\d+\.\d+$') {
+            throw "Version $version is not a stable three-part version."
+          }
+          if ($version -ne $projectVersion) {
+            throw "Requested version $version does not match Directory.Build.props version $projectVersion."
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Restore locked application dependencies
+        run: dotnet restore MiguelDownloader.sln --locked-mode
+
+      - name: Build and validate Microsoft Store package
+        shell: pwsh
+        env:
+          PACKAGE_VERSION: ${{ steps.version.outputs.version }}
+        run: pwsh build/publish-store.ps1 -Version $env:PACKAGE_VERSION
+
+      - name: Attest package provenance
+        uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3
+        with:
+          subject-path: artifacts/store/*.msix
+
+      - name: Keep the Partner Center submission package
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: MiguelDownloader-Store-${{ steps.version.outputs.version }}
+          path: |
+            artifacts/store/*.msix
+            artifacts/store/*.sha256
+          if-no-files-found: error
+          retention-days: 30

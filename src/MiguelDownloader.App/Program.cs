@@ -12,9 +12,15 @@ internal static class Program
     [STAThread]
     private static void Main()
     {
-        VelopackApp.Build()
-            .SetAppUserModelId(NotificationService.AppUserModelId)
-            .Run();
+        // MSIX packages are atomically serviced by Windows and, in production, signed and
+        // updated by the Microsoft Store. Velopack remains the updater for the unpackaged GitHub
+        // channel only; invoking it inside MSIX would create two competing servicing systems.
+        if (!DistributionInfo.UpdatesManagedExternally)
+        {
+            VelopackApp.Build()
+                .SetAppUserModelId(NotificationService.AppUserModelId)
+                .Run();
+        }
 
         var app = new App();
         app.InitializeComponent();

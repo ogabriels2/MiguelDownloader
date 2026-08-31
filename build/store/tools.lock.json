@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "tools": {
+    "ytDlp": {
+      "version": "2026.08.19",
+      "releaseApi": "https://api.github.com/repos/yt-dlp/yt-dlp/releases/tags/2026.08.19",
+      "asset": "yt-dlp.exe",
+      "checksumsAsset": "SHA2-256SUMS",
+      "assetSha256": "66674953fe251b89f4d08c5f0e35e0728679bd67ab3d7d05c0562af101dd3e7a",
+      "license": "Unlicense"
+    },
+    "ffmpeg": {
+      "version": "N-126308-gd411d9e752-20260828",
+      "releaseApi": "https://api.github.com/repos/BtbN/FFmpeg-Builds/releases/tags/latest",
+      "asset": "ffmpeg-master-latest-win64-lgpl-shared.zip",
+      "checksumsAsset": "checksums.sha256",
+      "assetSha256": "d383bb6db44921b5a2347766312beeaca416b67d598a8d41e34508e6f14b1b12",
+      "license": "LGPL-3.0-or-later",
+      "licenseName": "GNU Lesser General Public License version 3 or later",
+      "provider": "BtbN/FFmpeg-Builds",
+      "binariesUrl": "https://github.com/BtbN/FFmpeg-Builds/releases",
+      "sourceUrl": "https://github.com/BtbN/FFmpeg-Builds",
+      "ffmpegSourceUrl": "https://git.ffmpeg.org/ffmpeg.git",
+      "licenseUrl": "https://www.gnu.org/licenses/lgpl-3.0.txt"
+    },
+    "deno": {
+      "version": "v2.9.6",
+      "releaseApi": "https://api.github.com/repos/denoland/deno/releases/tags/v2.9.6",
+      "asset": "deno-x86_64-pc-windows-msvc.zip",
+      "checksumsAsset": "deno-x86_64-pc-windows-msvc.zip.sha256sum",
+      "assetSha256": "15e5300b0ba3c3695a7621d90160a746ec9e710228cee639afa9d580f6e3cd11",
+      "license": "MIT"
+    }
+  },
+  "files": {
+    "avcodec-63.dll": "5f03f01659b860a3994a6f33ec0f39780173d43fdd7af610aea1d665d7e0c709",
+    "avdevice-63.dll": "fa393a927c381e6b10601b9fa276dde6d86e0ff9a98b431c579ea86360d817d5",
+    "avfilter-12.dll": "258494795b65842dcde5898fab1b3a3b43e99a8636eab19c894f90d857b83474",
+    "avformat-63.dll": "88dffdaca1ea9b72ef7c8bc530d040e313b0c1e90228ba60ee4ca1334f72d7ce",
+    "avutil-61.dll": "114b6e9d3bfef97ad64c787e7cb935ecd9dd5c591b309813a1498479868879ce",
+    "deno.exe": "2ff9493dfa356be2975f477025ea770088e9e9cb2c83d983236d13561b96b7a6",
+    "ffmpeg.exe": "f78c8da50cc61e12e07b47a87cca55d10c15f3421c39b6ee0776e7c080149e0b",
+    "ffprobe.exe": "8c0ecc33097c7cb1001c089733f15da7daee05b6874936fed11f4ad1eb551dbe",
+    "swresample-7.dll": "a4ab7263caad38f48543a20f43473e0b6e969879cd60d5c599aaa2e1c4eee668",
+    "swscale-10.dll": "b68bbc41d04d2be58533e7be0277ce2061098482c7887b576371005d5680438a",
+    "yt-dlp.exe": "66674953fe251b89f4d08c5f0e35e0728679bd67ab3d7d05c0562af101dd3e7a"
+  }
+}

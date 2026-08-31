@@ -169,10 +169,12 @@ public sealed class DownloadExecutor(
             task.WorkingDirectory = workspacePath;
 
             var stem = Path.GetFileNameWithoutExtension(destination.FileName);
+            var effectiveAdvanced = tools.ApplyExecutionPolicy(settings.Advanced);
 
             var arguments = YtDlpArguments.ForDownload(
                 request with { Item = item }, resolved, plan,
-                workspacePath, stem, settings.Downloads, settings.Advanced, tools.JsRuntime.Path);
+                workspacePath, stem, settings.Downloads, effectiveAdvanced, tools.JsRuntime.Path,
+                tools.UseLgplTranscodeEncoders);
 
             var tracker = new StageTracker(resolved, onProgress);
 

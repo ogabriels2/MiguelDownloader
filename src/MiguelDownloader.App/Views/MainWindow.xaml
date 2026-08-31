@@ -100,10 +100,12 @@
             <MenuItem Header="{loc:Str Menu_Tools}">
                 <MenuItem Header="{loc:Str Menu_Tools_Install}"
                           Icon="{ui:SymbolIcon Wrench24}"
-                          Command="{Binding InstallToolsCommand}" />
+                          Command="{Binding InstallToolsCommand}"
+                          IsEnabled="{Binding Settings.InAppUpdatesAvailable}" />
                 <MenuItem Header="{loc:Str Menu_Tools_Update}"
                           Icon="{ui:SymbolIcon ArrowSync24}"
-                          Command="{Binding Settings.CheckForUpdatesCommand}" />
+                          Command="{Binding Settings.CheckForUpdatesCommand}"
+                          IsEnabled="{Binding Settings.InAppUpdatesAvailable}" />
                 <Separator />
                 <MenuItem Header="{loc:Str Menu_Tools_Logs}"
                           Command="{Binding Settings.OpenLogsCommand}" />
@@ -121,7 +123,8 @@
                           Click="OnShortcutsClick" />
                 <MenuItem Header="{loc:Str Menu_Help_CheckUpdates}"
                           Icon="{ui:SymbolIcon ArrowSync24}"
-                          Command="{Binding Settings.CheckApplicationUpdatesCommand}" />
+                          Command="{Binding Settings.CheckApplicationUpdatesCommand}"
+                          IsEnabled="{Binding Settings.InAppUpdatesAvailable}" />
                 <Separator />
                 <MenuItem Header="{loc:Str Menu_Help_Licence}"
                           Icon="{ui:SymbolIcon DocumentText24}"
@@ -153,7 +156,8 @@
                 </StackPanel>
                 <ui:Button HorizontalAlignment="Right" Appearance="Primary"
                            Content="{loc:Str Tools_Install}"
-                           Command="{Binding InstallToolsCommand}" />
+                           Command="{Binding InstallToolsCommand}"
+                           IsEnabled="{Binding Settings.InAppUpdatesAvailable}" />
             </Grid>
         </Border>
 

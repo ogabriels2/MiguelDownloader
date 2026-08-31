@@ -224,7 +224,8 @@ public static class YtDlpArguments
         string fileStem,
         DownloadSettings settings,
         AdvancedSettings advanced,
-        string? detectedJsRuntime = null)
+        string? detectedJsRuntime = null,
+        bool useLgplTranscodeEncoders = false)
     {
         ArgumentNullException.ThrowIfNull(request);
         ArgumentNullException.ThrowIfNull(resolved);
@@ -243,7 +244,7 @@ public static class YtDlpArguments
         AddTransferOptions(args, settings);
         AddFormatSelection(args, request, resolved);
         AddOutputTemplate(args, workingDirectory, fileStem);
-        AddPostProcessing(args, request, plan);
+        AddPostProcessing(args, request, plan, useLgplTranscodeEncoders);
         AddSubtitles(args, request);
         AddExtraArguments(args, advanced);
 
@@ -323,7 +324,11 @@ public static class YtDlpArguments
         args.Add($"{escapedStem}.%(ext)s");
     }
 
-    private static void AddPostProcessing(List<string> args, DownloadRequest request, MuxPlan? plan)
+    private static void AddPostProcessing(
+        List<string> args,
+        DownloadRequest request,
+        MuxPlan? plan,
+        bool useLgplTranscodeEncoders)
     {
         if (request.Mode is DownloadMode.Audio)
         {
@@ -339,6 +344,23 @@ public static class YtDlpArguments
                 // streams cannot go into; the UI has already explained the cost by this point.
                 args.Add("--recode-video");
                 args.Add(target);
+
+                // The Microsoft Store package deliberately ships an LGPL FFmpeg build. It has no
+                // x264/x265, so pin an LGPL encoder for the rare path where the user explicitly
+                // chose a container that cannot copy the source streams. Without this, FFmpeg's
+                // MP4 default becomes old MPEG-4 Part 2 and is much less broadly playable.
+                var encoder = useLgplTranscodeEncoders ? plan.Container switch
+                {
+                    ContainerFormat.Mp4 => "libopenh264",
+                    ContainerFormat.WebM => "libvpx-vp9",
+                    _ => null,
+                } : null;
+
+                if (encoder is not null)
+                {
+                    args.Add("--postprocessor-args");
+                    args.Add($"VideoConvertor+ffmpeg_o:-c:v {encoder}");
+                }
             }
             else
             {

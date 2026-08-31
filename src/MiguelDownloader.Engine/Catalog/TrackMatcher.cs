@@ -199,7 +199,8 @@ public sealed class TrackMatcher(
         var candidates = await _lossless.FindAsync(track, cancellationToken).ConfigureAwait(false);
         foreach (var candidate in candidates.Take(2))
         {
-            var arguments = YtDlpArguments.ForAnalysis(candidate.Url, advanced, tools.JsRuntime.Path);
+            var arguments = YtDlpArguments.ForAnalysis(
+                candidate.Url, tools.ApplyExecutionPolicy(advanced), tools.JsRuntime.Path);
             var result = await _runner.RunAsync(
                 tools.YtDlp.Path!, arguments, captureStandardOutput: true,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
@@ -348,7 +349,8 @@ public sealed class TrackMatcher(
             expressions.Add($"scsearch3:{query}");
         }
 
-        var arguments = YtDlpArguments.ForSearch(expressions, advanced, tools.JsRuntime.Path);
+        var arguments = YtDlpArguments.ForSearch(
+            expressions, tools.ApplyExecutionPolicy(advanced), tools.JsRuntime.Path);
         var result = await _runner.RunAsync(
             tools.YtDlp.Path!, arguments, captureStandardOutput: true,
             cancellationToken: cancellationToken).ConfigureAwait(false);

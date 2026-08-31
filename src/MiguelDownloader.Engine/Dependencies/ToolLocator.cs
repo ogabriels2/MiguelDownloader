@@ -7,16 +7,24 @@ namespace MiguelDownloader.Engine.Dependencies;
 /// <summary>
 /// Finds the external tools.
 /// <para>
-/// Resolution order is deliberate: an explicit setting wins, then the copy the app manages, then
-/// anything shipped beside the executable, then the system PATH. That way a user who points at a
-/// specific build always gets it, and everyone else gets the version the app keeps updated
-/// rather than whatever happens to be installed globally.
+/// In the website distribution, resolution order is deliberate: an explicit setting wins, then
+/// the copy the app manages, then anything shipped beside the executable, then the system PATH.
+/// A packaged distribution can disable every external source, leaving only files in the signed
+/// application directory eligible for execution.
 /// </para>
 /// </summary>
-public sealed class ToolLocator(ProcessRunner runner, ILogger<ToolLocator> logger)
+public sealed class ToolLocator(
+    ProcessRunner runner,
+    ILogger<ToolLocator> logger,
+    bool allowManagedTools = true,
+    bool allowExternalTools = true,
+    bool useLgplTranscodeEncoders = false)
 {
     private readonly ProcessRunner _runner = runner;
     private readonly ILogger<ToolLocator> _logger = logger;
+    private readonly bool _allowManagedTools = allowManagedTools;
+    private readonly bool _allowExternalTools = allowExternalTools;
+    private readonly bool _useLgplTranscodeEncoders = useLgplTranscodeEncoders;
 
     /// <summary>Directory the app downloads and updates its own copies into.</summary>
     public static string ManagedDirectory { get; } = Path.Combine(
@@ -63,13 +71,16 @@ public sealed class ToolLocator(ProcessRunner runner, ILogger<ToolLocator> logge
             Ffmpeg = ffmpeg,
             Ffprobe = ffprobe,
             JsRuntime = jsRuntime,
+            UseLgplTranscodeEncoders = _useLgplTranscodeEncoders,
+            AllowUserToolOverrides = _allowExternalTools,
         };
     }
 
     private ResolvedTool Locate(ExternalTool tool, string? configuredPath, string[] fileNames)
     {
-        // 1. An explicit setting. Accept either the executable or its directory.
-        if (!string.IsNullOrWhiteSpace(configuredPath))
+        // 1. An explicit setting. Accept either the executable or its directory only when this
+        // distribution allows code outside its own signed application directory.
+        if (_allowExternalTools && !string.IsNullOrWhiteSpace(configuredPath))
         {
             var resolved = ResolveConfigured(configuredPath, fileNames);
             if (resolved is not null)
@@ -78,8 +89,10 @@ public sealed class ToolLocator(ProcessRunner runner, ILogger<ToolLocator> logge
             _logger.LogWarning("Configured path for {Tool} does not exist: {Path}", tool, configuredPath);
         }
 
-        // 2. The managed copy.
-        foreach (var name in fileNames)
+        // 2. The managed copy. Packaged installations deliberately skip this location: the
+        // Microsoft Store must service the exact executable set it signed, rather than an older
+        // unpackaged installation silently taking precedence from LocalAppData.
+        foreach (var name in _allowExternalTools && _allowManagedTools ? fileNames : [])
         {
             var managed = Path.Combine(ManagedDirectory, name);
             if (File.Exists(managed))
@@ -98,8 +111,9 @@ public sealed class ToolLocator(ProcessRunner runner, ILogger<ToolLocator> logge
             }
         }
 
-        // 4. The system PATH.
-        foreach (var name in fileNames)
+        // 4. The system PATH. Packaged distributions fail closed instead of leaving the signed
+        // payload when a bundled tool is missing or damaged.
+        foreach (var name in _allowExternalTools ? fileNames : [])
         {
             var onPath = FindOnPath(name);
             if (onPath is not null)
@@ -129,14 +143,14 @@ public sealed class ToolLocator(ProcessRunner runner, ILogger<ToolLocator> logge
     /// </summary>
     private ResolvedTool LocateJsRuntime(string? configuredPath)
     {
-        if (!string.IsNullOrWhiteSpace(configuredPath) && File.Exists(configuredPath))
+        if (_allowExternalTools && !string.IsNullOrWhiteSpace(configuredPath) && File.Exists(configuredPath))
             return new ResolvedTool
             {
                 Tool = ExternalTool.JsRuntime, Source = ToolSource.Configured, Path = configuredPath,
             };
 
         var managedDeno = Path.Combine(ManagedDirectory, "deno.exe");
-        if (File.Exists(managedDeno))
+        if (_allowExternalTools && _allowManagedTools && File.Exists(managedDeno))
             return new ResolvedTool
             {
                 Tool = ExternalTool.JsRuntime, Source = ToolSource.Managed, Path = managedDeno,
@@ -154,8 +168,11 @@ public sealed class ToolLocator(ProcessRunner runner, ILogger<ToolLocator> logge
                 };
         }
 
-        // Falling back to whatever the machine already has keeps a source build working.
-        foreach (var name in (ReadOnlySpan<string>)["deno.exe", "node.exe"])
+        // Falling back to whatever the machine already has keeps a source build working. A
+        // packaged distribution deliberately does not cross this boundary.
+        foreach (var name in _allowExternalTools
+                     ? (ReadOnlySpan<string>)["deno.exe", "node.exe"]
+                     : [])
         {
             var found = FindOnPath(name);
             if (found is not null)

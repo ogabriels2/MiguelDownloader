@@ -48,8 +48,8 @@
             </StackPanel>
 
             <ui:HyperlinkButton x:Name="SiteLink"
-                                Content="ogabriels.com"
-                                NavigateUri="https://ogabriels.com"
+                                Content="migueldownloader.ogabriels.com"
+                                NavigateUri="https://migueldownloader.ogabriels.com"
                                 Padding="0,4"
                                 Margin="-4,2,0,0"
                                 HorizontalAlignment="Left" />

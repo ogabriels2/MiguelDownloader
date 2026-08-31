@@ -1,7 +1,7 @@
 ﻿MIGUEL DOWNLOADER
 Avisos de terceiros
 
-Documento revisado em 28 de agosto de 2026
+Documento revisado em 29 de agosto de 2026
 Referente à versão 1.0.0
 
 
@@ -13,41 +13,50 @@ onde encontrar o código-fonte correspondente.
 Os textos completos das licenças longas ficam na pasta licencas, ao lado deste
 arquivo. As licenças curtas estão transcritas no fim deste documento.
 
-Duas delas dão a você direitos que valem a pena conhecer: a GPL versão 3, do
-FFmpeg, que lhe garante acesso ao código-fonte; e a LGPL versão 2.1, do TagLib#,
-que lhe garante o direito de substituir a biblioteca por uma versão sua. As
-seções 1 e 2 explicam como exercer cada um.
+As licenças GPL e LGPL dão a você direitos que valem a pena conhecer. O FFmpeg
+está sob GPL versão 3 na edição distribuída pelo site e sob LGPL versão 3 ou
+posterior na edição da Microsoft Store; ambas garantem acesso ao código-fonte.
+A LGPL versão 2.1 do TagLib# garante ainda o direito de substituir a biblioteca
+por uma versão sua. As seções 1 e 2 explicam como exercer esses direitos.
 
 
 ===============================================================================
 1. FFmpeg  (ffmpeg.exe, ffprobe.exe e bibliotecas av*, sw*)
 ===============================================================================
 
-Versão distribuída: N-126312-gdf48dc624e-20260828
-Licença: GNU General Public License, versão 3 ou posterior
-Texto da licença: licencas\GPL-3.0.txt
+Versão pelo site: N-126312-gdf48dc624e-20260828
+Licença pelo site: GNU General Public License, versão 3
+Versão Microsoft Store: N-126308-gd411d9e752-20260828
+Licença Microsoft Store: GNU Lesser General Public License, versão 3 ou posterior
+Textos das licenças: licencas\GPL-3.0.txt e licencas\LGPL-3.0.txt
 Autores: FFmpeg developers, https://ffmpeg.org
 Copyright (c) 2000-2026 the FFmpeg developers
 
-Os binários distribuídos com o Miguel Downloader são compilações não modificadas
-publicadas pelo projeto yt-dlp/FFmpeg-Builds, geradas com as opções
---enable-gpl e --enable-version3, o que coloca esta compilação sob a GPL versão 3.
+Os binários da edição distribuída pelo site são compilações não modificadas
+publicadas pelo projeto yt-dlp/FFmpeg-Builds, geradas com as opções --enable-gpl
+e --enable-version3, o que coloca essa compilação sob a GPL versão 3.
+
+A Microsoft Store usa uma compilação diferente, compartilhada e não modificada,
+publicada por BtbN/FFmpeg-Builds como
+ffmpeg-master-latest-win64-lgpl-shared.zip. Ela é gerada sem x264/x265 e o
+próprio binário declara LGPL versão 3 ou posterior. As DLLs ficam separadas no
+pacote, preservando na prática o direito de substituição concedido pela LGPL.
 
   Binários e código:  https://github.com/yt-dlp/FFmpeg-Builds/releases
   Receita da compilação: https://github.com/yt-dlp/FFmpeg-Builds
+  Binários/receita Store: https://github.com/BtbN/FFmpeg-Builds
   Código-fonte do FFmpeg: https://git.ffmpeg.org/ffmpeg.git
   Site do projeto: https://ffmpeg.org
 
 COMO OBTER O CÓDIGO-FONTE
 
-A GPL versão 3 lhe dá direito ao código-fonte completo correspondente a estes
-binários. Você tem duas formas de obtê-lo.
+A GPL e a LGPL lhe dão direito ao código-fonte completo correspondente aos
+binários recebidos. Você pode obtê-lo diretamente nos endereços acima.
 
-A primeira é baixá-lo diretamente dos endereços acima, onde o projeto
-yt-dlp/FFmpeg-Builds publica, na mesma página de cada versão, os binários e tudo
-que é necessário para reproduzi-los.
+Os projetos yt-dlp/FFmpeg-Builds e BtbN/FFmpeg-Builds publicam, junto dos
+binários, as receitas e referências necessárias para reproduzir cada variante.
 
-A segunda é pedir a Gabriel Silva Dias Moreira, pelo endereço
+Outra forma é pedir a Gabriel Silva Dias Moreira, pelo endereço
 contato@ogabriels.com. Esta é uma oferta escrita, válida por três anos contados
 da data em que você recebeu esta cópia do programa, de fornecer o código-fonte
 completo correspondente aos binários de FFmpeg aqui distribuídos, em meio
@@ -58,7 +67,8 @@ RELAÇÃO COM O MIGUEL DOWNLOADER
 O Miguel Downloader executa ffmpeg.exe e ffprobe.exe como processos separados,
 passando argumentos pela linha de comando e lendo a saída. Não há vinculação
 estática nem dinâmica ao código do FFmpeg. São programas independentes reunidos
-num mesmo instalador, e a GPL alcança o FFmpeg, não o Miguel Downloader.
+num mesmo instalador, e as licenças do FFmpeg alcançam o FFmpeg, não o Miguel
+Downloader.
 
 
 ===============================================================================

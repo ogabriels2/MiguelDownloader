@@ -1331,6 +1331,12 @@
   <data name="Settings_AppUpdateFailed" xml:space="preserve">
     <value>Não foi possível verificar agora. O aplicativo continuará funcionando normalmente.</value>
   </data>
+  <data name="Settings_StoreUpdatesManaged" xml:space="preserve">
+    <value>Esta instalação é atualizada pela Microsoft Store. A Store verifica a assinatura e instala novas versões de forma automática, conforme as configurações do Windows.</value>
+  </data>
+  <data name="Settings_StoreToolsManaged" xml:space="preserve">
+    <value>Nesta instalação, o mecanismo de download é atualizado junto com o aplicativo pela Microsoft Store.</value>
+  </data>
   <data name="Update_Ready_Title" xml:space="preserve">
     <value>Atualização pronta</value>
   </data>

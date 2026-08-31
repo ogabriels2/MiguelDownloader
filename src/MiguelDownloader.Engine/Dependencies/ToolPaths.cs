@@ -1,3 +1,5 @@
+using MiguelDownloader.Core.Settings;
+
 namespace MiguelDownloader.Engine.Dependencies;
 
 /// <summary>Which external tool a status or error refers to.</summary>
@@ -53,6 +55,39 @@ public sealed record ToolPaths
     public required ResolvedTool Ffmpeg { get; init; }
     public required ResolvedTool Ffprobe { get; init; }
     public required ResolvedTool JsRuntime { get; init; }
+
+    /// <summary>
+    /// Use encoders available in the Store package's LGPL FFmpeg build when a user explicitly
+    /// requests a container that forces video conversion. Normal downloads keep copying streams.
+    /// </summary>
+    public bool UseLgplTranscodeEncoders { get; init; }
+
+    /// <summary>
+    /// Whether paths and extra yt-dlp arguments supplied in user settings may influence process
+    /// execution. Packaged builds turn this off so every executable remains inside the signed
+    /// package and receives updates only from the package source.
+    /// </summary>
+    public bool AllowUserToolOverrides { get; init; } = true;
+
+    /// <summary>
+    /// Applies the distribution's execution policy while preserving non-executable preferences
+    /// such as cookies and logging. In package mode, resolved bundled paths replace user paths
+    /// and arbitrary extra yt-dlp arguments are ignored.
+    /// </summary>
+    public AdvancedSettings ApplyExecutionPolicy(AdvancedSettings advanced)
+    {
+        ArgumentNullException.ThrowIfNull(advanced);
+        if (AllowUserToolOverrides) return advanced;
+
+        return advanced with
+        {
+            YtDlpPath = string.Empty,
+            FfmpegPath = Ffmpeg.Path ?? string.Empty,
+            FfprobePath = Ffprobe.Path ?? string.Empty,
+            JsRuntimePath = JsRuntime.Path ?? string.Empty,
+            ExtraYtDlpArguments = string.Empty,
+        };
+    }
 
     /// <summary>True when downloads can run at all.</summary>
     public bool CanDownload => YtDlp.IsAvailable;

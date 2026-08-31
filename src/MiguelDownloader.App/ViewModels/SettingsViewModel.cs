@@ -62,6 +62,12 @@ public sealed partial class SettingsViewModel : ObservableObject
     [ObservableProperty] private bool _automaticallyUpdateApplication = true;
     [ObservableProperty] private string _applicationUpdateStatusText = string.Empty;
 
+    /// <summary>True for the GitHub/Velopack channel; false when MSIX owns servicing.</summary>
+    public bool InAppUpdatesAvailable => !DistributionInfo.UpdatesManagedExternally;
+
+    /// <summary>Used by the settings page to explain Microsoft Store servicing.</summary>
+    public bool PackageManagedUpdates => DistributionInfo.UpdatesManagedExternally;
+
     // --- Video -----------------------------------------------------------------------------
 
     [ObservableProperty] private QualityTier _defaultTier = QualityTier.Best;
@@ -213,6 +219,14 @@ public sealed partial class SettingsViewModel : ObservableObject
         CookiesFromBrowser = s.Advanced.CookiesFromBrowser;
         ExtraArguments = s.Advanced.ExtraYtDlpArguments;
 
+        if (PackageManagedUpdates)
+        {
+            AutomaticallyUpdateApplication = false;
+            AutoUpdate = false;
+            ApplicationUpdateStatusText = Loc.Get("Settings_StoreUpdatesManaged");
+            UpdateStatusText = Loc.Get("Settings_StoreToolsManaged");
+        }
+
         if (_tools.Current is { } paths) ApplyToolStatus(paths);
     }
 
@@ -240,7 +254,7 @@ public sealed partial class SettingsViewModel : ObservableObject
                 ShowNotifications = ShowNotifications,
                 ConfirmOnExitWithActiveDownloads = ConfirmOnExit,
                 WatchClipboard = WatchClipboard,
-                AutomaticallyUpdateApplication = AutomaticallyUpdateApplication,
+                AutomaticallyUpdateApplication = InAppUpdatesAvailable && AutomaticallyUpdateApplication,
             },
             Video = current.Video with
             {
@@ -285,7 +299,7 @@ public sealed partial class SettingsViewModel : ObservableObject
                 YtDlpPath = YtDlpPath,
                 FfmpegPath = FfmpegPath,
                 JsRuntimePath = JsRuntimePath,
-                AutoUpdateYtDlp = AutoUpdate,
+                AutoUpdateYtDlp = InAppUpdatesAvailable && AutoUpdate,
                 VerboseLogging = VerboseLogging,
                 CookiesFromBrowser = CookiesFromBrowser,
                 ExtraYtDlpArguments = ExtraArguments,
@@ -331,6 +345,12 @@ public sealed partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     private async Task CheckApplicationUpdatesAsync()
     {
+        if (!InAppUpdatesAvailable)
+        {
+            ApplicationUpdateStatusText = Loc.Get("Settings_StoreUpdatesManaged");
+            return;
+        }
+
         IsBusy = true;
         ApplicationUpdateStatusText = Loc.Get("Common_Loading");
         try
@@ -341,6 +361,7 @@ public sealed partial class SettingsViewModel : ObservableObject
                 AppUpdateStatus.UpToDate => Loc.Get("Settings_AppUpToDate"),
                 AppUpdateStatus.ReadyToRestart => Loc.Format("Settings_AppUpdateReady", result.Version ?? string.Empty),
                 AppUpdateStatus.NotInstalled => Loc.Get("Settings_AppUpdateNotInstalled"),
+                AppUpdateStatus.ManagedExternally => Loc.Get("Settings_StoreUpdatesManaged"),
                 AppUpdateStatus.Busy => Loc.Get("Settings_AppUpdateBusy"),
                 AppUpdateStatus.Failed => Loc.Get("Settings_AppUpdateFailed"),
                 _ => string.Empty,
@@ -355,6 +376,12 @@ public sealed partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     private async Task CheckForUpdatesAsync()
     {
+        if (!InAppUpdatesAvailable)
+        {
+            UpdateStatusText = Loc.Get("Settings_StoreToolsManaged");
+            return;
+        }
+
         IsBusy = true;
         UpdateStatusText = Loc.Get("Common_Loading");
         try

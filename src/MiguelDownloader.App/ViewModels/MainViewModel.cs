@@ -197,6 +197,12 @@ public sealed partial class MainViewModel : ObservableObject
     [RelayCommand]
     private async Task InstallToolsAsync()
     {
+        if (DistributionInfo.UpdatesManagedExternally)
+        {
+            ToolSetupMessage = Loc.Get("Settings_StoreToolsManaged");
+            return;
+        }
+
         IsSettingUpTools = true;
         ToolsMissing = false;
         ToolSetupIndeterminate = true;

@@ -28,6 +28,7 @@
 [CmdletBinding()]
 param(
     [string] $OutputDirectory = '',
+    [string] $ToolLockPath = '',
     [switch] $Force,
     [switch] $Offline
 )
@@ -38,7 +39,16 @@ Set-StrictMode -Version Latest
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 if (-not $OutputDirectory) { $OutputDirectory = Join-Path $repoRoot 'build/tools-cache' }
-$lockPath = Join-Path $PSScriptRoot 'tools.lock.json'
+$lockPath = if ($ToolLockPath) {
+    if ([IO.Path]::IsPathRooted($ToolLockPath)) { [IO.Path]::GetFullPath($ToolLockPath) }
+    else { [IO.Path]::GetFullPath((Join-Path $repoRoot $ToolLockPath)) }
+} else {
+    Join-Path $PSScriptRoot 'tools.lock.json'
+}
+$repoBoundary = [IO.Path]::GetFullPath($repoRoot) + [IO.Path]::DirectorySeparatorChar
+if (-not $lockPath.StartsWith($repoBoundary, [StringComparison]::OrdinalIgnoreCase)) {
+    throw "Refusing to use a tool lock outside the repository: $lockPath"
+}
 if (-not (Test-Path -LiteralPath $lockPath)) { throw "Tool lock was not found at $lockPath" }
 $toolLock = Get-Content -LiteralPath $lockPath -Raw | ConvertFrom-Json
 if ($toolLock.schemaVersion -ne 1) { throw "Unsupported tool lock schema: $($toolLock.schemaVersion)" }
@@ -130,14 +140,16 @@ try {
     }
     $manifest.tools['yt-dlp'] = [ordered]@{ version = $yt.version; file = 'yt-dlp.exe'; sha256 = $toolLock.files.'yt-dlp.exe'; license = $yt.license }
 
-    # ------------------------------------------------------- FFmpeg / ffprobe (GPL v3)
+    # -------------------------------------------------------------- FFmpeg / ffprobe
     Write-Step 'FFmpeg and ffprobe'
     $ff = $toolLock.tools.ffmpeg
     $ffTarget = Join-Path $OutputDirectory 'ffmpeg.exe'
 
     if ($Force -or -not (Test-Path $ffTarget)) {
         if ($Offline) { throw 'FFmpeg is not cached and offline mode forbids downloading it.' }
-        # yt-dlp maintains builds patched for the issues that affect it specifically.
+        # The selected lock decides the upstream and licence profile. The website package uses
+        # yt-dlp's GPL build; the Microsoft Store package uses BtbN's LGPL build so Store terms do
+        # not conflict with the bundled media tools.
         $ffRelease = Get-Json $ff.releaseApi
         $assetName = $ff.asset
 
@@ -164,26 +176,34 @@ try {
             Copy-Item $file.FullName (Join-Path $OutputDirectory $file.Name) -Force
         }
 
-        # The GPL obliges whoever distributes the binary to say where its source is.
+        # Both GPL and LGPL require a clear licence/source notice. Shared LGPL libraries stay next
+        # to the executables, so a recipient can replace them without modifying the application.
         $licenseDir = Join-Path $OutputDirectory 'licenses'
         New-Item -ItemType Directory -Force -Path $licenseDir | Out-Null
         @"
 FFmpeg
 ------
-The ffmpeg.exe and ffprobe.exe shipped alongside Miguel Downloader are unmodified
-binaries built and published by the yt-dlp FFmpeg-Builds project, licensed under the
-GNU General Public License version 3.
+The ffmpeg.exe, ffprobe.exe and shared libraries shipped alongside Miguel Downloader are
+unmodified binaries built and published by $($ff.provider), licensed under the
+$($ff.licenseName).
 
 Release      : $($ff.version)
 Asset        : $assetName
 SHA-256      : $($ff.assetSha256)
-Binaries     : https://github.com/yt-dlp/FFmpeg-Builds/releases
-Build source : https://github.com/yt-dlp/FFmpeg-Builds
-FFmpeg source: https://git.ffmpeg.org/ffmpeg.git
-License text : https://www.gnu.org/licenses/gpl-3.0.txt
+Binaries     : $($ff.binariesUrl)
+Build source : $($ff.sourceUrl)
+FFmpeg source: $($ff.ffmpegSourceUrl)
+License text : $($ff.licenseUrl)
 
 Miguel Downloader runs these as separate processes and does not link against them.
 "@ | Set-Content (Join-Path $licenseDir 'FFmpeg.txt') -Encoding utf8
+
+        $upstreamLicense = Get-ChildItem -LiteralPath $extract -Filter 'LICENSE.txt' -File -Recurse |
+                           Select-Object -First 1
+        if ($upstreamLicense) {
+            Copy-Item -LiteralPath $upstreamLicense.FullName `
+                -Destination (Join-Path $licenseDir 'FFmpeg-License.txt') -Force
+        }
 
     } else {
         Write-Ok 'already staged'
@@ -234,6 +254,41 @@ Miguel Downloader runs these as separate processes and does not link against the
     # Writing the bytes directly keeps the manifest plain UTF-8.
     $json = $manifest | ConvertTo-Json -Depth 5
     [IO.File]::WriteAllText($manifestPath, $json, (New-Object Text.UTF8Encoding $false))
+
+    # Treat the cache as untrusted when it is reused. Only locked payload files plus the manifest
+    # and the two FFmpeg notice files may leave this directory for an installer or MSIX. This also
+    # rejects junctions/symlinks that could make a later recursive copy escape the verified tree.
+    Write-Step 'Staged file allowlist'
+    $allowedFiles = [Collections.Generic.HashSet[string]]::new(
+        [StringComparer]::OrdinalIgnoreCase)
+    foreach ($lockedFile in $toolLock.files.PSObject.Properties) {
+        $name = [string]$lockedFile.Name
+        if ([IO.Path]::IsPathRooted($name) -or [IO.Path]::GetFileName($name) -ne $name) {
+            throw "Locked tool file name must be a root-level file: $name"
+        }
+        [void]$allowedFiles.Add($name)
+    }
+    [void]$allowedFiles.Add('tools.json')
+    [void]$allowedFiles.Add('licenses\FFmpeg.txt')
+    [void]$allowedFiles.Add('licenses\FFmpeg-License.txt')
+
+    $outputRoot = [IO.Path]::GetFullPath($OutputDirectory).TrimEnd([IO.Path]::DirectorySeparatorChar) +
+                  [IO.Path]::DirectorySeparatorChar
+    foreach ($entry in Get-ChildItem -LiteralPath $OutputDirectory -Recurse -Force) {
+        if (($entry.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) {
+            throw "A reparse point is not allowed in the staged tools: $($entry.FullName)"
+        }
+        if ($entry.PSIsContainer) { continue }
+
+        $fullPath = [IO.Path]::GetFullPath($entry.FullName)
+        if (-not $fullPath.StartsWith($outputRoot, [StringComparison]::OrdinalIgnoreCase)) {
+            throw "A staged tool resolved outside the cache: $fullPath"
+        }
+        $relative = $fullPath.Substring($outputRoot.Length)
+        if (-not $allowedFiles.Contains($relative)) {
+            throw "Unexpected file in staged tools: $relative"
+        }
+    }
 
     Write-Host ''
     Write-Host "Staged into $OutputDirectory" -ForegroundColor Green

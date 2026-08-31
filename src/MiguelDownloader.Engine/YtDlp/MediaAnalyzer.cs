@@ -82,10 +82,11 @@ public sealed class MediaAnalyzer(
             });
         }
 
+        var effectiveAdvanced = tools.ApplyExecutionPolicy(advanced);
         var arguments = urlInfo.IsBulk
             ? YtDlpArguments.ForCollectionListing(
-                urlInfo.CanonicalUrl, advanced, listingLimit, tools.JsRuntime.Path)
-            : YtDlpArguments.ForAnalysis(urlInfo.CanonicalUrl, advanced, tools.JsRuntime.Path);
+                urlInfo.CanonicalUrl, effectiveAdvanced, listingLimit, tools.JsRuntime.Path)
+            : YtDlpArguments.ForAnalysis(urlInfo.CanonicalUrl, effectiveAdvanced, tools.JsRuntime.Path);
 
         var warnings = new List<string>();
 
@@ -132,7 +133,8 @@ public sealed class MediaAnalyzer(
         AdvancedSettings advanced,
         CancellationToken cancellationToken = default)
     {
-        var arguments = YtDlpArguments.ForAnalysis(url, advanced, tools.JsRuntime.Path);
+        var arguments = YtDlpArguments.ForAnalysis(
+            url, tools.ApplyExecutionPolicy(advanced), tools.JsRuntime.Path);
 
         var result = await _runner.RunAsync(
             tools.YtDlp.Path!,
