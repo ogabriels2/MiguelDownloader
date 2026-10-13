@@ -33,6 +33,13 @@ publica, e só marca um download como concluído depois de verificar o arquivo f
 
 ---
 
+## Para avaliação técnica
+
+Para uma leitura do projeto como portfólio, comece pelo [código em camadas](src/), pelas
+[decisões de arquitetura](docs/ARCHITECTURE.md), pelo [plano e resultados de testes](docs/TESTING.md)
+e pela [execução de build e testes no GitHub Actions](https://github.com/ogabriels2/MiguelDownloader/actions/workflows/ci.yml).
+A documentação distingue as verificações realizadas das limitações ainda existentes.
+
 ## Instalação
 
 1. Baixe `MiguelDownloaderApp-win-Setup.exe` na [release mais recente](https://github.com/ogabriels2/MiguelDownloader/releases/latest)
@@ -439,7 +446,13 @@ Limitações verdadeiras, não pendências disfarçadas.
 
 ## Autoria
 
-Miguel Downloader é obra de **Gabriel Silva Dias Moreira**.
+Miguel Downloader é obra de **Gabriel Silva Dias Moreira (Gabriel Moreira)**.
+
+Conduzo o projeto com desenvolvimento assistido por IA, incluindo Claude Code e Codex.
+Minha participação envolve definir requisitos e critérios de funcionamento, orientar a implementação,
+revisar mudanças e validar o aplicativo em uso. Uma parte significativa do código é gerada com IA.
+
+[Portfólio e contexto do projeto](https://ogabriels.com/miguel-downloader) · [Perfil profissional](https://www.linkedin.com/in/ogabriels/)
 
 Copyright © 2026 Gabriel Silva Dias Moreira. Todos os direitos reservados.
 
